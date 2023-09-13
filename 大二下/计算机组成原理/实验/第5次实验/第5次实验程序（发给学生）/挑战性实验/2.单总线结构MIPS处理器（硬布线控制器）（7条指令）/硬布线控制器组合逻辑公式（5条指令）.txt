@@ -1,0 +1,84 @@
+硬布线控制器组合逻辑单元逻辑公式（5条指令）：
+
+
+PCout	=    Mif&T1+Mex&T1&BEQ
+
+
+DRout	=   Mif&T4 + Mex&T3&LW
+
+
+Zout	=  Mif&T3 +Mex&T3&BEQ&EQUAL+ Mex&T1&SW   +Mex&T1&LW   +Mex&T3&ADDI  +Mex&T3&SLT
+
+
+Rout	=  Mcal&T2&BEQ+ Mcal&T1&BEQ   +Mex&T2&SW +Mcal&T1&SW+   Mcal&T1&LW +Mex&T1&ADDI+Mex&T2&SLT +Mex&T1&SLT
+
+
+IR(I)out	=  Mcal&T2&SW  +    Mcal&T2&LW  +  Mex&T2&ADDI
+
+
+IR(A)out	=  Mex&T2&BEQ
+
+
+DREout	=  Mex&T3&SW
+
+
+PCin         =  Mif&T3  +  Mex&T3&BEQ&EQUAL
+
+
+ARin	=  Mif&T1  +Mex&T1&SW  +Mex&T1&LW  
+
+
+DREin	=  Mif&T3+Mex&T2&LW
+
+
+DRin	=  Mex&T2&SW
+
+
+Xin	=  Mif&T1  +Mex&T1&BEQ     +Mcal&T1&BEQ  +Mcal&T1&SW+     Mcal&T1&LW   +Mex&T1&ADDI   +Mex&T1&SLT
+
+
+Rin	=  Mex&T3&LW+Mex&T3&ADDI   + Mex&T3&SLT
+
+
+IRin	=  Mif&T4
+
+
+PSWin	=  Mcal&T2&BEQ
+
+
+Rs/Rt	=  Mcal&T2&BEQ+  Mex&T2&SW+Mex&T2&SLT
+
+
+RegDst	=  Mex&T3&SLT
+
+
+Add	=  Mex&T2&BEQ+  Mcal&T2&SW+   Mcal&T2&LW+Mex&T2&ADDI
+
+
+Add4	=  Mif&T2
+
+
+Slt	=  Mex&T2&SLT
+
+
+READ	=  Mif&T3  +  Mex&T2&LW
+
+
+WRITE     =  Mex&T3&SW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

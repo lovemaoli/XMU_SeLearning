@@ -1,0 +1,17 @@
+
+
+判别测试逻辑公式：
+
+M1 = ~P0&~P1&P2&IntR+~P0&~P1&P2&~IntR+~P0&P1&P2&~EQUAL&IntR+~P0&P1&P2&~EQUAL&~IntR
+
+M0 = P0+~P0&~P1&P2&~IntR+~P0&P1&P2&~EQUAL&~IntR
+
+
+
+
+
+
+
+
+
+

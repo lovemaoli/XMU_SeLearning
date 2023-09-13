@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.draw.HelloController">
+    <left>
+        <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" rotate="-17.1">
+                    <children>
+                        <Label text="图形总个数：">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="countLabel" text="0/20">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
+                    <children>
+                        <Button fx:id="drawButton" mnemonicParsing="false" onAction="#drawClicked" prefHeight="30.0" prefWidth="125.0" text="生成图形" />
+                        <Button fx:id="undoButton" mnemonicParsing="false" onAction="#undoClicked" prefHeight="30.0" prefWidth="125.0" text="撤销" />
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearClicked" prefHeight="30.0" prefWidth="125.0" text="重做" />
+                    </children>
+                </VBox>
+            </children>
+         <padding>
+            <Insets top="200.0" />
+         </padding>
+        </VBox>
+    </left>
+    <center>
+        <Pane fx:id="drawingAreaPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>

@@ -1,0 +1,2 @@
+Lab2_RS232Conn为源码
+build\release\Com.exe为编译的可执行文件，需要有Qt运行环境才可以正确执行

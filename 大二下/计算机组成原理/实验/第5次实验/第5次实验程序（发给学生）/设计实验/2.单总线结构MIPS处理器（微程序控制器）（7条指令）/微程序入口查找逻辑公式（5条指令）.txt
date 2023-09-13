@@ -1,0 +1,12 @@
+微程序入口查找逻辑（5条指令）：
+
+S4=SLT+ADDI
+
+S3=SW+BEQ
+
+S2=LW+BEQ+ADDI
+
+S1=BEQ+SLT+ADDI
+
+S0=SW+SLT
+

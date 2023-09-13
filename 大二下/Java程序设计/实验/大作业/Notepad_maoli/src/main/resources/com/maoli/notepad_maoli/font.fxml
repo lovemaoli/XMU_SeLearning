@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maoli.notepad_maoli.fontController">
+    <children>
+        <ListView fx:id="fontSelector" layoutX="14.0" layoutY="77.0" prefHeight="166.0" prefWidth="220.0" />
+        <ListView fx:id="glyphSelector" layoutX="256.0" layoutY="77.0" prefHeight="166.0" prefWidth="100.0" />
+        <ListView fx:id="sizeSelector" layoutX="378.0" layoutY="77.0" prefHeight="166.0" prefWidth="100.0" />
+        <Label layoutX="14.0" layoutY="23.0" text="字体(F)：" />
+        <Label layoutX="256.0" layoutY="23.0" text="字形(Y)：" />
+        <Label layoutX="378.0" layoutY="23.0" text="大小(S)：" />
+        <Label layoutX="256.0" layoutY="256.0" text="示例" />
+        <TextArea fx:id="fontShowTextArea" editable="false" layoutX="256.0" layoutY="276.0" prefHeight="103.0" prefWidth="213.0" />
+        <ComboBox fx:id="fontColorSelector" layoutX="14.0" layoutY="320.0" prefHeight="30.0" prefWidth="174.0" promptText="默认颜色：黑色" />
+        <Label layoutX="14.0" layoutY="300.0" text="颜色(C)：" />
+        <Button fx:id="fontInterfaceConfirmButton" layoutX="305.0" layoutY="393.0" mnemonicParsing="false" onAction="#fontInterfaceConfirmButtonPressed" prefHeight="30.0" prefWidth="75.0" text="确定" />
+        <Button fx:id="fontInterfaceCancelButton" layoutX="391.0" layoutY="393.0" mnemonicParsing="false" onAction="#fontInterfaceCancelButtonPressed" prefHeight="30.0" prefWidth="75.0" text="取消" />
+        <TextField fx:id="fontTextField" layoutX="14.0" layoutY="43.0" prefHeight="30.0" prefWidth="220.0" />
+        <TextField fx:id="glyphTextField" layoutX="255.0" layoutY="43.0" prefHeight="30.0" prefWidth="100.0" />
+        <TextField fx:id="sizeTextField" layoutX="378.0" layoutY="43.0" prefHeight="30.0" prefWidth="100.0" />
+    </children>
+</Pane>

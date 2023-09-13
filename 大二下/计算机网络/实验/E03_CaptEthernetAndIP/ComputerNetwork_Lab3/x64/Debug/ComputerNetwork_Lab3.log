@@ -1,0 +1,14 @@
+﻿  Lab3_catchMac.cpp
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(89,19): warning C4473: “fprintf”: 没有为格式字符串传递足够的参数
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(89,19): message : 占位符和其参数预计 1 可变参数，但提供的却是 0 参数
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(89,19): message : 缺失的可变参数 1 为格式字符串“%s”所需
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(49,13): warning C4101: “ih”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(42,22): warning C4101: “header”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(39,7): warning C4101: “source”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(44,6): warning C4101: “res”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(51,10): warning C4101: “sport”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(50,8): warning C4101: “ip_len”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(51,17): warning C4101: “dport”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(43,16): warning C4101: “pkt_data”: 未引用的局部变量
+E:\VS Project\ComputerNetwork_Lab3\Lab3_catchMac.cpp(179,48): warning C4302: “类型强制转换”: 从“u_char *”到“u_short”截断
+  ComputerNetwork_Lab3.vcxproj -> E:\VS Project\ComputerNetwork_Lab3\x64\Debug\ComputerNetwork_Lab3.exe

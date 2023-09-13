@@ -1,0 +1,38 @@
+输出函数逻辑公式（8条指令）：
+
+
+
+IorD	=  ~N3&~N2&N1&N0+~N3&N2&N1&~N0
+     
+PCSrc	=  ~N3&N2&N1&N0+N3&~N2&~N1&~N0
+   
+AluSrcA	=  ~N3&~N2&N1&~N0+~N3&N2&~N1&N0+~N3&N2&N1&N0+N3&~N2&~N1&~N0+N3&~N2&~N1&N0+N3&~N2&N1&N0
+
+AluSrcB1	=  ~N3&~N2&~N1&N0+~N3&~N2&N1&~N0+~N3&N2&~N1&N0+N3&~N2&N1&N0
+
+AluSrcB0	  =   ~N3&~N2&~N1&~N0+~N3&~N2&~N1&N0
+
+MemToReg    =    ~N3&N2&~N1&~N0
+
+RegDst	=  N3&~N2&N1&~N0
+
+IRWrite	=   ~N3&~N2&~N1&~N0
+
+PCWrite	=  ~N3&~N2&~N1&~N0
+
+RegWrite	   =   ~N3&N2&~N1&~N0+N3&~N2&N1&~N0+N3&N2&~N1&~N0
+
+MemWrite   =   ~N3&N2&N1&~N0
+
+MemRead    =      ~N3&~N2&~N1&~N0+~N3&~N2&N1&N0
+
+Beq	=     ~N3&N2&N1&N0
+
+Bne	=     N3&~N2&~N1&~N0
+
+AluCtrl1	=    N3&~N2&~N1&N0
+
+AluCtrl0    =    ~N3&N2&N1&N0+N3&~N2&~N1&~N0
+
+
+

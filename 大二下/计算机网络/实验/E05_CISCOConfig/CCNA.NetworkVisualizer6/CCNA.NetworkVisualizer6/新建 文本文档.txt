@@ -1,0 +1,2 @@
+RouterSim-RouterSim's Network Visualizer
+RouterSim则不同于Boson的自定义网络拓扑结构，是固定了的CCNA实验，整个实验教程划分细致，讲解清楚。最新版的RouterSim's Network Visualizer 4.0支持432条命令、230多个实验，这么多的实验设计来自于Sybex的那本CCNA学习指南和思科网络技术学院的一、二学期内的教案。ROUTERSIM在使用Copy Run Start命令之后，就会自动建立记录文件，下次启动时自行打开。

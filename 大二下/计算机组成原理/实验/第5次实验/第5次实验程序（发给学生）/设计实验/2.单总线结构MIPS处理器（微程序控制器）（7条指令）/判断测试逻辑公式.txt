@@ -1,0 +1,9 @@
+判断测试逻辑公式：
+
+
+M1 = ~P0&P1&EQUAL
+
+
+
+M0 = P0&~P1&~EQUAL+P0&~P1&EQUAL+P0&P1&~EQUAL+P0&P1&EQUAL
+
