@@ -1,0 +1,135 @@
+CREATE TABLE contacts (
+contact_id NUMBER,
+first_name VARCHAR2 (255), 
+last_name VARCHAR2 (255), 
+email VARCHAR2 (255), 
+phone VARCHAR2 (20), 
+customer_id NUMBER );
+
+CREATE TABLE countries (
+country_id CHAR (2),
+country_name VARCHAR2 (40), 
+region_id NUMBER );
+ 
+CREATE TABLE customers (
+customer_id NUMBER,
+name VARCHAR2 (255), 
+address VARCHAR2 (255), 
+website VARCHAR2 (255),
+credit_limit NUMBER (8,2));
+
+CREATE TABLE employees (
+employee_id NUMBER ,
+first_name VARCHAR2 (255) ,
+last_name VARCHAR2 (255) ,
+email VARCHAR2 (255),
+phone VARCHAR2 (50),
+hire_date DATE,
+manager_id NUMBER ,
+job_title VARCHAR2 (255));
+
+CREATE TABLE inventories (
+product_id NUMBER,
+warehouse_id NUMBER, 
+quantity NUMBER (8) );
+
+CREATE TABLE locations (
+location_id NUMBER,
+address VARCHAR2 (255), 
+postal_code VARCHAR2 (20), 
+city VARCHAR2 (50), 
+state VARCHAR2 (50), 
+country_id CHAR (2) );
+
+CREATE TABLE orders(
+order_id  NUMBER, 
+customer_id NUMBER(12),
+status VARCHAR2 (20),
+salesman_id  NUMBER,
+order_date  DATE );
+
+CREATE TABLE order_items(
+order_id  NUMBER,
+item_id NUMBER(12),
+product_id NUMBER,
+quantity NUMBER(8,2),
+unit_price NUMBER(8,2));
+
+CREATE TABLE product_categories (
+category_id NUMBER,
+category_name VARCHAR2 (255));
+
+CREATE TABLE products (
+product_id NUMBER,
+product_name VARCHAR2 (255), 
+description VARCHAR2 (2000), 
+standard_cost NUMBER (9,2), 
+list_price NUMBER (9,2), 
+category_id NUMBER );
+
+CREATE TABLE regions (
+region_id NUMBER, 
+region_name VARCHAR2 (50) );
+
+CREATE TABLE warehouses (
+warehouse_id NUMBER,
+warehouse_name VARCHAR2 (255), 
+location_id NUMBER );
+
+\copy contacts FROM '/home/omm/contacts.csv' CSV header;
+\copy countries FROM '/home/omm/countries.csv' CSV header;
+\copy customers FROM '/home/omm/customers.csv' CSV header;
+\copy employees FROM '/home/omm/employees.csv' CSV header;
+\copy inventories FROM '/home/omm/inventories.csv' CSV header;
+\copy locations FROM '/home/omm/locations.csv' CSV header;
+\copy order_items FROM '/home/omm/order_items.csv' CSV header;
+\copy orders FROM '/home/omm/orders.csv' CSV header;
+\copy product_categories FROM '/home/omm/product_categories.csv' CSV header;
+\copy products FROM '/home/omm/products.csv' CSV header;
+\copy regions FROM '/home/omm/regions.csv' CSV header;
+\copy warehouses FROM '/home/omm/warehouses.csv' CSV header;
+
+ALTER TABLE regions ADD PRIMARY KEY(region_id);
+ALTER TABLE regions ALTER COLUMN region_name SET NOT NULL;
+ALTER TABLE countries ADD PRIMARY KEY(country_id);
+ALTER TABLE countries ADD FOREIGN KEY(region_id) REFERENCES regions(region_id);
+ALTER TABLE countries ALTER COLUMN country_name SET NOT NULL;
+ALTER TABLE locations ADD PRIMARY KEY(location_id);
+ALTER TABLE locations ADD FOREIGN KEY(country_id) REFERENCES countries(country_id);
+ALTER TABLE locations ALTER COLUMN address SET NOT NULL;
+ALTER TABLE warehouses ADD PRIMARY KEY(warehouse_id);
+ALTER TABLE warehouses ADD FOREIGN KEY(location_id) REFERENCES locations(location_id);
+ALTER TABLE product_categories ADD PRIMARY KEY(category_id);
+ALTER TABLE product_categories ALTER COLUMN category_name SET NOT NULL;
+ALTER TABLE products ADD PRIMARY KEY(product_id);
+ALTER TABLE products ADD FOREIGN KEY(category_id) REFERENCES product_categories (category_id);
+ALTER TABLE products ALTER COLUMN product_name SET NOT NULL;
+ALTER TABLE inventories ADD PRIMARY KEY(product_id, warehouse_id);
+ALTER TABLE inventories ADD FOREIGN KEY(product_id) REFERENCES products(product_id);
+ALTER TABLE inventories ADD FOREIGN KEY(warehouse_id) REFERENCES warehouses(warehouse_id);
+ALTER TABLE inventories ALTER COLUMN quantity SET NOT NULL;
+ALTER TABLE customers ADD PRIMARY KEY(customer_id);
+ALTER TABLE customers ALTER COLUMN name SET NOT NULL;
+ALTER TABLE contacts ADD PRIMARY KEY(contact_id);
+ALTER TABLE contacts ADD FOREIGN KEY(customer_id) REFERENCES customers (customer_id);
+ALTER TABLE contacts ALTER COLUMN first_name SET NOT NULL;
+ALTER TABLE contacts ALTER COLUMN last_name SET NOT NULL;
+ALTER TABLE contacts ALTER COLUMN email SET NOT NULL;
+ALTER TABLE employees ADD PRIMARY KEY(employee_id);
+ALTER TABLE employees ADD FOREIGN KEY(manager_id) REFERENCES employees (employee_id);
+ALTER TABLE employees ALTER COLUMN first_name SET NOT NULL;
+ALTER TABLE employees ALTER COLUMN last_name SET NOT NULL;
+ALTER TABLE employees ALTER COLUMN email SET NOT NULL;
+ALTER TABLE employees ALTER COLUMN phone SET NOT NULL;
+ALTER TABLE employees ALTER COLUMN hire_date SET NOT NULL;
+ALTER TABLE employees ALTER COLUMN job_title SET NOT NULL;
+ALTER TABLE orders ADD PRIMARY KEY(order_id);
+ALTER TABLE orders ADD FOREIGN KEY(customer_id) REFERENCES customers (customer_id);
+ALTER TABLE orders ADD FOREIGN KEY(salesman_id) REFERENCES employees (employee_id);
+ALTER TABLE orders ALTER COLUMN status SET NOT NULL;
+ALTER TABLE orders ALTER COLUMN order_date SET NOT NULL;
+ALTER TABLE order_items ADD PRIMARY KEY(order_id, item_id);
+ALTER TABLE order_items ADD FOREIGN KEY(product_id) REFERENCES products (product_id);
+ALTER TABLE order_items ADD FOREIGN KEY(order_id) REFERENCES orders (order_id);
+ALTER TABLE order_items ALTER COLUMN quantity SET NOT NULL;
+ALTER TABLE order_items ALTER COLUMN unit_price SET NOT NULL;
