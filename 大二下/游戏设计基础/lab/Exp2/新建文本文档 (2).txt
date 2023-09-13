@@ -1,0 +1,1 @@
+帮我写一个unity扩展Scene视图的脚本代码，使用InitializeOnLoadMethod()方法，调用UnityEditor实现，实现在Scene视图中增加一个全局坐标系的辅助元素：三个轴分别用红绿蓝三根直线表示，每一个轴的尾端加一个小立方体；并且创建一个自定义菜单用于显示和隐藏全局坐标系；使用[CustomEditor(typeof(Transform))]，在Inspector视图的Transform组件增加设置辅助坐标系的坐标轴长度、尾端立方体大小的属性
