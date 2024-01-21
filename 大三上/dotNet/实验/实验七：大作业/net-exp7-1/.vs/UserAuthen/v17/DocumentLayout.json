@@ -1,0 +1,159 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{85DDE83C-8D94-453B-A971-273CF866E7ED}|NetCourse.Framework\\NetCourse.Framework.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\netcourse.framework\\database\\netcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85DDE83C-8D94-453B-A971-273CF866E7ED}|NetCourse.Framework\\NetCourse.Framework.csproj|solutionrelative:netcourse.framework\\database\\netcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\modules\\userstores\\services\\userstoredb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|solutionrelative:modules\\userstores\\services\\userstoredb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\modules\\userstores\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|solutionrelative:modules\\userstores\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\modules\\userstores\\models\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C93D57CA-D9BA-4EFC-9F9F-98FA16242667}|Modules\\UserStores\\UserStores.csproj|solutionrelative:modules\\userstores\\models\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\cores\\xmuauthen\\services\\ricebirdauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|solutionrelative:cores\\xmuauthen\\services\\ricebirdauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\cores\\xmuauthen\\services\\credentialservicebymemorycache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|solutionrelative:cores\\xmuauthen\\services\\credentialservicebymemorycache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|c:\\users\\administrator\\desktop\\.net\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\cores\\xmuauthen\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DA0FAFB-45B2-4580-BB1A-2915BE0EBEEE}|Cores\\XmuAuthen\\XmuAuthen.csproj|solutionrelative:cores\\xmuauthen\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NetContext.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\NetCourse.Framework\\Database\\NetContext.cs",
+              "RelativeDocumentMoniker": "NetCourse.Framework\\Database\\NetContext.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\NetCourse.Framework\\Database\\NetContext.cs",
+              "RelativeToolTip": "NetCourse.Framework\\Database\\NetContext.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAIwBoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-04T15:34:49.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserStoreDb.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Services\\UserStoreDb.cs",
+              "RelativeDocumentMoniker": "Modules\\UserStores\\Services\\UserStoreDb.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Services\\UserStoreDb.cs",
+              "RelativeToolTip": "Modules\\UserStores\\Services\\UserStoreDb.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-28T02:47:01.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Models\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Modules\\UserStores\\Models\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Models\\UserRepository.cs",
+              "RelativeToolTip": "Modules\\UserStores\\Models\\UserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-25T09:54:47.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Modules\\UserStores\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Modules\\UserStores\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Modules\\UserStores\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAwBUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-25T09:49:57.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CredentialServiceByMemoryCache.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Services\\CredentialServiceByMemoryCache.cs",
+              "RelativeDocumentMoniker": "Cores\\XmuAuthen\\Services\\CredentialServiceByMemoryCache.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Services\\CredentialServiceByMemoryCache.cs",
+              "RelativeToolTip": "Cores\\XmuAuthen\\Services\\CredentialServiceByMemoryCache.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-23T01:02:45.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RicebirdAuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Services\\RicebirdAuthenticationService.cs",
+              "RelativeDocumentMoniker": "Cores\\XmuAuthen\\Services\\RicebirdAuthenticationService.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Services\\RicebirdAuthenticationService.cs",
+              "RelativeToolTip": "Cores\\XmuAuthen\\Services\\RicebirdAuthenticationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-23T01:01:20.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthenController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Controllers\\AuthenController.cs",
+              "RelativeDocumentMoniker": "Cores\\XmuAuthen\\Controllers\\AuthenController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\.NET\u5E73\u53F0\u6280\u672F\\\u5B9E\u9A8C\u8BFE\\06\u5B9E\u9A8C\u516D\\net-exp6-1\\Cores\\XmuAuthen\\Controllers\\AuthenController.cs",
+              "RelativeToolTip": "Cores\\XmuAuthen\\Controllers\\AuthenController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAwwDYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-23T01:01:11.483Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

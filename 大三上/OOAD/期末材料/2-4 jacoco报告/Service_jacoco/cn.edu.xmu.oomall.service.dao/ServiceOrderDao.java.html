@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceOrderDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao</a> &gt; <span class="el_source">ServiceOrderDao.java</span></div><h1>ServiceOrderDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao;
+
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceOrder;
+import cn.edu.xmu.oomall.service.mapper.ServiceOrderPoMapper;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceOrderPo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+@RefreshScope
+public class ServiceOrderDao {
+<span class="fc" id="L19">    private final static Logger logger = LoggerFactory.getLogger(ServiceProviderDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ServiceOrderPoMapper serviceOrderPoMapper;
+
+<span class="fc" id="L26">    public ServiceOrderDao(ServiceOrderPoMapper serviceOrderPoMapper) {</span>
+<span class="fc" id="L27">        this.serviceOrderPoMapper = serviceOrderPoMapper;</span>
+<span class="fc" id="L28">    }</span>
+
+    public ServiceOrder build(ServiceOrderPo po){
+<span class="nc" id="L31">        return CloneFactory.copy(new ServiceOrder(), po);</span>
+    }
+
+    public ServiceOrder findByBillCode(Long billCode, Long ServiceProviderId) {
+<span class="fc" id="L35">        Optional&lt;ServiceOrderPo&gt; po = serviceOrderPoMapper.findByBillcode(billCode, ServiceProviderId);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if(po.isPresent()) {</span>
+<span class="nc" id="L37">            return build(po.get());</span>
+        }
+<span class="fc" id="L39">        return null;</span>
+    }
+
+    public void save(ServiceOrder serviceOrder, UserDto user) {
+<span class="nc" id="L43">        ServiceOrderPo po = CloneFactory.copy(new ServiceOrderPo(), serviceOrder);</span>
+<span class="nc" id="L44">        serviceOrderPoMapper.save(po);</span>
+<span class="nc" id="L45">    }</span>
+
+    public ServiceOrder findById(Long id) {
+<span class="fc" id="L48">        Optional&lt;ServiceOrderPo&gt; po = serviceOrderPoMapper.findById(id);</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if(po.isPresent()) {</span>
+<span class="nc" id="L50">            return build(po.get());</span>
+        }
+<span class="fc" id="L52">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

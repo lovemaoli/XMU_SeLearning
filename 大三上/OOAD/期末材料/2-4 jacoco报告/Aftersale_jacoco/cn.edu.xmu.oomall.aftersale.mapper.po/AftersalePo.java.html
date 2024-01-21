@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AftersalePo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.mapper.po</a> &gt; <span class="el_source">AftersalePo.java</span></div><h1>AftersalePo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = &quot;aftersale_aftersale&quot;)
+<span class="nc" id="L17">@AllArgsConstructor</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="fc" id="L19">@ToString</span>
+@CopyFrom({Aftersale.class})
+public class AftersalePo implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Integer type;
+    private String reason;
+    private String conclusion;
+    private Integer quantity;
+    private String contact;
+    private String mobile;
+    private String address;
+    private Integer status;
+    private LocalDateTime gmt_apply;
+    private LocalDateTime gmt_end;
+    private Long order_id;
+    private Long order_item_id;
+    private Long product_id;
+    private Long product_item_id;
+    private Long shop_id;
+    private Long customer_id;
+    private Integer in_arbitration;
+    public Long getId() {
+<span class="fc" id="L43">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L47">        this.id = id;</span>
+<span class="fc" id="L48">    }</span>
+
+    public Integer getType() {
+<span class="fc" id="L51">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L55">        this.type = type;</span>
+<span class="fc" id="L56">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L59">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L63">        this.reason = reason;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getConclusion() {
+<span class="fc" id="L67">        return conclusion;</span>
+    }
+
+    public void setConclusion(String conclusion) {
+<span class="fc" id="L71">        this.conclusion = conclusion;</span>
+<span class="fc" id="L72">    }</span>
+
+    public Integer getQuantity() {
+<span class="fc" id="L75">        return quantity;</span>
+    }
+
+    public void setQuantity(Integer quantity) {
+<span class="fc" id="L79">        this.quantity = quantity;</span>
+<span class="fc" id="L80">    }</span>
+
+    public String getContact() {
+<span class="fc" id="L83">        return contact;</span>
+    }
+
+    public void setContact(String contact) {
+<span class="fc" id="L87">        this.contact = contact;</span>
+<span class="fc" id="L88">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L91">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L95">        this.mobile = mobile;</span>
+<span class="fc" id="L96">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L99">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L103">        this.address = address;</span>
+<span class="fc" id="L104">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L107">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L111">        this.status = status;</span>
+<span class="fc" id="L112">    }</span>
+
+    public LocalDateTime getGmtApply() {
+<span class="fc" id="L115">        return gmt_apply;</span>
+    }
+
+    public void setGmtApply(LocalDateTime gmtApply) {
+<span class="fc" id="L119">        this.gmt_apply = gmtApply;</span>
+<span class="fc" id="L120">    }</span>
+
+    public LocalDateTime getGmtEnd() {
+<span class="fc" id="L123">        return gmt_end;</span>
+    }
+
+    public void setGmtEnd(LocalDateTime gmtEnd) {
+<span class="fc" id="L127">        this.gmt_end = gmtEnd;</span>
+<span class="fc" id="L128">    }</span>
+
+    public Long getOrder_id() {
+<span class="fc" id="L131">        return order_id;</span>
+    }
+
+    public void setOrder_id(Long order_id) {
+<span class="fc" id="L135">        this.order_id = order_id;</span>
+<span class="fc" id="L136">    }</span>
+
+    public Long getOrder_item_id() {
+<span class="fc" id="L139">        return order_item_id;</span>
+    }
+
+    public void setOrder_item_id(Long order_item_id) {
+<span class="fc" id="L143">        this.order_item_id = order_item_id;</span>
+<span class="fc" id="L144">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="fc" id="L147">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="fc" id="L151">        this.product_item_id = product_item_id;</span>
+<span class="fc" id="L152">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L155">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L159">        this.shop_id = shop_id;</span>
+<span class="fc" id="L160">    }</span>
+    public Long getProduct_id() {
+<span class="fc" id="L162">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="fc" id="L166">        this.product_id = product_id;</span>
+<span class="fc" id="L167">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L170">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L174">        this.customer_id = customer_id;</span>
+<span class="fc" id="L175">    }</span>
+    public Integer getIn_arbitration() {
+<span class="fc" id="L177">        return in_arbitration;</span>
+    }
+
+    public void setIn_arbitration(Integer in_arbitration) {
+<span class="fc" id="L181">        this.in_arbitration = in_arbitration;</span>
+<span class="fc" id="L182">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

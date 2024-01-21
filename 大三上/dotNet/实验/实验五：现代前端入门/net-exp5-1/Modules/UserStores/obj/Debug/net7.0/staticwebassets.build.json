@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Ay+hOKvthyOFX57d136MmAfP3gNEGPvuoV4XjXGMSis=",
+  "Source": "UserStores",
+  "BasePath": "_content/UserStores",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Administrator\\Desktop\\.NET平台技术\\实验课\\05实验五\\net-exp5-1\\NetCourse.Framework\\NetCourse.Framework.csproj",
+      "Version": 2,
+      "Source": "NetCourse.Framework",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

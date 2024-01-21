@@ -1,0 +1,95 @@
+.page-wrapper {
+    border: 1px #ababab solid;
+    min-height: 200px; // 1122px;
+    width: 793px;
+    position: relative;
+    margin-bottom: 15px;
+    background: rgb(245, 241, 232);
+    border-radius: 5px;
+
+    .page-div {
+        padding: 60px 96px;
+    }
+
+    table {
+        border-collapse: collapse; 
+        margin-left: 0px; 
+        background: transparent; 
+        border-spacing: 0px; 
+        width: 100%;
+
+        tfoot {
+            input {
+                border: 1px solid #666;
+            }
+            tr td {
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                padding: 7px;
+            }
+        }
+
+        td {
+            border: 1px solid #000;
+            vertical-align: middle;
+            line-height: 37px;
+            padding: 0px 7px;
+            input, textarea {
+                border: none;
+                outline: none;
+                width: 100%;
+            }
+        
+            select {
+                width: 100%;
+            }
+        
+            input.cb {
+                width: auto;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        
+            label {
+                margin-bottom: 0px !important;
+            }
+
+            &.with-signature {
+                vertical-align: top;
+                position: relative;
+                padding-bottom: 90px;
+
+                .signature {
+                    position: absolute;
+                    bottom: 5px;
+                    right: 14px;
+                    left: 7px;
+                    text-align: right;
+                }
+            }
+        } // td
+    } // table
+
+    .a-btn {
+        color: dodgerblue;
+        cursor: pointer;
+    }
+
+    .radio {
+        display: inline-block;
+        margin: 0px 5px;
+
+        input {
+            width: auto;
+            top: 10px;
+        }
+    }
+    
+    input.underline {
+        width: 4em;
+        text-align: center;
+        border-bottom: 1px solid #666;
+        line-height: 20px;
+    }
+} // .page-wrapper

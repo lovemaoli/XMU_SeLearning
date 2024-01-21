@@ -1,0 +1,128 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\Exp4Hanging\\Exp4Hanging.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\Exp4Hanging\\Exp4Hanging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\Exp4Hanging\\Exp4Hanging.csproj",
+        "projectName": "Exp4Hanging",
+        "projectPath": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\Exp4Hanging\\Exp4Hanging.csproj",
+        "packagesPath": "E:\\Nuget",
+        "outputPath": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\Exp4Hanging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\黄玺\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "E:\\Nuget\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\NetCourse.Framework.csproj": {
+                "projectPath": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\NetCourse.Framework.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\NetCourse.Framework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\NetCourse.Framework.csproj",
+        "projectName": "NetCourse.Framework",
+        "projectPath": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\NetCourse.Framework.csproj",
+        "packagesPath": "E:\\Nuget",
+        "outputPath": "C:\\Users\\黄玺\\Desktop\\.NET平台技术\\实验课\\04实验四\\net-exp4-2\\NetCourse.Framework\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\黄玺\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "E:\\Nuget\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Service.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao.bo</a> &gt; <span class="el_source">Service.java</span></div><h1>Service.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+
+import cn.edu.xmu.oomall.service.dao.ServiceDao;
+import cn.edu.xmu.oomall.service.mapper.po.ServicePo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+
+
+<span class="fc" id="L20">@NoArgsConstructor</span>
+<span class="fc" id="L21">@AllArgsConstructor</span>
+<span class="nc" id="L22">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({ServicePo.class})
+public class Service implements Serializable{
+
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L29">    private static final Logger logger = LoggerFactory.getLogger(Service.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L32">    public static final Integer INVALID = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L35">    public static final Integer VALID = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L38">    public static final Integer PRESALE = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L41">    public static final Integer AFTERSALE = 1;</span>
+
+    private Long id;
+    private String name;
+    private String description;
+    private Integer type;
+    private String service_area;
+    private String category_name;
+    private Integer status;
+    private Long service_provider_id;
+    private Long region_id;
+
+    private ServiceDao serviceDao;
+
+    public Long getId() {
+<span class="fc" id="L56">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L60">        this.id = id;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getName() {
+<span class="fc" id="L64">        return name;    //服务名称</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L68">        this.name = name;</span>
+<span class="fc" id="L69">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L72">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L76">        this.description = description;</span>
+<span class="fc" id="L77">    }</span>
+
+    public Integer getType() {
+<span class="fc" id="L80">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L84">        this.type = type;</span>
+<span class="fc" id="L85">    }</span>
+
+    public String getService_area() {
+<span class="fc" id="L88">        return service_area;</span>
+    }
+
+    public void setService_area(String service_area) {
+<span class="fc" id="L92">        this.service_area = service_area;</span>
+<span class="fc" id="L93">    }</span>
+
+    public String getCategory_name() {
+<span class="fc" id="L96">        return category_name;</span>
+    }
+
+    public void setCategory_name(String category_name) {
+<span class="fc" id="L100">        this.category_name = category_name;</span>
+<span class="fc" id="L101">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L104">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L108">        this.status = status;</span>
+<span class="fc" id="L109">    }</span>
+
+    public void changeStatus(Integer status) {
+<span class="fc" id="L112">        this.status = status;</span>
+<span class="fc" id="L113">        serviceDao.save(this);</span>
+<span class="fc" id="L114">    }</span>
+
+    public Long getService_provider_id() {
+<span class="fc" id="L117">        return service_provider_id;</span>
+    }
+
+    public void setService_provider_id(Long service_provider_id) {
+<span class="fc" id="L121">        this.service_provider_id = service_provider_id;</span>
+<span class="fc" id="L122">    }</span>
+
+    public Long getRegion_id() {
+<span class="fc" id="L125">        return region_id;</span>
+    }
+
+    public void setRegion_id(Long region_id) {
+<span class="fc" id="L129">        this.region_id = region_id;</span>
+<span class="fc" id="L130">    }</span>
+
+    public ServiceDao getServiceDao() {
+<span class="nc" id="L133">        return serviceDao;</span>
+    }
+
+    public void setServiceDao(ServiceDao serviceDao) {
+<span class="fc" id="L137">        this.serviceDao = serviceDao;</span>
+<span class="fc" id="L138">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

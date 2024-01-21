@@ -1,0 +1,15 @@
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\bin\Debug\net6.0\exp1_TicketPrint.exe
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\bin\Debug\net6.0\exp1_TicketPrint.deps.json
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\bin\Debug\net6.0\exp1_TicketPrint.runtimeconfig.json
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\bin\Debug\net6.0\exp1_TicketPrint.dll
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\bin\Debug\net6.0\exp1_TicketPrint.pdb
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.csproj.AssemblyReference.cache
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.GeneratedMSBuildEditorConfig.editorconfig
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.AssemblyInfoInputs.cache
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.AssemblyInfo.cs
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.csproj.CoreCompileInputs.cache
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.dll
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\refint\exp1_TicketPrint.dll
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.pdb
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\exp1_TicketPrint.genruntimeconfig.cache
+E:\VS Project\dotNet_exp1\exp1_TicketPrint\obj\Debug\net6.0\ref\exp1_TicketPrint.dll

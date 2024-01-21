@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao.bo</a> &gt; <span class="el_source">ServiceProvider.java</span></div><h1>ServiceProvider.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.oomall.service.dao.DraftServiceDao;
+import cn.edu.xmu.oomall.service.dao.ServiceDao;
+import cn.edu.xmu.oomall.service.dao.ServiceProviderDao;
+import cn.edu.xmu.oomall.service.dao.ShopServiceDao;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceProviderPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L25">@NoArgsConstructor</span>
+<span class="fc" id="L26">@AllArgsConstructor</span>
+<span class="fc" id="L27">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({ServiceProviderPo.class})
+public class ServiceProvider implements Serializable{
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L33">    private static final Logger logger = LoggerFactory.getLogger(ServiceProvider.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L36">    public static final Integer APPLY = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L39">    public static final Integer VALID = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L42">    public static final Integer SUSPEND = 2;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L45">    public static final Integer BANNED = 3;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L48">    public static final Integer FAILED = 4;</span>
+
+<span class="fc" id="L50">    public static Map&lt;Integer, String&gt; statusMap = Stream.of(new Object[][] {</span>
+                {APPLY, &quot;申请&quot;},
+                {VALID, &quot;有效&quot;},
+                {SUSPEND, &quot;暂停&quot;},
+                {BANNED, &quot;禁用&quot;},
+                {FAILED, &quot;申请失败&quot;},
+<span class="fc" id="L56">        }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (String) data[1]));</span>
+
+<span class="fc" id="L58">    public static Map&lt;Integer, List&lt;Integer&gt;&gt; statusTransferMap = Stream.of(new Object[][] {</span>
+<span class="fc" id="L59">                {APPLY, Arrays.asList(VALID, FAILED)},</span>
+<span class="fc" id="L60">                {VALID, Arrays.asList(SUSPEND)},</span>
+<span class="fc" id="L61">                {SUSPEND, Arrays.asList(VALID, BANNED)},</span>
+<span class="fc" id="L62">                {BANNED, List.of()},</span>
+<span class="fc" id="L63">                {FAILED, List.of()},</span>
+<span class="fc" id="L64">        }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (List&lt;Integer&gt;) data[1]));</span>
+
+    public boolean canTransfer(Integer status) {
+<span class="fc" id="L67">        return statusTransferMap.get(this.status).contains(status);</span>
+    }
+
+
+    @JsonIgnore
+    public String getStatusName() {
+<span class="nc" id="L73">        return statusMap.get(this.status);</span>
+    }
+
+    private Long id;
+    private String name;
+    private String consignee;
+    private String address;
+    private String mobile;
+    private Integer service_max_num;
+//    private List&lt;Service&gt; services_list;
+    private Integer deposit;
+    private Integer deposit_threshold;
+    private Integer status;
+
+    @JsonIgnore
+    @ToString.Exclude
+    private ServiceProviderDao serviceProviderDao;
+
+    @JsonIgnore
+    @ToString.Exclude
+    private DraftServiceDao draftServiceDao;
+
+    @JsonIgnore
+    @ToString.Exclude
+    private ShopServiceDao shopServiceDao;
+
+    @JsonIgnore
+    @ToString.Exclude
+    private ServiceDao serviceDao;
+
+    public Long getId() {
+<span class="fc" id="L104">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L108">        this.id = id;</span>
+<span class="fc" id="L109">    }</span>
+
+    public String getName() {
+<span class="fc" id="L112">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L116">        this.name = name;</span>
+<span class="fc" id="L117">    }</span>
+
+<span class="fc" id="L119">    public String getConsignee() { return consignee; }</span>
+
+<span class="fc" id="L121">    public void setConsignee(String consignee) { this.consignee = consignee; }</span>
+
+    public String getAddress() {
+<span class="fc" id="L124">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L128">        this.address = address;</span>
+<span class="fc" id="L129">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L132">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L136">        this.mobile = mobile;</span>
+<span class="fc" id="L137">    }</span>
+
+    public Integer getService_max_num() {
+<span class="fc" id="L140">        return service_max_num;</span>
+    }
+
+    public void setService_max_num(Integer service_max_num) {
+<span class="fc" id="L144">        this.service_max_num = service_max_num;</span>
+<span class="fc" id="L145">    }</span>
+
+    public Integer getDeposit() {
+<span class="fc" id="L148">        return deposit;</span>
+    }
+
+    public void setDeposit(Integer deposit) {
+<span class="fc" id="L152">        this.deposit = deposit;</span>
+<span class="fc" id="L153">    }</span>
+
+    public Integer getDeposit_threshold() {
+<span class="fc" id="L156">        return deposit_threshold;</span>
+    }
+
+    public void setDeposit_threshold(Integer deposit_threshold) {
+<span class="fc" id="L160">        this.deposit_threshold = deposit_threshold;</span>
+<span class="fc" id="L161">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L164">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L168">        this.status = status;</span>
+<span class="fc" id="L169">    }</span>
+
+    public ReturnNo changeStatus(ServiceProviderStatus status) {
+<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (canTransfer(status.getValue())) {</span>
+<span class="fc" id="L173">            this.status = status.getValue();</span>
+<span class="fc" id="L174">            List&lt;ShopService&gt; shopServices = shopServiceDao.findByServiceProviderId(this.id);</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">            for (ShopService shopService : shopServices) {</span>
+<span class="nc" id="L176">                shopService.setStatus(status);</span>
+<span class="nc" id="L177">            }</span>
+<span class="fc" id="L178">            List&lt;Service&gt; services = serviceDao.findByServiceProviderId(this.id);</span>
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">            for (Service service : services) {</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">                if(status == ServiceProviderStatus.APPLY) {</span>
+<span class="nc" id="L181">                    service.setStatus(Service.VALID);</span>
+                }else{
+<span class="nc" id="L183">                    service.setStatus(Service.INVALID);</span>
+                }
+<span class="nc" id="L185">            }</span>
+<span class="fc" id="L186">            return ReturnNo.OK;</span>
+        } else {
+<span class="fc" id="L188">            return ReturnNo.SERVICE_PROVIDER_STATE_NOTALLOW;</span>
+        }
+    }
+
+    public ServiceProviderDao getServiceProviderDao() {
+<span class="nc" id="L193">        return serviceProviderDao;</span>
+    }
+
+    public void setServiceProviderDao(ServiceProviderDao serviceProviderDao) {
+<span class="nc" id="L197">        this.serviceProviderDao = serviceProviderDao;</span>
+<span class="nc" id="L198">    }</span>
+
+    public DraftServiceDao getDraftServiceDao() {
+<span class="nc" id="L201">        return draftServiceDao;</span>
+    }
+
+    public void setDraftServiceDao(DraftServiceDao draftServiceDao) {
+<span class="nc" id="L205">        this.draftServiceDao = draftServiceDao;</span>
+<span class="nc" id="L206">    }</span>
+
+    public ShopServiceDao getShopServiceDao() {
+<span class="nc" id="L209">        return shopServiceDao;</span>
+    }
+
+    public void setShopServiceDao(ShopServiceDao shopServiceDao) {
+<span class="nc" id="L213">        this.shopServiceDao = shopServiceDao;</span>
+<span class="nc" id="L214">    }</span>
+
+    public ServiceDao getServiceDao() {
+<span class="nc" id="L217">        return serviceDao;</span>
+    }
+
+    public void setServiceDao(ServiceDao serviceDao) {
+<span class="nc" id="L221">        this.serviceDao = serviceDao;</span>
+<span class="nc" id="L222">    }</span>
+
+    public DraftService createDraftService(DraftService bo, UserDto user) {
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">        if(this.status != ServiceProvider.VALID) {</span>
+<span class="fc" id="L226">            logger.debug(&quot;createDraftService: 服务商状态不是有效&quot;);</span>
+<span class="fc" id="L227">            return null;</span>
+        }
+<span class="nc" id="L229">        bo = draftServiceDao.createDraftService(bo);</span>
+<span class="nc" id="L230">        return bo;</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

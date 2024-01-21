@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShopService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao.bo</a> &gt; <span class="el_source">ShopService.java</span></div><h1>ShopService.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+
+import cn.edu.xmu.oomall.service.dao.ShopServiceDao;
+import cn.edu.xmu.oomall.service.mapper.po.ShopServicePo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.apache.rocketmq.common.Pair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L22">@NoArgsConstructor</span>
+<span class="fc" id="L23">@AllArgsConstructor</span>
+<span class="nc" id="L24">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({ShopServicePo.class})
+public class ShopService implements Serializable{
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L30">    private static final Logger logger = LoggerFactory.getLogger(ShopService.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L33">    public static final Integer VALID = 100;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L36">    public static final Integer SHOPSUSPEND = 201;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L39">    public static final Integer PLATSUSPENDSUSPEND = 202;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L42">    public static final Integer PLATSUSPENDVALID = 203;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L45">    public static final Integer SHOPCANCEL = 301;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L48">    public static final Integer PLATCANCEL = 302;</span>
+
+<span class="fc" id="L50">    public static Map&lt;Integer, String&gt; statusMap = Stream.of(new Object[][] {</span>
+            {VALID, &quot;有效&quot;},
+            {SHOPSUSPEND, &quot;商户暂停&quot;},
+            {PLATSUSPENDSUSPEND, &quot;平台暂停商户暂停&quot;},
+            {PLATSUSPENDVALID, &quot;平台暂停&quot;},
+            {SHOPCANCEL, &quot;商户取消&quot;},
+            {PLATCANCEL,&quot;平台取消&quot;}
+<span class="fc" id="L57">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (String) data[1]));</span>
+
+<span class="fc" id="L59">    public static Map&lt;Integer, List&lt;Integer&gt;&gt; statusTransferMap = Stream.of(new Object[][] {</span>
+<span class="fc" id="L60">            {VALID, Arrays.asList(SHOPSUSPEND, PLATSUSPENDVALID)},</span>
+<span class="fc" id="L61">            {SHOPSUSPEND, Arrays.asList(VALID,PLATSUSPENDSUSPEND,SHOPCANCEL)},</span>
+<span class="fc" id="L62">            {PLATSUSPENDSUSPEND, Arrays.asList(SHOPSUSPEND, PLATCANCEL)},</span>
+<span class="fc" id="L63">            {PLATSUSPENDVALID, Arrays.asList(VALID, PLATCANCEL)},</span>
+<span class="fc" id="L64">            {SHOPCANCEL,List.of()},</span>
+<span class="fc" id="L65">            {PLATCANCEL, List.of()},</span>
+<span class="fc" id="L66">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (List&lt;Integer&gt;) data[1]));</span>
+
+<span class="fc" id="L68">    public static Map&lt;Pair&lt;Integer, ServiceProviderStatus&gt;, Integer&gt; providerStatusTransferMap = Stream.of(new Object[][] {</span>
+            {new Pair&lt;&gt;(VALID, ServiceProviderStatus.SUSPEND), PLATSUSPENDVALID},
+            {new Pair&lt;&gt;(PLATSUSPENDVALID, ServiceProviderStatus.VALID), VALID},
+            {new Pair&lt;&gt;(SHOPSUSPEND, ServiceProviderStatus.SUSPEND), PLATSUSPENDSUSPEND},
+            {new Pair&lt;&gt;(PLATSUSPENDSUSPEND, ServiceProviderStatus.VALID), SHOPSUSPEND},
+            {new Pair&lt;&gt;(PLATSUSPENDVALID, ServiceProviderStatus.BANNED), PLATCANCEL},
+            {new Pair&lt;&gt;(PLATSUSPENDSUSPEND, ServiceProviderStatus.BANNED), PLATCANCEL}
+<span class="fc" id="L75">    }).collect(Collectors.toMap(data -&gt; (Pair&lt;Integer, ServiceProviderStatus&gt;) data[0], data -&gt; (Integer) data[1]));</span>
+    public boolean canTransfer(Integer status) {
+<span class="nc" id="L77">        return statusTransferMap.get(this.shop_status).contains(status);</span>
+    }
+
+    @JsonIgnore
+    public String getStatusName() {
+<span class="nc" id="L82">        return statusMap.get(this.shop_status);</span>
+    }
+
+    private Long id;
+    private String name;
+    private Long shop_id;
+    private Long service_id;
+    private LocalDateTime create_time;
+    private Integer shop_status;
+    private Long product_id;
+    private Long service_provider_id;
+
+
+    @JsonIgnore
+    @ToString.Exclude
+    private ShopServiceDao shopServiceDao;
+
+    public Long getId() {
+<span class="fc" id="L100">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L104">        this.id = id;</span>
+<span class="fc" id="L105">    }</span>
+
+<span class="fc" id="L107">    public String getName() { return name; }</span>
+
+<span class="fc" id="L109">    public void setName(String name) { this.name = name; }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L112">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L116">        this.shop_id = shop_id;</span>
+<span class="fc" id="L117">    }</span>
+
+<span class="nc" id="L119">    public LocalDateTime getCreate_time() { return create_time;}</span>
+
+<span class="fc" id="L121">    public void setCreate_time(LocalDateTime create_time) { this.create_time = create_time; }</span>
+
+    public Long getService_provider_id() {
+<span class="fc" id="L124">        return service_provider_id;</span>
+    }
+
+    public void setService_provider_id(Long service_provider_id) {
+<span class="fc" id="L128">        this.service_provider_id = service_provider_id;</span>
+<span class="fc" id="L129">    }</span>
+
+    public Long getService_id() {
+<span class="fc" id="L132">        return service_id;</span>
+    }
+
+    public void setService_id(Long service_id) {
+<span class="fc" id="L136">        this.service_id = service_id;</span>
+<span class="fc" id="L137">    }</span>
+
+    public Long getProduct_id() {
+<span class="fc" id="L140">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="fc" id="L144">        this.product_id = product_id;</span>
+<span class="fc" id="L145">    }</span>
+
+    public Integer getShop_status() {
+<span class="nc" id="L148">        return shop_status;</span>
+    }
+
+    public void setShop_status(Integer shop_status) {
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        if(canTransfer(shop_status)){</span>
+<span class="nc" id="L153">            this.shop_status = shop_status;</span>
+        } else {
+<span class="nc" id="L155">          throw new BusinessException(ReturnNo.SHOP_SERVICE_STATE_NOTALLOW);</span>
+        }
+<span class="nc" id="L157">    }</span>
+
+    public void setStatus(ServiceProviderStatus status) {
+<span class="nc" id="L160">        Pair&lt;Integer, ServiceProviderStatus&gt; pair = new Pair&lt;&gt;(this.shop_status, status);</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        if (providerStatusTransferMap.containsKey(pair)) {</span>
+<span class="nc" id="L162">            this.shop_status = providerStatusTransferMap.get(pair);</span>
+<span class="nc" id="L163">            shopServiceDao.save(this);</span>
+<span class="nc" id="L164">            logger.debug(&quot;ShopService: &quot; + this.id + &quot; status changed to &quot; + this.shop_status);</span>
+        }else{
+<span class="nc" id="L166">            logger.debug(&quot;ShopService: &quot; + this.id + &quot; status not changed&quot;);</span>
+        }
+<span class="nc" id="L168">    }</span>
+
+    public ReturnNo changeStatus(Integer shop_status) {
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (canTransfer(shop_status)) {</span>
+<span class="nc" id="L172">            this.shop_status = shop_status;</span>
+            // loop...
+<span class="nc" id="L174">            return ReturnNo.OK;</span>
+        } else {
+<span class="nc" id="L176">            return ReturnNo.SHOP_SERVICE_STATE_NOTALLOW;</span>
+        }
+    }
+
+    public ShopServiceDao getShopServiceDao() {
+<span class="nc" id="L181">        return shopServiceDao;</span>
+    }
+
+    public void setShopServiceDao(ShopServiceDao shopServiceDao) {
+<span class="nc" id="L185">        this.shopServiceDao = shopServiceDao;</span>
+<span class="nc" id="L186">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

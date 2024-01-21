@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao</a> &gt; <span class="el_source">ServiceDao.java</span></div><h1>ServiceDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao;
+
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.service.dao.bo.Service;
+import cn.edu.xmu.oomall.service.mapper.po.ServicePo;
+import cn.edu.xmu.oomall.service.mapper.ServicePoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+@RefreshScope
+public class ServiceDao {
+
+<span class="fc" id="L19">    private final static Logger logger = LoggerFactory.getLogger(ServiceDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ServicePoMapper servicePoMapper;
+
+<span class="fc" id="L26">    public ServiceDao(ServicePoMapper servicePoMapper) {</span>
+<span class="fc" id="L27">        this.servicePoMapper = servicePoMapper;</span>
+<span class="fc" id="L28">    }</span>
+
+    public Service build(ServicePo po){
+<span class="fc" id="L31">        return CloneFactory.copy(new Service(), po);</span>
+    }
+
+    public List&lt;Service&gt; findByServiceProviderId(Long id) {
+<span class="fc" id="L35">        List&lt;ServicePo&gt; services = this.servicePoMapper.findByServiceProviderId(id);</span>
+<span class="fc" id="L36">        List&lt;Service&gt; serviceList = new java.util.ArrayList&lt;&gt;(services.size());</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (ServicePo po : services) {</span>
+<span class="fc" id="L38">            Service service = build(po);</span>
+<span class="fc" id="L39">            serviceList.add(service);</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">        return serviceList;</span>
+    }
+
+    public void save(Service service) {
+<span class="fc" id="L45">        ServicePo po = CloneFactory.copy(new ServicePo(), service);</span>
+<span class="fc" id="L46">        this.servicePoMapper.save(po);</span>
+<span class="fc" id="L47">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

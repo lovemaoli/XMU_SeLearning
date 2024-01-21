@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArbitrationDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao</a> &gt; <span class="el_source">ArbitrationDao.java</span></div><h1>ArbitrationDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao;
+
+import cn.edu.xmu.oomall.aftersale.dao.bo.Arbitration;
+import cn.edu.xmu.oomall.aftersale.mapper.ArbitrationPoMapper;
+import cn.edu.xmu.oomall.aftersale.mapper.po.ArbitrationPo;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+@RefreshScope
+public class ArbitrationDao {
+<span class="fc" id="L18">    private final static Logger logger = LoggerFactory.getLogger(AftersaleDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final static String KEY = &quot;AB%d&quot;;
+    private final ArbitrationPoMapper arbitrationPoMapper;
+
+<span class="fc" id="L26">    public ArbitrationDao(ArbitrationPoMapper arbitrationPoMapper) {</span>
+<span class="fc" id="L27">        this.arbitrationPoMapper = arbitrationPoMapper;</span>
+<span class="fc" id="L28">    }</span>
+
+    public void build(Arbitration bo){
+<span class="fc" id="L31">        bo.setArbitrationDao(this);</span>
+<span class="fc" id="L32">    }</span>
+
+    public Arbitration findById(Long id) {
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (id == null) {</span>
+<span class="nc" id="L36">            return null;</span>
+        }
+<span class="fc" id="L38">        Optional&lt;ArbitrationPo&gt; po = arbitrationPoMapper.findById(id);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if(po.isPresent()) {</span>
+<span class="fc" id="L40">            Arbitration bo = CloneFactory.copy(new Arbitration(), po.get());</span>
+<span class="fc" id="L41">            this.build(bo);</span>
+<span class="fc" id="L42">            return bo;</span>
+        } else {
+<span class="fc" id="L44">            return null;</span>
+        }
+    }
+
+    public Arbitration insert(Arbitration bo) {
+<span class="fc" id="L49">        ArbitrationPo po = CloneFactory.copy(new ArbitrationPo(), bo);</span>
+<span class="fc" id="L50">        arbitrationPoMapper.save(po);</span>
+<span class="fc" id="L51">        return bo;</span>
+    }
+
+    public Arbitration update(Arbitration bo) {
+<span class="fc" id="L55">        ArbitrationPo po = CloneFactory.copy(new ArbitrationPo(), bo);</span>
+<span class="fc" id="L56">        arbitrationPoMapper.save(po);</span>
+<span class="fc" id="L57">        return bo;</span>
+    }
+
+
+    public void save(Arbitration arbitration) {
+<span class="fc" id="L62">        ArbitrationPo po = CloneFactory.copy(new ArbitrationPo(), arbitration);</span>
+<span class="fc" id="L63">        arbitrationPoMapper.save(po);</span>
+<span class="fc" id="L64">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceOrderPo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.mapper.po</a> &gt; <span class="el_source">ServiceOrderPo.java</span></div><h1>ServiceOrderPo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceOrder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = &quot;service_service_order&quot;)
+<span class="nc" id="L13">@AllArgsConstructor</span>
+<span class="fc" id="L14">@NoArgsConstructor</span>
+@CopyFrom({ServiceOrder.class})
+public class ServiceOrderPo {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Integer type;
+    private String address;
+    private String consignee;
+    private String mobile;
+    private Long service_sn;
+    private Integer status;
+    private String description;
+    private String service_provider_name;
+    private String service_provider_mobile;
+    private Long shop_id;
+    private Long customer_id;
+    private Long service_provider_id;
+    private Long service_id;
+    private Long order_item_id;
+    private Long product_id;
+    private Long product_item_id;
+
+
+    public Long getId() {
+<span class="fc" id="L40">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L44">        this.id = id;</span>
+<span class="fc" id="L45">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L48">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L52">        this.status = status;</span>
+<span class="fc" id="L53">    }</span>
+
+    public Integer getType() {
+<span class="fc" id="L56">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L60">        this.type = type;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L64">        return address;</span>
+    }
+
+
+    public void setAddress(String address) {
+<span class="fc" id="L69">        this.address = address;</span>
+<span class="fc" id="L70">    }</span>
+
+    public String getConsignee() {
+<span class="fc" id="L73">        return consignee;</span>
+    }
+
+    public void setConsignee(String consignee) {
+<span class="fc" id="L77">        this.consignee = consignee;</span>
+<span class="fc" id="L78">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L81">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L85">        this.mobile = mobile;</span>
+<span class="fc" id="L86">    }</span>
+
+<span class="fc" id="L88">    public Long getService_sn() { return service_sn; }</span>
+
+<span class="fc" id="L90">    public void setService_sn(Long service_sn) { this.service_sn = service_sn; }</span>
+
+    public String getDescription() {
+<span class="fc" id="L93">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L97">        this.description = description;</span>
+<span class="fc" id="L98">    }</span>
+
+    public String getService_provider_name() {
+<span class="fc" id="L101">        return service_provider_name;</span>
+    }
+
+    public void setService_provider_name(String service_provider_name) {
+<span class="fc" id="L105">        this.service_provider_name = service_provider_name;</span>
+<span class="fc" id="L106">    }</span>
+
+    public String getService_provider_mobile() {
+<span class="fc" id="L109">        return service_provider_mobile;</span>
+    }
+
+    public void setService_provider_mobile(String service_provider_mobile) {
+<span class="fc" id="L113">        this.service_provider_mobile = service_provider_mobile;</span>
+<span class="fc" id="L114">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L117">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L121">        this.shop_id = shop_id;</span>
+<span class="fc" id="L122">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L125">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L129">        this.customer_id = customer_id;</span>
+<span class="fc" id="L130">    }</span>
+
+    public Long getService_provider_id() {
+<span class="fc" id="L133">        return service_provider_id;</span>
+    }
+
+    public void setService_provider_id(Long service_provider_id) {
+<span class="fc" id="L137">        this.service_provider_id = service_provider_id;</span>
+<span class="fc" id="L138">    }</span>
+
+    public Long getService_id() {
+<span class="fc" id="L141">        return service_id;</span>
+    }
+
+    public void setService_id(Long service_id) {
+<span class="fc" id="L145">        this.service_id = service_id;</span>
+<span class="fc" id="L146">    }</span>
+
+    public Long getOrder_item_id() {
+<span class="fc" id="L149">        return order_item_id;</span>
+    }
+
+    public void setOrder_item_id(Long order_item_id) {
+<span class="fc" id="L153">        this.order_item_id = order_item_id;</span>
+<span class="fc" id="L154">    }</span>
+
+    public Long getProduct_id() {
+<span class="fc" id="L157">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="fc" id="L161">        this.product_id = product_id;</span>
+<span class="fc" id="L162">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="fc" id="L165">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="fc" id="L169">        this.product_item_id = product_item_id;</span>
+<span class="fc" id="L170">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

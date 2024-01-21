@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProviderDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.controller.dto</a> &gt; <span class="el_source">ServiceProviderDto.java</span></div><h1>ServiceProviderDto.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.controller.dto;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.IdNameTypeDto;
+import cn.edu.xmu.javaee.core.validation.NewGroup;
+import cn.edu.xmu.oomall.service.dao.ServiceProviderDao;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProvider;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.validation.constraints.NotBlank;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@CopyFrom({ServiceProvider.class})
+public class ServiceProviderDto {
+    private Long id;
+    private String name;
+    private String address;
+    private String mobile;
+    private Integer service_max_num;
+    //    private List&lt;Service&gt; services_list;
+    private Integer deposit;
+    private Integer deposit_threshold;
+    private Integer status;
+
+
+    public Long getId() {
+<span class="nc" id="L32">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L36">        this.id = id;</span>
+<span class="nc" id="L37">    }</span>
+
+    public String getName() {
+<span class="nc" id="L40">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L44">        this.name = name;</span>
+<span class="nc" id="L45">    }</span>
+
+    public String getAddress() {
+<span class="nc" id="L48">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="nc" id="L52">        this.address = address;</span>
+<span class="nc" id="L53">    }</span>
+
+    public String getMobile() {
+<span class="nc" id="L56">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="nc" id="L60">        this.mobile = mobile;</span>
+<span class="nc" id="L61">    }</span>
+
+    public Integer getService_max_num() {
+<span class="nc" id="L64">        return service_max_num;</span>
+    }
+
+    public void setService_max_num(Integer service_max_num) {
+<span class="nc" id="L68">        this.service_max_num = service_max_num;</span>
+<span class="nc" id="L69">    }</span>
+
+    public Integer getDeposit() {
+<span class="nc" id="L72">        return deposit;</span>
+    }
+
+    public void setDeposit(Integer deposit) {
+<span class="nc" id="L76">        this.deposit = deposit;</span>
+<span class="nc" id="L77">    }</span>
+
+    public Integer getDeposit_threshold() {
+<span class="nc" id="L80">        return deposit_threshold;</span>
+    }
+
+    public void setDeposit_threshold(Integer deposit_threshold) {
+<span class="nc" id="L84">        this.deposit_threshold = deposit_threshold;</span>
+<span class="nc" id="L85">    }</span>
+
+    public Integer getStatus() {
+<span class="nc" id="L88">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="nc" id="L92">        this.status = status;</span>
+<span class="nc" id="L93">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

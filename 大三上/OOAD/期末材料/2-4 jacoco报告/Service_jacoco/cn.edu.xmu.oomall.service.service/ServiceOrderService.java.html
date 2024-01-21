@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceOrderService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.service</a> &gt; <span class="el_source">ServiceOrderService.java</span></div><h1>ServiceOrderService.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.service;
+
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.oomall.service.dao.ServiceOrderDao;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceOrder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+public class ServiceOrderService {
+<span class="fc" id="L17">    private final Logger logger = LoggerFactory.getLogger(DraftServiceService.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ServiceOrderDao serviceOrderDao;
+
+<span class="fc" id="L24">    public ServiceOrderService(ServiceOrderDao serviceOrderDao) {</span>
+<span class="fc" id="L25">        this.serviceOrderDao = serviceOrderDao;</span>
+<span class="fc" id="L26">    }</span>
+
+    public ReturnNo confirmReceive(Long mid, Long billcode, UserDto user) {
+<span class="fc" id="L29">        ServiceOrder serviceOrder = serviceOrderDao.findByBillCode(billcode, mid);</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if(serviceOrder == null) {</span>
+<span class="fc" id="L31">            return ReturnNo.RESOURCE_ID_NOTEXIST;</span>
+        }
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if(serviceOrder.getService_provider_id() != user.getDepartId()) {</span>
+<span class="fc" id="L34">            return ReturnNo.AUTH_INVALID_ACCOUNT;</span>
+        }
+<span class="nc" id="L36">        ReturnNo ret = serviceOrder.confirm(user);</span>
+<span class="nc" id="L37">        return ret;</span>
+    }
+
+    public ReturnNo serviceProviderCancelOrder(Long mid, Long id, String reason, UserDto user) {
+<span class="fc" id="L41">        ServiceOrder serviceOrder = serviceOrderDao.findById(id);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(serviceOrder == null) {</span>
+<span class="fc" id="L43">            return ReturnNo.RESOURCE_ID_NOTEXIST;</span>
+        }
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if(serviceOrder.getService_provider_id() != user.getDepartId()) {</span>
+<span class="fc" id="L46">            return ReturnNo.AUTH_INVALID_ACCOUNT;</span>
+        }
+<span class="nc" id="L48">        ReturnNo ret = serviceOrder.providerCancel(reason, user);</span>
+<span class="nc" id="L49">        return ret;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

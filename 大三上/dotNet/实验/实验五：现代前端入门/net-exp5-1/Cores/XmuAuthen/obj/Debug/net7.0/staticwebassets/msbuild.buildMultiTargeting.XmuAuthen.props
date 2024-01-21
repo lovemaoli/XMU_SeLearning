@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\XmuAuthen.props" />
+</Project>

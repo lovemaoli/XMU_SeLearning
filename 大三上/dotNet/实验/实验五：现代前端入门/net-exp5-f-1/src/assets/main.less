@@ -1,0 +1,101 @@
+:root {
+    --primary-color: #003C88;
+    --mask-color: #ced9e8;
+    --gray: #969696;
+    --special-color: #D8422A;
+    --default-text-color: #303133;
+    --gray-border: #efefef;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-size: 0px;
+    padding: 0px;
+    margin: 0px;
+    color: var(--default-text-color);
+}
+
+::-webkit-scrollbar {
+    width: 8px
+}
+
+::-webkit-scrollbar-track {
+    background: transparent
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .15);
+    background: rgba(0, 0, 0, .15);
+    border-radius: 4px
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent
+}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix:before{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+.text-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+img.onerror {
+    display: none !important;
+}
+
+a { 
+    text-decoration: none;
+    color: var(--default-text-color);
+}
+
+.flex-block {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.hide {
+    display: none !important;
+}

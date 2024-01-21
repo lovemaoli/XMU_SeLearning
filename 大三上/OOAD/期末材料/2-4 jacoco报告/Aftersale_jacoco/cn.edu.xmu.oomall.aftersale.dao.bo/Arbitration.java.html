@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Arbitration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao.bo</a> &gt; <span class="el_source">Arbitration.java</span></div><h1>Arbitration.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.aftersale.controller.dto.ArbitrationDto;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ArbitrationVo;
+import cn.edu.xmu.oomall.aftersale.dao.AftersaleDao;
+import cn.edu.xmu.oomall.aftersale.dao.ArbitrationDao;
+import cn.edu.xmu.oomall.aftersale.mapper.po.ArbitrationPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L23">@NoArgsConstructor</span>
+<span class="fc" id="L24">@AllArgsConstructor</span>
+<span class="fc" id="L25">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({ArbitrationPo.class, ArbitrationVo.class})
+public class Arbitration implements Serializable {
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L31">    private static final Logger logger = LoggerFactory.getLogger(Arbitration.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L34">    public static final Integer NEW = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L37">    public static final Integer RESPOND = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L40">    public static final Integer ARBING = 2;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L43">    public static final Integer SUCCESS = 3;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L46">    public static final Integer CANCEL = 4;</span>
+<span class="fc" id="L47">    public static Map&lt;Integer, String&gt; statusMap = Stream.of(new Object[][] {</span>
+            {NEW, &quot;申请中&quot;},
+            {RESPOND, &quot;待应诉&quot;},
+            {ARBING, &quot;仲裁中&quot;},
+            {SUCCESS, &quot;已仲裁&quot;},
+            {CANCEL, &quot;取消&quot;},
+<span class="fc" id="L53">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (String) data[1]));</span>
+
+<span class="fc" id="L55">    public static Map&lt;Integer, List&lt;Integer&gt;&gt; statusTransferMap = Stream.of(new Object[][] {</span>
+<span class="fc" id="L56">            {NEW, Arrays.asList(RESPOND, CANCEL,NEW)},</span>
+<span class="fc" id="L57">            {RESPOND, Arrays.asList(ARBING, CANCEL)},</span>
+<span class="fc" id="L58">            {ARBING, Arrays.asList(SUCCESS, CANCEL)},</span>
+<span class="fc" id="L59">            {SUCCESS, List.of()},</span>
+<span class="fc" id="L60">            {CANCEL, List.of()},</span>
+<span class="fc" id="L61">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (List&lt;Integer&gt;) data[1]));</span>
+
+    public boolean canTransferTo(Integer status) {
+<span class="fc" id="L64">        return statusTransferMap.get(this.status).contains(status);</span>
+    }
+
+    public String getStateName() {
+<span class="nc" id="L68">        return statusMap.get(this.status);</span>
+    }
+
+    private Long id;
+    private Integer status;
+    private String reason;
+    private String shop_reason;
+    private String result;
+    private String arbitrator;
+    private LocalDateTime gmt_arbitration;
+    private LocalDateTime gmt_accept;
+    private LocalDateTime gmt_apply;
+    private LocalDateTime gmt_reply;
+    private Long shop_id;
+    private Long aftersale_id;
+    private Long customer_id;
+    private ArbitrationDao arbitrationDao;
+    private AftersaleDao aftersaleDao;
+
+    public Arbitration create(Aftersale aftersale, String reason) {
+<span class="fc" id="L88">        this.setAftersale_id(aftersale.getId());</span>
+<span class="fc" id="L89">        this.setCustomer_id(aftersale.getCustomer_id());</span>
+<span class="fc" id="L90">        this.setShop_id(aftersale.getShop_id());</span>
+<span class="fc" id="L91">        this.setReason(reason);</span>
+<span class="fc" id="L92">        this.setStatus(Arbitration.NEW);</span>
+<span class="fc" id="L93">        this.setGmt_apply(LocalDateTime.now());</span>
+<span class="fc" id="L94">        return this;</span>
+    }
+    public Long getId() {
+<span class="fc" id="L97">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L101">        this.id = id;</span>
+<span class="fc" id="L102">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L105">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L109">        this.status = status;</span>
+<span class="fc" id="L110">    }</span>
+
+    public void changeStatus(Integer status) {
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        if (canTransferTo(status))</span>
+<span class="fc" id="L114">            this.status = status;</span>
+        else
+<span class="fc" id="L116">            logger.error(String.format(&quot;状态不允许从%d迁移到%d&quot;, this.status, status));</span>
+<span class="fc" id="L117">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L120">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L124">        this.reason = reason;</span>
+<span class="fc" id="L125">    }</span>
+
+    public String getShop_reason() {
+<span class="fc" id="L128">        return shop_reason;</span>
+    }
+
+    public void setShop_reason(String shop_reason) {
+<span class="fc" id="L132">        this.shop_reason = shop_reason;</span>
+<span class="fc" id="L133">    }</span>
+
+    public String getResult() {
+<span class="fc" id="L136">        return result;</span>
+    }
+
+    public void setResult(String result) {
+<span class="fc" id="L140">        this.result = result;</span>
+<span class="fc" id="L141">    }</span>
+
+    public String getArbitrator() {
+<span class="fc" id="L144">        return arbitrator;</span>
+    }
+
+    public void setArbitrator(String arbitrator) {
+<span class="fc" id="L148">        this.arbitrator = arbitrator;</span>
+<span class="fc" id="L149">    }</span>
+
+    public LocalDateTime getGmt_arbitration() {
+<span class="fc" id="L152">        return gmt_arbitration;</span>
+    }
+
+    public void setGmt_arbitration(LocalDateTime gmt_arbitration) {
+<span class="fc" id="L156">        this.gmt_arbitration = gmt_arbitration;</span>
+<span class="fc" id="L157">    }</span>
+
+    public LocalDateTime getGmt_accept() {
+<span class="fc" id="L160">        return gmt_accept;</span>
+    }
+
+    public void setGmt_accept(LocalDateTime gmt_accept) {
+<span class="fc" id="L164">        this.gmt_accept = gmt_accept;</span>
+<span class="fc" id="L165">    }</span>
+
+    public LocalDateTime getGmt_apply() {
+<span class="fc" id="L168">        return gmt_apply;</span>
+    }
+
+    public void setGmt_apply(LocalDateTime gmt_apply) {
+<span class="fc" id="L172">        this.gmt_apply = gmt_apply;</span>
+<span class="fc" id="L173">    }</span>
+
+    public LocalDateTime getGmt_reply() {
+<span class="fc" id="L176">        return gmt_reply;</span>
+    }
+
+    public void setGmt_reply(LocalDateTime gmt_reply) {
+<span class="fc" id="L180">        this.gmt_reply = gmt_reply;</span>
+<span class="fc" id="L181">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L184">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L188">        this.shop_id = shop_id;</span>
+<span class="fc" id="L189">    }</span>
+
+    public Long getAftersale_id() {
+<span class="fc" id="L192">        return aftersale_id;</span>
+    }
+
+    public void setAftersale_id(Long aftersale_id) {
+<span class="fc" id="L196">        this.aftersale_id = aftersale_id;</span>
+<span class="fc" id="L197">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L200">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L204">        this.customer_id = customer_id;</span>
+<span class="fc" id="L205">    }</span>
+
+    public ArbitrationDao getArbitrationDao() {
+<span class="nc" id="L208">        return arbitrationDao;</span>
+    }
+
+    public void setArbitrationDao(ArbitrationDao arbitrationDao) {
+<span class="fc" id="L212">        this.arbitrationDao = arbitrationDao;</span>
+<span class="fc" id="L213">    }</span>
+
+    public ReturnNo cancel() {
+<span class="fc bfc" id="L216" title="All 2 branches covered.">        if(this.status == Arbitration.SUCCESS){</span>
+<span class="fc" id="L217">            return ReturnNo.STATENOTALLOW;</span>
+        }
+<span class="fc" id="L219">        this.status = Arbitration.CANCEL;</span>
+<span class="fc" id="L220">        arbitrationDao.save(this);</span>
+<span class="fc" id="L221">        Aftersale aftersale = aftersaleDao.findById(this.aftersale_id);</span>
+<span class="nc" id="L222">        aftersale.setIn_arbitration(0);</span>
+<span class="nc" id="L223">        aftersale.save();</span>
+<span class="nc" id="L224">        return ReturnNo.OK;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

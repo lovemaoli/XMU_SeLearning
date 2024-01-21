@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApplyAftersaleVo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.controller.vo</a> &gt; <span class="el_source">ApplyAftersaleVo.java</span></div><h1>ApplyAftersaleVo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.controller.vo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.validation.NewGroup;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+<span class="fc" id="L11">@NoArgsConstructor</span>
+<span class="nc" id="L12">@AllArgsConstructor</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({Aftersale.class})
+public class ApplyAftersaleVo {
+    @NotBlank(message = &quot;售后类型不能为空&quot;, groups = {NewGroup.class})
+    private Integer type;
+    @NotBlank(message = &quot;售后原因不能为空&quot;, groups = {NewGroup.class})
+    private String reason;
+    @NotBlank(message = &quot;售后人不能为空&quot;, groups = {NewGroup.class})
+    private String contact;
+    @NotBlank(message = &quot;手机号不能为空&quot;, groups = {NewGroup.class})
+    private String mobile;
+    @NotBlank(message = &quot;地址不能为空&quot;, groups = {NewGroup.class})
+    private String address;
+    @NotBlank(message = &quot;申请商品id不能为空&quot;, groups = {NewGroup.class})
+    private Long product_id;
+    @NotBlank(message = &quot;售后商铺itemid不能为空&quot;, groups = {NewGroup.class})
+    private Long product_item_id;
+
+    public Integer getType() {
+<span class="fc" id="L32">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L36">        this.type = type;</span>
+<span class="fc" id="L37">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L40">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L44">        this.reason = reason;</span>
+<span class="fc" id="L45">    }</span>
+
+    public String getContact() {
+<span class="fc" id="L48">        return contact;</span>
+    }
+
+    public void setContact(String contact) {
+<span class="fc" id="L52">        this.contact = contact;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L56">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L60">        this.mobile = mobile;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L64">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L68">        this.address = address;</span>
+<span class="fc" id="L69">    }</span>
+
+    public Long getProduct_id() {
+<span class="fc" id="L72">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="fc" id="L76">        this.product_id = product_id;</span>
+<span class="fc" id="L77">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="fc" id="L80">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="fc" id="L84">        this.product_item_id = product_item_id;</span>
+<span class="fc" id="L85">    }</span>
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

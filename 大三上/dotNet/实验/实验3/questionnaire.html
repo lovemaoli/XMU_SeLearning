@@ -1,0 +1,111 @@
+<!--Author:22920212204392黄勖-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>.net实验3 - HTML问卷调查页面</title>
+		<link rel="stylesheet" type="text/css" href="questionnaire.css"/>
+		<script src="questionnaire.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="questionnaire">
+			<!--页面标题-->
+			<h1>手机移动支付问卷调查</h1>
+			<!--水平线-->
+			<hr />
+			<!--表单-->
+			<form method="post" onsubmit="return check()">
+				<ol>
+					<li>您的教育程度是？</li>
+					<label>
+						<input type="radio" name="q1"  value="q1_1" required="required" />高中
+					</label>
+					<label>
+						<input type="radio" name="q1"  value="q1_2" required="required" />大专
+					</label>
+					<label>
+						<input type="radio" name="q1"  value="q1_3" required="required" />本科
+					</label>
+					<label>
+						<input type="radio" name="q1"  value="q1_4" required="required" />硕士研究生
+					</label>
+					<label>
+						<input type="radio" name="q1"  value="q1_5" required="required" />博士及以上
+					</label>
+					<li>您的年龄段是？</li>
+					<label>
+						<input type="radio" name="q2"  value="q2_1" required="required" />18岁以下
+					</label>
+					<label>
+						<input type="radio" name="q2"  value="q2_2" required="required" />18-25岁
+					</label>
+					<label>
+						<input type="radio" name="q2"  value="q2_3" required="required" />26-30岁
+					</label>
+					<label>
+						<input type="radio" name="q2"  value="q2_4" required="required" />31-35岁
+					</label>
+					<label>
+						<input type="radio" name="q2"  value="q2_5" required="required" />35岁以上
+					</label>
+					<li>您是否使用过手机移动支付业务？</li>
+					<label>
+						<input type="radio" name="q3"  value="q3_1" required="required" />从未听说过
+					</label>
+					<label>
+						<input type="radio" name="q3"  value="q3_2" required="required" />听说过，但未使用过
+					</label>
+					<label>
+						<input type="radio" name="q3"  value="q3_3" required="required" />偶尔使用
+					</label>
+					<label>
+						<input type="radio" name="q3"  value="q3_4" required="required" />经常使用
+					</label>
+					<li>您了解一下哪些手机移动支付业务？（可多选）</li>
+					<label>
+						<input type="checkbox" name="q4"  value="q4_1"  />支付宝
+					</label>
+					<label>
+						<input type="checkbox" name="q4"  value="q4_2"  />微信支付
+					</label>
+					<label>
+						<input type="checkbox" name="q4"  value="q4_3"  />云闪付
+					</label>
+					<label>
+						<input type="checkbox" name="q4"  value="q4_4"  />Apple Pay
+					</label>
+					<li>您使用过以下哪些支付功能？（可多选）</li>
+					<label>
+						<input type="checkbox" name="q5"  value="q5_1"  />网络购物
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_2"  />外卖
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_3"  />点卡/游戏币充值
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_4"  />手机乘公交/BRT/地铁
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_5"  />生活缴费(水电煤/网络电视/宽带缴费)
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_6"  />发红包/在线转账
+					</label><br />
+					<label>
+						<input type="checkbox" name="q5"  value="q5_7"  />以上均不是
+					</label><br />
+					
+				</ol>
+				<label>您的姓名<input type="text" name="name" required="required"/></label>
+				<label>您的职业<input type="text" name="position" required="required"/></label>
+				<label>联系电话<input type="tel" name="tel" required="required"/></label>
+				<div id="btn">
+				<button type="submit" onclick="getResult()">提交问卷</button>
+				</div>
+			</form>
+			
+		</div>
+	</body>
+</html>

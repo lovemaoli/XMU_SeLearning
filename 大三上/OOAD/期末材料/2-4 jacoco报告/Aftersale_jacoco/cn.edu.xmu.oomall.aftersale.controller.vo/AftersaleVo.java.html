@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AftersaleVo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.controller.vo</a> &gt; <span class="el_source">AftersaleVo.java</span></div><h1>AftersaleVo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.controller.vo;
+
+import cn.edu.xmu.javaee.core.validation.NewGroup;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDateTime;
+
+<span class="fc" id="L14">@NoArgsConstructor</span>
+<span class="nc" id="L15">@AllArgsConstructor</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class AftersaleVo {
+    @NotBlank(message = &quot;售后类型不能为空&quot;, groups = {NewGroup.class})
+    private Integer type;
+    @NotBlank(message = &quot;售后申请理由不能为空&quot;, groups = {NewGroup.class})
+    private String reason;
+    @NotBlank(message = &quot;售后申请结论不能为空&quot;, groups = {NewGroup.class})
+    private String conclusion;
+    @NotBlank(message = &quot;申请数量不能为空&quot;, groups = {NewGroup.class})
+    private Integer quantity;
+    @NotBlank(message = &quot;联系人不能为空&quot;, groups = {NewGroup.class})
+    private String contact;
+    @NotBlank(message = &quot;联系电话不能为空&quot;, groups = {NewGroup.class})
+    private String mobile;
+    @NotBlank(message = &quot;联系地址不能为空&quot;, groups = {NewGroup.class})
+    private String address;
+    @NotBlank(message = &quot;售后状态不能为空&quot;, groups = {NewGroup.class})
+    private Integer status;
+    @NotBlank(message = &quot;申请商品id不能为空&quot;, groups = {NewGroup.class})
+    private Long order_item_id;
+    @NotBlank(message = &quot;申请商品sku id不能为空&quot;, groups = {NewGroup.class})
+    private Long product_item_id;
+    @NotBlank(message = &quot;申请店铺id不能为空&quot;, groups = {NewGroup.class})
+    private Long shop_id;
+    @NotBlank(message = &quot;申请仲裁单id不能为空&quot;, groups = {NewGroup.class})
+    private Long arbitration_id;
+    @NotBlank(message = &quot;申请用户id不能为空&quot;, groups = {NewGroup.class})
+    private Long customer_id;
+    @NotBlank(message = &quot;申请退款单id不能为空&quot;, groups = {NewGroup.class})
+    private Long refund_trans_id;
+
+    public Integer getType() {
+<span class="fc" id="L48">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L52">        this.type = type;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L56">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L60">        this.reason = reason;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getConclusion() {
+<span class="fc" id="L64">        return conclusion;</span>
+    }
+
+    public void setConclusion(String conclusion) {
+<span class="fc" id="L68">        this.conclusion = conclusion;</span>
+<span class="fc" id="L69">    }</span>
+
+    public Integer getQuantity() {
+<span class="fc" id="L72">        return quantity;</span>
+    }
+
+    public void setQuantity(Integer quantity) {
+<span class="fc" id="L76">        this.quantity = quantity;</span>
+<span class="fc" id="L77">    }</span>
+
+    public String getContact() {
+<span class="fc" id="L80">        return contact;</span>
+    }
+
+    public void setContact(String contact) {
+<span class="fc" id="L84">        this.contact = contact;</span>
+<span class="fc" id="L85">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L88">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L92">        this.mobile = mobile;</span>
+<span class="fc" id="L93">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L96">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L100">        this.address = address;</span>
+<span class="fc" id="L101">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L104">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L108">        this.status = status;</span>
+<span class="fc" id="L109">    }</span>
+
+    public Long getOrder_item_id() {
+<span class="fc" id="L112">        return order_item_id;</span>
+    }
+
+    public void setOrder_item_id(Long order_item_id) {
+<span class="fc" id="L116">        this.order_item_id = order_item_id;</span>
+<span class="fc" id="L117">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="fc" id="L120">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="fc" id="L124">        this.product_item_id = product_item_id;</span>
+<span class="fc" id="L125">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L128">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L132">        this.shop_id = shop_id;</span>
+<span class="fc" id="L133">    }</span>
+
+    public Long getArbitration_id() {
+<span class="fc" id="L136">        return arbitration_id;</span>
+    }
+
+    public void setArbitration_id(Long arbitration_id) {
+<span class="fc" id="L140">        this.arbitration_id = arbitration_id;</span>
+<span class="fc" id="L141">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L144">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L148">        this.customer_id = customer_id;</span>
+<span class="fc" id="L149">    }</span>
+
+    public Long getRefund_trans_id() {
+<span class="fc" id="L152">        return refund_trans_id;</span>
+    }
+
+    public void setRefund_trans_id(Long refund_trans_id) {
+<span class="fc" id="L156">        this.refund_trans_id = refund_trans_id;</span>
+<span class="fc" id="L157">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderItemPo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.mapper.po</a> &gt; <span class="el_source">OrderItemPo.java</span></div><h1>OrderItemPo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.aftersale.dao.bo.OrderItem;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = &quot;aftersale_order_item&quot;)
+<span class="nc" id="L17">@AllArgsConstructor</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="fc" id="L19">@ToString</span>
+@CopyFrom({OrderItem.class})
+public class OrderItemPo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long latest_aftersale_id;
+    private Integer quantity;
+    private Long order_id;
+    private Long shop_id;
+
+
+    public Long getId() {
+<span class="fc" id="L32">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L36">        this.id = id;</span>
+<span class="fc" id="L37">    }</span>
+
+    public Long getLatest_aftersale_id() {
+<span class="fc" id="L40">        return latest_aftersale_id;</span>
+    }
+
+    public void setLatest_aftersale_id(Long latest_aftersale_id) {
+<span class="fc" id="L44">        this.latest_aftersale_id = latest_aftersale_id;</span>
+<span class="fc" id="L45">    }</span>
+
+    public Integer getQuantity() {
+<span class="fc" id="L48">        return quantity;</span>
+    }
+
+    public void setQuantity(Integer quantity) {
+<span class="fc" id="L52">        this.quantity = quantity;</span>
+<span class="fc" id="L53">    }</span>
+
+    public Long getOrder_id() {
+<span class="fc" id="L56">        return order_id;</span>
+    }
+
+    public void setOrder_id(Long order_id) {
+<span class="fc" id="L60">        this.order_id = order_id;</span>
+<span class="fc" id="L61">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L64">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="nc" id="L68">        this.shop_id = shop_id;</span>
+<span class="nc" id="L69">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

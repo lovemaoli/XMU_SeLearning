@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Aftersale.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao.bo</a> &gt; <span class="el_source">Aftersale.java</span></div><h1>Aftersale.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.ReturnObject;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.oomall.aftersale.controller.dto.AftersaleDto;
+import cn.edu.xmu.oomall.aftersale.controller.vo.AftersaleVo;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ApplyAftersaleVo;
+import cn.edu.xmu.oomall.aftersale.dao.*;
+import cn.edu.xmu.oomall.aftersale.mapper.po.AftersalePo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.checkerframework.checker.units.qual.C;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L26">@NoArgsConstructor</span>
+<span class="fc" id="L27">@AllArgsConstructor</span>
+<span class="fc" id="L28">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({AftersalePo.class, ApplyAftersaleVo.class})
+public class Aftersale implements Serializable {
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L34">    private static final Logger logger = LoggerFactory.getLogger(Aftersale.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L37">    public static final Integer NEW = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L40">    public static final Integer PENDING = 2;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L43">    public static final Integer PROCESSING = 3;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L46">    public static final Integer CANCEL = 4;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L49">    public static final Integer FINISH = 5;</span>
+
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L53">    public static final Integer RETURN = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L56">    public static final Integer EXCHANGE = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L59">    public static final Integer REPAIR = 2;</span>
+
+<span class="fc" id="L61">    public static Map&lt;Integer, String&gt; statusMap = Stream.of(new Object[][] {</span>
+            {NEW, &quot;新售后单&quot;},
+            {PENDING, &quot;待售后&quot;},
+            {PROCESSING,&quot;售后中&quot;},
+            {CANCEL, &quot;已取消&quot;},
+            {FINISH, &quot;已完成&quot;},
+<span class="fc" id="L67">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (String) data[1]));</span>
+
+    /**
+     * 允许的状态迁移
+     */
+<span class="fc" id="L72">    public static Map&lt;Integer, List&lt;Integer&gt;&gt; statusTransferMap = Stream.of(new Object[][] {</span>
+<span class="fc" id="L73">            {NEW, Arrays.asList(PENDING, CANCEL,FINISH)},</span>
+<span class="fc" id="L74">            {PENDING, Arrays.asList(PROCESSING, FINISH, CANCEL)},</span>
+<span class="fc" id="L75">            {PROCESSING, Arrays.asList(FINISH)},</span>
+<span class="fc" id="L76">            {CANCEL, Arrays.asList()},</span>
+<span class="fc" id="L77">            {FINISH, Arrays.asList()},</span>
+<span class="fc" id="L78">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (List&lt;Integer&gt;) data[1]));</span>
+
+    public boolean canTransfer(Integer status) {
+<span class="nc" id="L81">        return statusTransferMap.get(this.status).contains(status);</span>
+    }
+
+    @JsonIgnore
+    public String getStatusName() {
+<span class="nc" id="L86">        return statusMap.get(this.status);</span>
+    }
+
+    private Long id;
+    private Integer type; // 0退货 1换货 2维修
+    private String reason;
+    private String conclusion;
+    private Integer quantity;
+    private String contact;
+    private String mobile;
+    private String address;
+    private Integer status;
+    private LocalDateTime gmt_apply;
+    private LocalDateTime gmt_end;
+    private Long order_id;
+    private Long order_item_id;
+    private Long product_id;
+    private Long product_item_id;
+    private Long shop_id;
+    private Long customer_id;
+    private Integer in_arbitration;
+
+
+<span class="fc" id="L109">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private AftersaleDao aftersaleDao;
+
+<span class="fc" id="L114">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private OrderItemDao orderItemDao;
+
+<span class="fc" id="L119">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private PaymentDao paymentDao;
+
+<span class="fc" id="L124">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private ExpressDao expressDao;
+
+<span class="nc" id="L129">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private ArbitrationDao arbitrationDao;
+
+<span class="fc" id="L134">    @Setter</span>
+    @JsonIgnore
+    @ToString.Exclude
+    private AftersaleExpressDao aftersaleExpressDao;
+
+    public boolean allowApplyArbitration(UserDto user) {
+<span class="pc bpc" id="L140" title="2 of 6 branches missed.">        return this.status == Aftersale.FINISH &amp;&amp; this.customer_id == user.getId() &amp;&amp; this.in_arbitration == 0;</span>
+    }
+
+    /**
+     * 顾客提交仲裁
+     * @param reason
+     * @param user
+     * @return
+     */
+    public ReturnObject createArbitration(String reason, UserDto user) {
+<span class="fc bfc" id="L150" title="All 2 branches covered.">        if (!allowApplyArbitration(user)) {</span>
+<span class="fc" id="L151">            logger.error(String.format(&quot;售后单%d不允许申请仲裁&quot;, this.id));</span>
+<span class="fc" id="L152">            return new ReturnObject(ReturnNo.ARBITRATION_STATE_NOTALLOW);</span>
+        }
+<span class="fc" id="L154">        Arbitration arbitration = new Arbitration();</span>
+<span class="fc" id="L155">        arbitration.create(this, reason);</span>
+<span class="fc" id="L156">        arbitrationDao.insert(arbitration);</span>
+<span class="fc" id="L157">        setIn_arbitration(1);</span>
+<span class="fc" id="L158">        aftersaleDao.update(this);</span>
+<span class="fc" id="L159">        return new ReturnObject(arbitration);</span>
+    }
+
+    public Integer getStatus() {
+<span class="fc" id="L163">        return status;</span>
+    }
+    public void setStatus(Integer status) {
+<span class="fc" id="L166">            this.status = status;</span>
+<span class="fc" id="L167">    }</span>
+
+    public void changeStatus(Integer status) {
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        if (canTransfer(status))</span>
+<span class="nc" id="L171">            this.status = status;</span>
+        else
+<span class="nc" id="L173">            logger.error(String.format(&quot;状态不允许从%d迁移到%d&quot;, this.status, status));</span>
+<span class="nc" id="L174">            throw new BusinessException(ReturnNo.STATENOTALLOW);</span>
+    }
+
+    public Long getId() {
+<span class="fc" id="L178">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L182">        this.id = id;</span>
+<span class="fc" id="L183">    }</span>
+
+    public Integer getType() {
+<span class="fc" id="L186">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="fc" id="L190">        this.type = type;</span>
+<span class="fc" id="L191">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L194">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L198">        this.reason = reason;</span>
+<span class="fc" id="L199">    }</span>
+
+    public String getConclusion() {
+<span class="fc" id="L202">        return conclusion;</span>
+    }
+
+    public void setConclusion(String conclusion) {
+<span class="fc" id="L206">        this.conclusion = conclusion;</span>
+<span class="fc" id="L207">    }</span>
+
+    public Integer getQuantity() {
+<span class="fc" id="L210">        return quantity;</span>
+    }
+
+    public void setQuantity(Integer quantity) {
+<span class="fc" id="L214">        this.quantity = quantity;</span>
+<span class="fc" id="L215">    }</span>
+
+    public String getContact() {
+<span class="fc" id="L218">        return contact;</span>
+    }
+
+    public void setContact(String contact) {
+<span class="fc" id="L222">        this.contact = contact;</span>
+<span class="fc" id="L223">    }</span>
+
+    public String getMobile() {
+<span class="fc" id="L226">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="fc" id="L230">        this.mobile = mobile;</span>
+<span class="fc" id="L231">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L234">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L238">        this.address = address;</span>
+<span class="fc" id="L239">    }</span>
+
+    public LocalDateTime getGmt_apply() {
+<span class="fc" id="L242">        return gmt_apply;</span>
+    }
+
+    public void setGmt_apply(LocalDateTime gmt_apply) {
+<span class="fc" id="L246">        this.gmt_apply = gmt_apply;</span>
+<span class="fc" id="L247">    }</span>
+
+    public LocalDateTime getGmt_end() {
+<span class="fc" id="L250">        return gmt_end;</span>
+    }
+
+    public void setGmt_end(LocalDateTime gmt_end) {
+<span class="fc" id="L254">        this.gmt_end = gmt_end;</span>
+<span class="fc" id="L255">    }</span>
+    public Long getOrder_id() {
+<span class="fc" id="L257">        return order_id;</span>
+    }
+    public void setOrder_id(Long order_id) {
+<span class="fc" id="L260">        this.order_id = order_id;</span>
+<span class="fc" id="L261">    }</span>
+
+    public Long getOrder_item_id() {
+<span class="fc" id="L264">        return order_item_id;</span>
+    }
+
+    public void setOrder_item_id(Long order_item_id) {
+<span class="fc" id="L268">        this.order_item_id = order_item_id;</span>
+<span class="fc" id="L269">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="fc" id="L272">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="fc" id="L276">        this.product_item_id = product_item_id;</span>
+<span class="fc" id="L277">    }</span>
+
+    public Long getProduct_id() {
+<span class="fc" id="L280">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="fc" id="L284">        this.product_id = product_id;</span>
+<span class="fc" id="L285">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L288">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L292">        this.shop_id = shop_id;</span>
+<span class="fc" id="L293">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L296">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L300">        this.customer_id = customer_id;</span>
+<span class="fc" id="L301">    }</span>
+
+    public Integer getIn_arbitration() {
+<span class="fc" id="L304">        return in_arbitration;</span>
+    }
+
+    public void setIn_arbitration(Integer in_arbitration) {
+<span class="fc" id="L308">        this.in_arbitration = in_arbitration;</span>
+<span class="fc" id="L309">    }</span>
+
+    public AftersaleDao getAftersaleDao() {
+<span class="fc" id="L312">        return aftersaleDao;</span>
+    }
+
+    public OrderItemDao getOrderItemDao() {
+<span class="fc" id="L316">        return orderItemDao;</span>
+    }
+
+    public PaymentDao getPaymentDao() {
+<span class="fc" id="L320">        return paymentDao;</span>
+    }
+
+    public ExpressDao getExpressDao() {
+<span class="fc" id="L324">        return expressDao;</span>
+    }
+
+    public ArbitrationDao getArbitrationDao() {
+<span class="nc" id="L328">        return arbitrationDao;</span>
+    }
+
+    public AftersaleExpressDao getAftersaleExpressDao() {
+<span class="fc" id="L332">        return aftersaleExpressDao;</span>
+    }
+
+    public void save() {
+<span class="nc" id="L336">        this.aftersaleDao.save(this);</span>
+<span class="nc" id="L337">    }</span>
+
+
+    public void create(OrderItem orderItem, Aftersale bo, UserDto user) {
+<span class="fc" id="L341">        this.type = bo.getType();</span>
+<span class="fc" id="L342">        this.status = Aftersale.NEW;</span>
+<span class="fc" id="L343">        this.reason = bo.getReason();</span>
+<span class="fc" id="L344">        this.quantity = orderItem.getQuantity();</span>
+<span class="fc" id="L345">        this.contact = bo.getContact();</span>
+<span class="fc" id="L346">        this.mobile = bo.getMobile();</span>
+<span class="fc" id="L347">        this.address = bo.getAddress();</span>
+<span class="fc" id="L348">        this.gmt_apply = LocalDateTime.now();</span>
+<span class="fc" id="L349">        this.order_item_id = orderItem.getId();</span>
+<span class="fc" id="L350">        this.product_item_id = orderItem.getId();</span>
+<span class="fc" id="L351">        this.product_id = orderItem.getId(); // TODO</span>
+<span class="fc" id="L352">        this.shop_id = orderItem.getShopId();</span>
+<span class="fc" id="L353">        this.customer_id = user.getId();</span>
+<span class="fc" id="L354">        this.in_arbitration = 0;</span>
+<span class="fc" id="L355">    }</span>
+
+    public ReturnNo examine(Long shopid, Boolean confirm){
+<span class="fc" id="L358">        logger.error(&quot;Aftersale examine&quot;);</span>
+<span class="fc" id="L359">        return ReturnNo.RESOURCE_FALSIFY;</span>
+    }
+
+    public ReturnNo shopAudit(Long shopid){
+<span class="fc" id="L363">        logger.error(&quot;Aftersale shopAudit&quot;);</span>
+<span class="fc" id="L364">        return ReturnNo.RESOURCE_FALSIFY;</span>
+    }
+
+
+    public ReturnNo audit(Long shopid, Boolean confirm, String conclusion, UserDto user) {
+        ReturnNo ret;
+<span class="pc bpc" id="L370" title="1 of 2 branches missed.">        if(this.status == Aftersale.NEW) {</span>
+<span class="fc" id="L371">            return ReturnNo.AFTERSALE_STATENOTALLOW;</span>
+        }
+<span class="nc" id="L373">        this.setConclusion(conclusion);</span>
+<span class="nc bnc" id="L374" title="All 2 branches missed.">        if(confirm == Boolean.FALSE) {</span>
+<span class="nc" id="L375">            this.setStatus(Aftersale.FINISH);</span>
+<span class="nc" id="L376">            ret = ReturnNo.OK;</span>
+        }else{
+<span class="nc" id="L378">            this.setStatus(Aftersale.PENDING);</span>
+<span class="nc" id="L379">            ret = this.shopAudit(shopid);</span>
+        }
+<span class="nc" id="L381">        this.save();</span>
+<span class="nc" id="L382">        return ret;</span>
+    }
+
+    public void insertAftersaleExpress (Long billcode, Integer sender) {
+<span class="fc" id="L386">        AftersaleExpress aftersaleExpress = new AftersaleExpress();</span>
+<span class="fc" id="L387">        aftersaleExpress.setAftersale_id(this.getId());</span>
+<span class="fc" id="L388">        aftersaleExpress.setBill_code(billcode);</span>
+<span class="fc" id="L389">        aftersaleExpress.setSender(sender);</span>
+<span class="fc" id="L390">        aftersaleExpress.setStatus(0);</span>
+<span class="fc" id="L391">        this.getAftersaleExpressDao().insert(aftersaleExpress);</span>
+<span class="fc" id="L392">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CloneFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.javaee.core.util</a> &gt; <span class="el_source">CloneFactory.java</span></div><h1>CloneFactory.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.javaee.core.util;
+
+import cn.edu.xmu.oomall.aftersale.controller.dto.AftersaleDto;
+import cn.edu.xmu.oomall.aftersale.controller.dto.ArbitrationDto;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ApplyAftersaleVo;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ArbitrationVo;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+import cn.edu.xmu.oomall.aftersale.dao.bo.AftersaleExpress;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Arbitration;
+import cn.edu.xmu.oomall.aftersale.dao.bo.OrderItem;
+import cn.edu.xmu.oomall.aftersale.mapper.po.AftersaleExpressPo;
+import cn.edu.xmu.oomall.aftersale.mapper.po.AftersalePo;
+import cn.edu.xmu.oomall.aftersale.mapper.po.ArbitrationPo;
+import cn.edu.xmu.oomall.aftersale.mapper.po.OrderItemPo;
+
+<span class="nc" id="L16">public final class CloneFactory {</span>
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ApplyAftersaleVo copy(ApplyAftersaleVo target, Aftersale source) {
+<span class="nc" id="L24">    target.setType(source.getType());</span>
+<span class="nc" id="L25">    target.setReason(source.getReason());</span>
+<span class="nc" id="L26">    target.setContact(source.getContact());</span>
+<span class="nc" id="L27">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L28">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L29">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L30">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="nc" id="L31">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static AftersaleDto copy(AftersaleDto target, Aftersale source) {
+<span class="nc" id="L41">    target.setId(source.getId());</span>
+<span class="nc" id="L42">    target.setType(source.getType());</span>
+<span class="nc" id="L43">    target.setReason(source.getReason());</span>
+<span class="nc" id="L44">    target.setConclusion(source.getConclusion());</span>
+<span class="nc" id="L45">    target.setQuantity(source.getQuantity());</span>
+<span class="nc" id="L46">    target.setContact(source.getContact());</span>
+<span class="nc" id="L47">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L48">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L49">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L50">    target.setOrder_item_id(source.getOrder_item_id());</span>
+<span class="nc" id="L51">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="nc" id="L52">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L53">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L54">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ArbitrationDto copy(ArbitrationDto target, Arbitration source) {
+<span class="nc" id="L64">    target.setId(source.getId());</span>
+<span class="nc" id="L65">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L66">    target.setReason(source.getReason());</span>
+<span class="nc" id="L67">    target.setShop_reason(source.getShop_reason());</span>
+<span class="nc" id="L68">    target.setResult(source.getResult());</span>
+<span class="nc" id="L69">    target.setArbitrator(source.getArbitrator());</span>
+<span class="nc" id="L70">    target.setGmt_arbitration(source.getGmt_arbitration());</span>
+<span class="nc" id="L71">    target.setGmt_accept(source.getGmt_accept());</span>
+<span class="nc" id="L72">    target.setGmt_apply(source.getGmt_apply());</span>
+<span class="nc" id="L73">    target.setGmt_reply(source.getGmt_reply());</span>
+<span class="nc" id="L74">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L75">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="nc" id="L76">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L77">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static AftersaleExpress copy(AftersaleExpress target, AftersaleExpressPo source) {
+<span class="nc" id="L87">    target.setId(source.getId());</span>
+<span class="nc" id="L88">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="nc" id="L89">    target.setBill_code(source.getBill_code());</span>
+<span class="nc" id="L90">    target.setSender(source.getSender());</span>
+<span class="nc" id="L91">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L92">    target.setExpress_id(source.getExpress_id());</span>
+<span class="nc" id="L93">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ArbitrationPo copy(ArbitrationPo target, Arbitration source) {
+<span class="nc" id="L103">    target.setId(source.getId());</span>
+<span class="nc" id="L104">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L105">    target.setReason(source.getReason());</span>
+<span class="nc" id="L106">    target.setShop_reason(source.getShop_reason());</span>
+<span class="nc" id="L107">    target.setResult(source.getResult());</span>
+<span class="nc" id="L108">    target.setArbitrator(source.getArbitrator());</span>
+<span class="nc" id="L109">    target.setGmt_arbitration(source.getGmt_arbitration());</span>
+<span class="nc" id="L110">    target.setGmt_accept(source.getGmt_accept());</span>
+<span class="nc" id="L111">    target.setGmt_apply(source.getGmt_apply());</span>
+<span class="nc" id="L112">    target.setGmt_reply(source.getGmt_reply());</span>
+<span class="nc" id="L113">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L114">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="nc" id="L115">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L116">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static AftersalePo copy(AftersalePo target, Aftersale source) {
+<span class="fc" id="L126">    target.setId(source.getId());</span>
+<span class="fc" id="L127">    target.setType(source.getType());</span>
+<span class="fc" id="L128">    target.setReason(source.getReason());</span>
+<span class="fc" id="L129">    target.setConclusion(source.getConclusion());</span>
+<span class="fc" id="L130">    target.setQuantity(source.getQuantity());</span>
+<span class="fc" id="L131">    target.setContact(source.getContact());</span>
+<span class="fc" id="L132">    target.setMobile(source.getMobile());</span>
+<span class="fc" id="L133">    target.setAddress(source.getAddress());</span>
+<span class="fc" id="L134">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L135">    target.setOrder_id(source.getOrder_id());</span>
+<span class="fc" id="L136">    target.setOrder_item_id(source.getOrder_item_id());</span>
+<span class="fc" id="L137">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="fc" id="L138">    target.setShop_id(source.getShop_id());</span>
+<span class="fc" id="L139">    target.setProduct_id(source.getProduct_id());</span>
+<span class="fc" id="L140">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="fc" id="L141">    target.setIn_arbitration(source.getIn_arbitration());</span>
+<span class="fc" id="L142">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static AftersaleExpressPo copy(AftersaleExpressPo target, AftersaleExpress source) {
+<span class="fc" id="L152">    target.setId(source.getId());</span>
+<span class="fc" id="L153">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="fc" id="L154">    target.setBill_code(source.getBill_code());</span>
+<span class="fc" id="L155">    target.setSender(source.getSender());</span>
+<span class="fc" id="L156">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L157">    target.setExpress_id(source.getExpress_id());</span>
+<span class="fc" id="L158">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Arbitration copy(Arbitration target, ArbitrationPo source) {
+<span class="nc" id="L168">    target.setId(source.getId());</span>
+<span class="nc" id="L169">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L170">    target.setReason(source.getReason());</span>
+<span class="nc" id="L171">    target.setShop_reason(source.getShop_reason());</span>
+<span class="nc" id="L172">    target.setResult(source.getResult());</span>
+<span class="nc" id="L173">    target.setArbitrator(source.getArbitrator());</span>
+<span class="nc" id="L174">    target.setGmt_arbitration(source.getGmt_arbitration());</span>
+<span class="nc" id="L175">    target.setGmt_accept(source.getGmt_accept());</span>
+<span class="nc" id="L176">    target.setGmt_apply(source.getGmt_apply());</span>
+<span class="nc" id="L177">    target.setGmt_reply(source.getGmt_reply());</span>
+<span class="nc" id="L178">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L179">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="nc" id="L180">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L181">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Arbitration copy(Arbitration target, ArbitrationVo source) {
+<span class="nc" id="L191">    target.setReason(source.getReason());</span>
+<span class="nc" id="L192">    target.setShop_reason(source.getShop_reason());</span>
+<span class="nc" id="L193">    target.setResult(source.getResult());</span>
+<span class="nc" id="L194">    target.setArbitrator(source.getArbitrator());</span>
+<span class="nc" id="L195">    target.setGmt_arbitration(source.getGmt_arbitration());</span>
+<span class="nc" id="L196">    target.setGmt_accept(source.getGmt_accept());</span>
+<span class="nc" id="L197">    target.setGmt_apply(source.getGmt_apply());</span>
+<span class="nc" id="L198">    target.setGmt_reply(source.getGmt_reply());</span>
+<span class="nc" id="L199">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L200">    target.setAftersale_id(source.getAftersale_id());</span>
+<span class="nc" id="L201">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L202">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Aftersale copy(Aftersale target, AftersalePo source) {
+<span class="fc" id="L212">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L213">    target.setId(source.getId());</span>
+<span class="fc" id="L214">    target.setType(source.getType());</span>
+<span class="fc" id="L215">    target.setReason(source.getReason());</span>
+<span class="fc" id="L216">    target.setConclusion(source.getConclusion());</span>
+<span class="fc" id="L217">    target.setQuantity(source.getQuantity());</span>
+<span class="fc" id="L218">    target.setContact(source.getContact());</span>
+<span class="fc" id="L219">    target.setMobile(source.getMobile());</span>
+<span class="fc" id="L220">    target.setAddress(source.getAddress());</span>
+<span class="fc" id="L221">    target.setOrder_id(source.getOrder_id());</span>
+<span class="fc" id="L222">    target.setOrder_item_id(source.getOrder_item_id());</span>
+<span class="fc" id="L223">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="fc" id="L224">    target.setProduct_id(source.getProduct_id());</span>
+<span class="fc" id="L225">    target.setShop_id(source.getShop_id());</span>
+<span class="fc" id="L226">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="fc" id="L227">    target.setIn_arbitration(source.getIn_arbitration());</span>
+<span class="fc" id="L228">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Aftersale copy(Aftersale target, ApplyAftersaleVo source) {
+<span class="nc" id="L238">    target.setType(source.getType());</span>
+<span class="nc" id="L239">    target.setReason(source.getReason());</span>
+<span class="nc" id="L240">    target.setContact(source.getContact());</span>
+<span class="nc" id="L241">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L242">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L243">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="nc" id="L244">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L245">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static OrderItemPo copy(OrderItemPo target, OrderItem source) {
+<span class="nc" id="L255">    target.setId(source.getId());</span>
+<span class="nc" id="L256">    target.setLatest_aftersale_id(source.getLatest_aftersale_id());</span>
+<span class="nc" id="L257">    target.setQuantity(source.getQuantity());</span>
+<span class="nc" id="L258">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static OrderItem copy(OrderItem target, OrderItemPo source) {
+<span class="nc" id="L268">    target.setId(source.getId());</span>
+<span class="nc" id="L269">    target.setLatest_aftersale_id(source.getLatest_aftersale_id());</span>
+<span class="nc" id="L270">    target.setQuantity(source.getQuantity());</span>
+<span class="nc" id="L271">    return target;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

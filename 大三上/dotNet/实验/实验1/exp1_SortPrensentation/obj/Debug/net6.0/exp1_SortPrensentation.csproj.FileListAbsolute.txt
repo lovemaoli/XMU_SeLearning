@@ -1,0 +1,30 @@
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.exe
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.deps.json
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.runtimeconfig.json
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.dll
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.pdb
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.csproj.AssemblyReference.cache
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.GeneratedMSBuildEditorConfig.editorconfig
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.AssemblyInfoInputs.cache
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.AssemblyInfo.cs
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.csproj.CoreCompileInputs.cache
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.dll
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\refint\exp1_SortPrensentation.dll
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.pdb
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.genruntimeconfig.cache
+E:\VS Project\dotNet_exp1\exp1_SortPrensentation\obj\Debug\net6.0\ref\exp1_SortPrensentation.dll
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.exe
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.deps.json
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.runtimeconfig.json
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.dll
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\bin\Debug\net6.0\exp1_SortPrensentation.pdb
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.csproj.AssemblyReference.cache
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.GeneratedMSBuildEditorConfig.editorconfig
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.AssemblyInfoInputs.cache
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.AssemblyInfo.cs
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.csproj.CoreCompileInputs.cache
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.dll
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\refint\exp1_SortPrensentation.dll
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.pdb
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\exp1_SortPrensentation.genruntimeconfig.cache
+E:\大三上\dotNet\实验\实验1-黄勖-4392\exp1_SortPrensentation\obj\Debug\net6.0\ref\exp1_SortPrensentation.dll

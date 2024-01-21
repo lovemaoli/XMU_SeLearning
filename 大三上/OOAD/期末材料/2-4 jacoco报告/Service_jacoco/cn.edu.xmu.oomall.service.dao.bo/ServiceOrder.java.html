@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceOrder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao.bo</a> &gt; <span class="el_source">ServiceOrder.java</span></div><h1>ServiceOrder.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.oomall.service.dao.ExpressDao;
+import cn.edu.xmu.oomall.service.dao.ServiceOrderDao;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceOrderPo;
+import cn.edu.xmu.oomall.service.mapper.po.ServicePo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L24">@NoArgsConstructor</span>
+<span class="fc" id="L25">@AllArgsConstructor</span>
+<span class="nc" id="L26">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({ServiceOrderPo.class})
+public class ServiceOrder implements Serializable{
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L32">    private static final Logger logger = LoggerFactory.getLogger(Service.class);</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L35">    public static final Integer ONSITE= 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L38">    public static final Integer SEND = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L41">    public static final Integer NEW = 0;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L44">    public static final Integer UNPROCESSED = 1;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L47">    public static final Integer PROCESSING = 2;</span>
+    @ToString.Exclude
+    @JsonIgnore
+<span class="fc" id="L50">    public static final Integer SUCCESS = 3;</span>
+<span class="fc" id="L51">    public static Map&lt;Integer, String&gt; statusMap = Stream.of(new Object[][] {</span>
+            {NEW, &quot;待分配&quot;},
+            {UNPROCESSED, &quot;未处理&quot;},
+            {PROCESSING, &quot;处理中&quot;},
+            {SUCCESS, &quot;已处理&quot;},
+<span class="fc" id="L56">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (String) data[1]));</span>
+
+<span class="fc" id="L58">    public static Map&lt;Integer, List&lt;Integer&gt;&gt; statusTransferMap = Stream.of(new Object[][] {</span>
+<span class="fc" id="L59">            {NEW, Arrays.asList(UNPROCESSED, PROCESSING)},</span>
+<span class="fc" id="L60">            {UNPROCESSED, Arrays.asList(PROCESSING)},</span>
+<span class="fc" id="L61">            {PROCESSING, Arrays.asList(NEW, SUCCESS)},</span>
+<span class="fc" id="L62">            {SUCCESS, List.of()},</span>
+<span class="fc" id="L63">    }).collect(Collectors.toMap(data -&gt; (Integer) data[0], data -&gt; (List&lt;Integer&gt;) data[1]));</span>
+
+    public Boolean canTransferTo(Integer status) {
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if(statusTransferMap.get(this.status) != null)</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            if(statusTransferMap.get(this.status).contains(status))</span>
+<span class="nc" id="L68">                return true;</span>
+<span class="fc" id="L69">        return false;</span>
+
+    }
+
+    public String getStateName() {
+<span class="nc" id="L74">        return statusMap.get(this.status);</span>
+    }
+
+    private Long id;
+    private Integer type;
+    private String address;
+    private String consignee;
+    private String mobile;
+    private Long service_sn;
+    private Integer status;
+    private String description;
+    private String service_provider_name;
+    private String service_provider_mobile;
+    private Long shop_id;
+    private Long customer_id;
+    private Long service_provider_id;
+    private Long service_id;
+    private Long order_item_id;
+    private Long product_id;
+    private Long product_item_id;
+
+    private ServiceOrderDao serviceOrderDao;
+
+    private ExpressDao expressDao;
+
+    public Long getId() {
+<span class="fc" id="L100">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L104">        this.id = id;</span>
+<span class="fc" id="L105">    }</span>
+
+    public Integer getStatus() {
+<span class="nc" id="L108">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (canTransferTo(status))</span>
+<span class="nc" id="L113">            this.status = status;</span>
+        else
+<span class="fc" id="L115">            logger.error(String.format(&quot;状态不允许从%d迁移到%d&quot;, this.status, status));</span>
+<span class="fc" id="L116">    }</span>
+
+    public Integer getType() {
+<span class="nc" id="L119">        return type;</span>
+    }
+
+    public void setType(Integer type) {
+<span class="nc" id="L123">        this.type = type;</span>
+<span class="nc" id="L124">    }</span>
+
+    public String getAddress() {
+<span class="nc" id="L127">        return address;</span>
+    }
+
+
+    public void setAddress(String address) {
+<span class="nc" id="L132">        this.address = address;</span>
+<span class="nc" id="L133">    }</span>
+
+    public String getConsignee() {
+<span class="nc" id="L136">        return consignee;</span>
+    }
+
+    public void setConsignee(String consignee) {
+<span class="nc" id="L140">        this.consignee = consignee;</span>
+<span class="nc" id="L141">    }</span>
+
+    public String getMobile() {
+<span class="nc" id="L144">        return mobile;</span>
+    }
+
+    public void setMobile(String mobile) {
+<span class="nc" id="L148">        this.mobile = mobile;</span>
+<span class="nc" id="L149">    }</span>
+
+<span class="nc" id="L151">    public Long getService_sn() { return service_sn; }</span>
+
+<span class="nc" id="L153">    public void setService_sn(Long service_sn) { this.service_sn = service_sn; }</span>
+
+    public String getDescription() {
+<span class="nc" id="L156">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="nc" id="L160">        this.description = description;</span>
+<span class="nc" id="L161">    }</span>
+
+    public String getService_provider_name() {
+<span class="nc" id="L164">        return service_provider_name;</span>
+    }
+
+    public void setService_provider_name(String service_provider_name) {
+<span class="nc" id="L168">        this.service_provider_name = service_provider_name;</span>
+<span class="nc" id="L169">    }</span>
+
+    public String getService_provider_mobile() {
+<span class="nc" id="L172">        return service_provider_mobile;</span>
+    }
+
+    public void setService_provider_mobile(String service_provider_mobile) {
+<span class="nc" id="L176">        this.service_provider_mobile = service_provider_mobile;</span>
+<span class="nc" id="L177">    }</span>
+
+    public Long getShop_id() {
+<span class="nc" id="L180">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="nc" id="L184">        this.shop_id = shop_id;</span>
+<span class="nc" id="L185">    }</span>
+
+    public Long getCustomer_id() {
+<span class="nc" id="L188">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="nc" id="L192">        this.customer_id = customer_id;</span>
+<span class="nc" id="L193">    }</span>
+
+    public Long getService_provider_id() {
+<span class="fc" id="L196">        return service_provider_id;</span>
+    }
+
+    public void setService_provider_id(Long service_provider_id) {
+<span class="fc" id="L200">        this.service_provider_id = service_provider_id;</span>
+<span class="fc" id="L201">    }</span>
+
+    public Long getService_id() {
+<span class="nc" id="L204">        return service_id;</span>
+    }
+
+    public void setService_id(Long service_id) {
+<span class="nc" id="L208">        this.service_id = service_id;</span>
+<span class="nc" id="L209">    }</span>
+
+    public Long getOrder_item_id() {
+<span class="nc" id="L212">        return order_item_id;</span>
+    }
+
+    public void setOrder_item_id(Long order_item_id) {
+<span class="nc" id="L216">        this.order_item_id = order_item_id;</span>
+<span class="nc" id="L217">    }</span>
+
+    public Long getProduct_id() {
+<span class="nc" id="L220">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="nc" id="L224">        this.product_id = product_id;</span>
+<span class="nc" id="L225">    }</span>
+
+    public Long getProduct_item_id() {
+<span class="nc" id="L228">        return product_item_id;</span>
+    }
+
+    public void setProduct_item_id(Long product_item_id) {
+<span class="nc" id="L232">        this.product_item_id = product_item_id;</span>
+<span class="nc" id="L233">    }</span>
+
+    public ServiceOrderDao getServiceOrderDao() {
+<span class="nc" id="L236">        return serviceOrderDao;</span>
+    }
+
+    public void setServiceOrderDao(ServiceOrderDao serviceOrderDao) {
+<span class="nc" id="L240">        this.serviceOrderDao = serviceOrderDao;</span>
+<span class="nc" id="L241">    }</span>
+
+    public ReturnNo confirm(UserDto user) {
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">        if(this.status != UNPROCESSED) {</span>
+<span class="fc" id="L245">            return ReturnNo.STATENOTALLOW;</span>
+        }
+<span class="nc" id="L247">        this.setStatus(PROCESSING);</span>
+<span class="nc" id="L248">        serviceOrderDao.save(this, user);</span>
+<span class="nc" id="L249">        return ReturnNo.OK;</span>
+    }
+
+    public ReturnNo providerCancel(String reason, UserDto user) {
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">        if(this.status != PROCESSING) {</span>
+<span class="fc" id="L254">            return ReturnNo.STATENOTALLOW;</span>
+        }
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        if(!this.service_provider_id.equals(user.getDepartId())) {</span>
+<span class="nc" id="L257">            return ReturnNo.AUTH_NO_RIGHT;</span>
+        }
+<span class="nc bnc" id="L259" title="All 2 branches missed.">        if(this.type == SEND) {</span>
+<span class="nc" id="L260">            expressDao.createExpress(this, user);</span>
+        }
+<span class="nc" id="L262">        this.setStatus(NEW);</span>
+<span class="nc" id="L263">        serviceOrderDao.save(this, user);</span>
+<span class="nc" id="L264">        return ReturnNo.OK;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

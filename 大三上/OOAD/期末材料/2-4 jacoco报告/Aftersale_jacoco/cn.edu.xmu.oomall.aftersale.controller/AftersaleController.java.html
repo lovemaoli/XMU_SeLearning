@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AftersaleController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.controller</a> &gt; <span class="el_source">AftersaleController.java</span></div><h1>AftersaleController.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.controller;
+
+import cn.edu.xmu.javaee.core.aop.Audit;
+import cn.edu.xmu.javaee.core.aop.LoginUser;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.ReturnObject;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ApplyAftersaleVo;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ShopConfirmVo;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ShopReceiveVo;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+import cn.edu.xmu.oomall.aftersale.service.AftersaleService;
+import cn.edu.xmu.oomall.aftersale.controller.dto.AftersaleDto;
+import org.apache.catalina.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(produces = &quot;application/json;charset=UTF-8&quot;)
+public class AftersaleController {
+<span class="fc" id="L24">    private final Logger logger = LoggerFactory.getLogger(AftersaleController.class);</span>
+
+    private final AftersaleService aftersaleService;
+
+    @Autowired
+<span class="fc" id="L29">    public AftersaleController(AftersaleService aftersaleService) {</span>
+<span class="fc" id="L30">        this.aftersaleService = aftersaleService;</span>
+<span class="fc" id="L31">    }</span>
+
+
+    /**
+     * 管理员或商铺根据售后单id查询售后单信息
+     * @param id
+     * @return
+     */
+    @GetMapping(&quot;/shops/{shopid}/aftersales/{id}&quot;)
+    @Audit(departName = &quot;shops&quot;)
+    public ReturnObject findAftersaleByIdShop(@PathVariable Long shopid, @PathVariable Long id, @LoginUser UserDto user) {
+<span class="nc" id="L42">        Aftersale aftersale = this.aftersaleService.findById(id);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (aftersale == null) {</span>
+<span class="nc" id="L44">            return new ReturnObject(ReturnNo.RESOURCE_ID_NOTEXIST);</span>
+        }
+//        AftersaleDto dto = CloneFactory.copy(new AftersaleDto(), aftersale);
+<span class="nc" id="L47">        return new ReturnObject(aftersale);</span>
+    }
+
+    /**
+     * 顾客根据售后单id查询售后单信息
+     * @param id
+     * @return
+     */
+    @GetMapping(&quot;/aftersales/{id}&quot;)
+    @Audit(departName = &quot;&quot;)
+    public ReturnObject findAftersaleById(@PathVariable Long id, @LoginUser UserDto user) {
+<span class="fc" id="L58">        Aftersale aftersale = this.aftersaleService.findById(id);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (aftersale == null) {</span>
+<span class="fc" id="L60">            return new ReturnObject(ReturnNo.RESOURCE_ID_NOTEXIST);</span>
+        }
+//        AftersaleDto dto = CloneFactory.copy(new AftersaleDto(), aftersale);
+<span class="fc" id="L63">        return new ReturnObject(aftersale);</span>
+    }
+
+    /**
+     * 顾客提交售后申请
+     */
+    @PostMapping(&quot;/order/{oid}/orderitem/{id}/aftersales&quot;)
+    @Audit(departName = &quot;&quot;)
+    public ReturnObject applyAftersale(@PathVariable Long oid, @PathVariable Long id, @RequestBody ApplyAftersaleVo vo, @LoginUser UserDto user) {
+<span class="nc" id="L72">        Aftersale bo = CloneFactory.copy(new Aftersale(), vo);</span>
+<span class="nc" id="L73">        ReturnObject ret = aftersaleService.applyAftersale(oid, id, bo, user);</span>
+<span class="nc" id="L74">        return ret;</span>
+    }
+
+    /**
+     * 商铺验收退换货商品
+     */
+    @PutMapping(&quot;/shops/{shopid}/receive&quot;)
+    @Audit(departName = &quot;shops&quot;)
+    public ReturnObject shopReceive(@PathVariable Long shopid, @RequestBody ShopReceiveVo vo, @LoginUser UserDto user) {
+<span class="nc" id="L83">        ReturnNo ret = aftersaleService.shopReceive(vo.getBillcode(), shopid, vo.getConfirm(), vo.getConclusion(), user);</span>
+<span class="nc" id="L84">        return new ReturnObject(ret);</span>
+    }
+
+    /**
+     * 商铺审核售后
+     */
+    @PutMapping(&quot;/shops/{shopid}/aftersales/{id}/confirm&quot;)
+    @Audit(departName = &quot;shops&quot;)
+    public ReturnObject shopConfirm(@PathVariable Long shopid, @PathVariable Long aid, @RequestBody ShopConfirmVo vo, @LoginUser UserDto user) {
+<span class="nc" id="L93">        ReturnNo ret = aftersaleService.auditAftersale(aid, shopid, vo.getConfirm(), vo.getConclusion(), user);</span>
+<span class="nc" id="L94">        return new ReturnObject(ret);</span>
+    }
+
+    /**
+     * 创建售后服务单
+     */
+//    @PostMapping(&quot;/internal/shops/{shopid}/aftersale/{aid}/serviceOrders&quot;)
+//    @Audit(departName = &quot;shops&quot;)
+//    public ReturnObject createAftersaleServiceOrder(@PathVariable Long shopid, @PathVariable Long aid, @RequestBody Object vo, @LoginUser Long user) {
+//        return null;
+//
+//    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

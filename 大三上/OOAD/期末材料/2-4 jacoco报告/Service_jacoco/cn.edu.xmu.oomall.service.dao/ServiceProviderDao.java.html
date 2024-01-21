@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProviderDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao</a> &gt; <span class="el_source">ServiceProviderDao.java</span></div><h1>ServiceProviderDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao;
+
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.mapper.RedisUtil;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProvider;
+import cn.edu.xmu.oomall.service.mapper.ServiceProviderPoMapper;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceProviderPo;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Repository
+@RefreshScope
+public class ServiceProviderDao {
+
+<span class="fc" id="L30">    private final static Logger logger = LoggerFactory.getLogger(ServiceProviderDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ServiceProviderPoMapper serviceProviderPoMapper;
+
+<span class="fc" id="L37">    public ServiceProviderDao(ServiceProviderPoMapper serviceProviderPoMapper) {</span>
+<span class="fc" id="L38">        this.serviceProviderPoMapper = serviceProviderPoMapper;</span>
+<span class="fc" id="L39">    }</span>
+
+    public ServiceProvider build(ServiceProviderPo po){
+<span class="fc" id="L42">        return CloneFactory.copy(new ServiceProvider(), po);</span>
+    }
+
+    public ServiceProvider createServiceProvider(ServiceProvider serviceProvider) {
+<span class="fc" id="L46">        ServiceProviderPo po = CloneFactory.copy(new ServiceProviderPo(), serviceProvider);</span>
+<span class="fc" id="L47">        serviceProviderPoMapper.save(po);</span>
+<span class="fc" id="L48">        return serviceProvider;</span>
+    }
+
+    public ServiceProvider updateServiceProvider(ServiceProvider serviceProvider) {
+<span class="fc" id="L52">        ServiceProviderPo po = CloneFactory.copy(new ServiceProviderPo(), serviceProvider);</span>
+<span class="fc" id="L53">        serviceProviderPoMapper.save(po);</span>
+<span class="fc" id="L54">        return serviceProvider;</span>
+    }
+
+    public ReturnNo deleteServiceProvider(Long id) {
+<span class="fc" id="L58">        serviceProviderPoMapper.deleteById(id);</span>
+<span class="fc" id="L59">        return ReturnNo.OK;</span>
+    }
+
+    public ReturnNo changeServiceProviderStatus(Long id, Integer state) {
+<span class="fc" id="L63">        Optional&lt;ServiceProviderPo&gt; serviceProviderPo = this.serviceProviderPoMapper.findById(id);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (serviceProviderPo.isPresent()) {</span>
+<span class="fc" id="L65">            ServiceProvider bo = this.build(serviceProviderPo.get());</span>
+<span class="fc" id="L66">            bo.setStatus(state);</span>
+<span class="fc" id="L67">            this.updateServiceProvider(bo);</span>
+<span class="fc" id="L68">            return ReturnNo.OK;</span>
+        } else {
+<span class="fc" id="L70">            return ReturnNo.RESOURCE_ID_NOTEXIST;</span>
+        }
+    }
+
+    public ServiceProvider findById(Long id) {
+<span class="fc" id="L75">        Optional&lt;ServiceProviderPo&gt; serviceProviderPo = this.serviceProviderPoMapper.findById(id);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (serviceProviderPo.isPresent()) {</span>
+<span class="fc" id="L77">            ServiceProvider bo = this.build(serviceProviderPo.get());</span>
+<span class="fc" id="L78">            return bo;</span>
+        } else {
+<span class="fc" id="L80">            return null;</span>
+        }
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

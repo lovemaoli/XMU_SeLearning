@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArbitrationPo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.mapper.po</a> &gt; <span class="el_source">ArbitrationPo.java</span></div><h1>ArbitrationPo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Arbitration;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = &quot;aftersale_arbitration&quot;)
+<span class="nc" id="L15">@AllArgsConstructor</span>
+<span class="fc" id="L16">@NoArgsConstructor</span>
+<span class="fc" id="L17">@ToString</span>
+@CopyFrom({Arbitration.class})
+public class ArbitrationPo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Integer status;
+    private String reason;
+    private String shop_reason;
+    private String result;
+    private String arbitrator;
+    private LocalDateTime gmt_arbitration;
+    private LocalDateTime gmt_accept;
+    private LocalDateTime gmt_apply;
+    private LocalDateTime gmt_reply;
+    private Long shop_id;
+    private Long aftersale_id;
+    private Long customer_id;
+
+    public Long getId() {
+<span class="fc" id="L37">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L41">        this.id = id;</span>
+<span class="fc" id="L42">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L45">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L49">        this.status = status;</span>
+<span class="fc" id="L50">    }</span>
+
+    public String getReason() {
+<span class="fc" id="L53">        return reason;</span>
+    }
+
+    public void setReason(String reason) {
+<span class="fc" id="L57">        this.reason = reason;</span>
+<span class="fc" id="L58">    }</span>
+
+    public String getShop_reason() {
+<span class="fc" id="L61">        return shop_reason;</span>
+    }
+
+    public void setShop_reason(String shop_reason) {
+<span class="fc" id="L65">        this.shop_reason = shop_reason;</span>
+<span class="fc" id="L66">    }</span>
+
+    public String getResult() {
+<span class="fc" id="L69">        return result;</span>
+    }
+
+    public void setResult(String result) {
+<span class="fc" id="L73">        this.result = result;</span>
+<span class="fc" id="L74">    }</span>
+
+    public String getArbitrator() {
+<span class="fc" id="L77">        return arbitrator;</span>
+    }
+
+    public void setArbitrator(String arbitrator) {
+<span class="fc" id="L81">        this.arbitrator = arbitrator;</span>
+<span class="fc" id="L82">    }</span>
+
+    public LocalDateTime getGmt_arbitration() {
+<span class="fc" id="L85">        return gmt_arbitration;</span>
+    }
+
+    public void setGmt_arbitration(LocalDateTime gmt_arbitration) {
+<span class="fc" id="L89">        this.gmt_arbitration = gmt_arbitration;</span>
+<span class="fc" id="L90">    }</span>
+
+    public LocalDateTime getGmt_accept() {
+<span class="fc" id="L93">        return gmt_accept;</span>
+    }
+
+    public void setGmt_accept(LocalDateTime gmt_accept) {
+<span class="fc" id="L97">        this.gmt_accept = gmt_accept;</span>
+<span class="fc" id="L98">    }</span>
+
+    public LocalDateTime getGmt_apply() {
+<span class="fc" id="L101">        return gmt_apply;</span>
+    }
+
+    public void setGmt_apply(LocalDateTime gmt_apply) {
+<span class="fc" id="L105">        this.gmt_apply = gmt_apply;</span>
+<span class="fc" id="L106">    }</span>
+
+    public LocalDateTime getGmt_reply() {
+<span class="fc" id="L109">        return gmt_reply;</span>
+    }
+
+    public void setGmt_reply(LocalDateTime gmt_reply) {
+<span class="fc" id="L113">        this.gmt_reply = gmt_reply;</span>
+<span class="fc" id="L114">    }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L117">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="fc" id="L121">        this.shop_id = shop_id;</span>
+<span class="fc" id="L122">    }</span>
+
+    public Long getAftersale_id() {
+<span class="fc" id="L125">        return aftersale_id;</span>
+    }
+
+    public void setAftersale_id(Long aftersale_id) {
+<span class="fc" id="L129">        this.aftersale_id = aftersale_id;</span>
+<span class="fc" id="L130">    }</span>
+
+    public Long getCustomer_id() {
+<span class="fc" id="L133">        return customer_id;</span>
+    }
+
+    public void setCustomer_id(Long customer_id) {
+<span class="fc" id="L137">        this.customer_id = customer_id;</span>
+<span class="fc" id="L138">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArbitrationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.controller</a> &gt; <span class="el_source">ArbitrationController.java</span></div><h1>ArbitrationController.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.controller;
+
+import cn.edu.xmu.javaee.core.aop.Audit;
+import cn.edu.xmu.javaee.core.aop.LoginUser;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.ReturnObject;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.oomall.aftersale.controller.vo.ArbitrationRequestVo;
+import cn.edu.xmu.oomall.aftersale.service.ArbitrationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(produces = &quot;application/json;charset=UTF-8&quot;)
+public class ArbitrationController {
+<span class="fc" id="L17">    private final Logger logger = LoggerFactory.getLogger(AftersaleController.class);</span>
+
+    private final ArbitrationService arbitrationService;
+
+<span class="fc" id="L21">    public ArbitrationController(ArbitrationService arbitrationService) {</span>
+<span class="fc" id="L22">        this.arbitrationService = arbitrationService;</span>
+<span class="fc" id="L23">    }</span>
+
+    /**
+     * 顾客提交仲裁
+     * @param aid
+     * @param user
+     * @return
+     */
+    @PostMapping(&quot;/aftersales/{aid}/arbitrations&quot;)
+    @Audit
+    public ReturnObject createArbitration(@PathVariable Long aid, @RequestBody ArbitrationRequestVo requestVo, @LoginUser UserDto user) {
+<span class="fc" id="L34">        ReturnObject ret = arbitrationService.applyAftersaleArbitration(aid, requestVo.getReason(), user);</span>
+<span class="fc" id="L35">        return ret;</span>
+    }
+
+    /**
+     * 顾客取消仲裁
+     * @param aid
+     * @return
+     */
+    @DeleteMapping(&quot;/arbitrations/{aid}&quot;)
+    @Audit
+    public ReturnObject deleteArbitration(@PathVariable Long aid, @LoginUser UserDto user) {
+<span class="fc" id="L46">        ReturnNo code = arbitrationService.cancelArbitration(aid, user);</span>
+<span class="fc" id="L47">        return new ReturnObject(code);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

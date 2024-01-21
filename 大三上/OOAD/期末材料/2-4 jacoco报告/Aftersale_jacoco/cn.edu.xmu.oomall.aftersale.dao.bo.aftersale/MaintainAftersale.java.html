@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MaintainAftersale.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao.bo.aftersale</a> &gt; <span class="el_source">MaintainAftersale.java</span></div><h1>MaintainAftersale.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao.bo.aftersale;
+
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+
+public class MaintainAftersale extends Aftersale {
+
+    @Override
+    public ReturnNo shopAudit(Long shopid){
+        //TODO 创建服务单
+<span class="nc" id="L11">        return ReturnNo.OK;</span>
+    }
+<span class="fc" id="L13">    public MaintainAftersale(Aftersale aftersale){</span>
+<span class="fc" id="L14">        this.setId(aftersale.getId());</span>
+<span class="fc" id="L15">        this.setType(aftersale.getType());</span>
+<span class="fc" id="L16">        this.setReason(aftersale.getReason());</span>
+<span class="fc" id="L17">        this.setConclusion(aftersale.getConclusion());</span>
+<span class="fc" id="L18">        this.setQuantity(aftersale.getQuantity());</span>
+<span class="fc" id="L19">        this.setContact(aftersale.getContact());</span>
+<span class="fc" id="L20">        this.setMobile(aftersale.getMobile());</span>
+<span class="fc" id="L21">        this.setAddress(aftersale.getAddress());</span>
+<span class="fc" id="L22">        this.setStatus(aftersale.getStatus());</span>
+<span class="fc" id="L23">        this.setGmt_apply(aftersale.getGmt_apply());</span>
+<span class="fc" id="L24">        this.setGmt_end(aftersale.getGmt_end());</span>
+<span class="fc" id="L25">        this.setOrder_id(aftersale.getOrder_id());</span>
+<span class="fc" id="L26">        this.setOrder_item_id(aftersale.getOrder_item_id());</span>
+<span class="fc" id="L27">        this.setProduct_item_id(aftersale.getProduct_item_id());</span>
+<span class="fc" id="L28">        this.setProduct_id(aftersale.getProduct_id());</span>
+<span class="fc" id="L29">        this.setShop_id(aftersale.getShop_id());</span>
+<span class="fc" id="L30">        this.setCustomer_id(aftersale.getCustomer_id());</span>
+<span class="fc" id="L31">        this.setIn_arbitration(aftersale.getIn_arbitration());</span>
+<span class="fc" id="L32">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

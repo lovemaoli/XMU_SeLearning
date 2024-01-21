@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProviderService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.service</a> &gt; <span class="el_source">ServiceProviderService.java</span></div><h1>ServiceProviderService.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.service;
+
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.StatusDto;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.mapper.RedisUtil;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.service.controller.dto.ServiceProviderDto;
+import cn.edu.xmu.oomall.service.dao.ServiceProviderDao;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProviderStatus;
+import cn.edu.xmu.oomall.service.dao.ServiceProviderDao;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+public class ServiceProviderService {
+
+<span class="fc" id="L26">    private final Logger logger = LoggerFactory.getLogger(ServiceProviderService.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ServiceProviderDao serviceProviderDao;
+
+    @Autowired
+<span class="fc" id="L34">    public ServiceProviderService(ServiceProviderDao serviceProviderDao) {</span>
+<span class="fc" id="L35">        this.serviceProviderDao = serviceProviderDao;</span>
+<span class="fc" id="L36">    }</span>
+
+    public ServiceProvider findById(Long id) {
+<span class="fc" id="L39">        return this.serviceProviderDao.findById(id);</span>
+    }
+
+
+
+
+//    public ServiceProviderDto createServiceProvider(ServiceProviderDto serviceProviderDto) {
+//        ServiceProvider serviceProvider = CloneFactory.copy(new ServiceProvider(), serviceProviderDto);
+//        serviceProvider = this.serviceProviderDao.createServiceProvider(serviceProvider);
+//        serviceProviderDto = CloneFactory.copy(new ServiceProviderDto(), serviceProvider);
+//        return serviceProviderDto;
+//    }
+//
+//    public ServiceProviderDto updateServiceProvider(ServiceProviderDto serviceProviderDto) {
+//        ServiceProvider serviceProvider = CloneFactory.copy(new ServiceProvider(), serviceProviderDto);
+//        serviceProvider = this.serviceProviderDao.updateServiceProvider(serviceProvider);
+//        serviceProviderDto = CloneFactory.copy(new ServiceProviderDto(), serviceProvider);
+//        return serviceProviderDto;
+//    }
+
+    public ReturnNo deleteServiceProvider(Long id) {
+<span class="fc" id="L60">        return this.serviceProviderDao.deleteServiceProvider(id);</span>
+    }
+
+    public ReturnNo changeServiceProviderStatus(Long id, Integer state) {
+<span class="fc" id="L64">        ServiceProvider serviceProvider = this.serviceProviderDao.findById(id);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (serviceProvider == null) {</span>
+<span class="fc" id="L66">            return ReturnNo.RESOURCE_ID_NOTEXIST;</span>
+        }
+<span class="nc" id="L68">        return serviceProvider.changeStatus(ServiceProviderStatus.fromValue(state));</span>
+    }
+
+    public ServiceProviderDto findServiceProviderById(Long id) {
+<span class="nc" id="L72">        ServiceProvider serviceProvider = this.serviceProviderDao.findById(id);</span>
+<span class="nc" id="L73">        ServiceProviderDto dto = CloneFactory.copy(new ServiceProviderDto(), serviceProvider);</span>
+<span class="nc" id="L74">        return dto;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

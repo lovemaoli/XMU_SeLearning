@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShopServicePo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.mapper.po</a> &gt; <span class="el_source">ShopServicePo.java</span></div><h1>ShopServicePo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.service.dao.ShopServiceDao;
+import cn.edu.xmu.oomall.service.dao.bo.Service;
+import cn.edu.xmu.oomall.service.dao.bo.ShopService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+
+@Entity
+@Table(name = &quot;service_shop_service&quot;)
+<span class="nc" id="L21">@AllArgsConstructor</span>
+<span class="fc" id="L22">@NoArgsConstructor</span>
+<span class="nc" id="L23">@ToString</span>
+@CopyFrom({ShopService.class})
+public class ShopServicePo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private Long shop_id;
+    private Long service_id;
+    private LocalDateTime create_time;
+    private Integer shop_status;
+    private Long product_id;
+    private Long service_provider_id;
+
+
+    public Long getId() {
+<span class="fc" id="L40">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L44">        this.id = id;</span>
+<span class="nc" id="L45">    }</span>
+
+<span class="fc" id="L47">    public String getName() { return name; }</span>
+
+<span class="nc" id="L49">    public void setName(String name) { this.name = name; }</span>
+
+    public Long getShop_id() {
+<span class="fc" id="L52">        return shop_id;</span>
+    }
+
+    public void setShop_id(Long shop_id) {
+<span class="nc" id="L56">        this.shop_id = shop_id;</span>
+<span class="nc" id="L57">    }</span>
+
+<span class="fc" id="L59">    public LocalDateTime getCreate_time() { return create_time;}</span>
+
+<span class="nc" id="L61">    public void setCreate_time(LocalDateTime create_time) { this.create_time = create_time; }</span>
+
+    public Long getService_provider_id() {
+<span class="fc" id="L64">        return service_provider_id;</span>
+    }
+
+    public void setService_provider_id(Long service_provider_id) {
+<span class="nc" id="L68">        this.service_provider_id = service_provider_id;</span>
+<span class="nc" id="L69">    }</span>
+
+    public Long getService_id() {
+<span class="fc" id="L72">        return service_id;</span>
+    }
+
+    public void setService_id(Long service_id) {
+<span class="nc" id="L76">        this.service_id = service_id;</span>
+<span class="nc" id="L77">    }</span>
+
+    public Long getProduct_id() {
+<span class="fc" id="L80">        return product_id;</span>
+    }
+
+    public void setProduct_id(Long product_id) {
+<span class="nc" id="L84">        this.product_id = product_id;</span>
+<span class="nc" id="L85">    }</span>
+
+    public Integer getShop_status() {
+<span class="fc" id="L88">        return shop_status;</span>
+    }
+
+<span class="nc" id="L91">    public void setShop_status(Integer shop_status) { this.shop_status = shop_status; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

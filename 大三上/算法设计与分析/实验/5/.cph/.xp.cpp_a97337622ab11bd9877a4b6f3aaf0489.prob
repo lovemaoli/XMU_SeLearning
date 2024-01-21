@@ -1,0 +1,1 @@
+{"name":"Local: xp","url":"e:\\大三上\\算法设计与分析\\实验\\5\\xp.cpp","tests":[{"id":1700791350390,"input":"5\n1 23\n12 28\n25 35\n27 80\n36 50","output":"3"},{"id":1700791621743,"input":"4\n1 1\n2 2\n1 2\n3 4","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\大三上\\算法设计与分析\\实验\\5\\xp.cpp","group":"local","local":true}

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CloneFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.javaee.core.util</a> &gt; <span class="el_source">CloneFactory.java</span></div><h1>CloneFactory.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.javaee.core.util;
+
+import cn.edu.xmu.oomall.service.controller.dto.ServiceProviderDto;
+import cn.edu.xmu.oomall.service.controller.vo.DraftServiceVo;
+import cn.edu.xmu.oomall.service.dao.bo.DraftService;
+import cn.edu.xmu.oomall.service.dao.bo.Express;
+import cn.edu.xmu.oomall.service.dao.bo.Service;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceOrder;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProvider;
+import cn.edu.xmu.oomall.service.dao.bo.ShopService;
+import cn.edu.xmu.oomall.service.mapper.po.DraftServicePo;
+import cn.edu.xmu.oomall.service.mapper.po.ExpressPo;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceOrderPo;
+import cn.edu.xmu.oomall.service.mapper.po.ServicePo;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceProviderPo;
+import cn.edu.xmu.oomall.service.mapper.po.ShopServicePo;
+
+<span class="nc" id="L18">public final class CloneFactory {</span>
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServiceProviderPo copy(ServiceProviderPo target, ServiceProvider source) {
+<span class="fc" id="L26">    target.setId(source.getId());</span>
+<span class="fc" id="L27">    target.setName(source.getName());</span>
+<span class="fc" id="L28">    target.setAddress(source.getAddress());</span>
+<span class="fc" id="L29">    target.setMobile(source.getMobile());</span>
+<span class="fc" id="L30">    target.setService_max_num(source.getService_max_num());</span>
+<span class="fc" id="L31">    target.setDeposit(source.getDeposit());</span>
+<span class="fc" id="L32">    target.setDeposit_threshold(source.getDeposit_threshold());</span>
+<span class="fc" id="L33">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L34">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ShopService copy(ShopService target, ShopServicePo source) {
+<span class="fc" id="L44">    target.setId(source.getId());</span>
+<span class="fc" id="L45">    target.setName(source.getName());</span>
+<span class="fc" id="L46">    target.setShop_id(source.getShop_id());</span>
+<span class="fc" id="L47">    target.setCreate_time(source.getCreate_time());</span>
+<span class="fc" id="L48">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="fc" id="L49">    target.setService_id(source.getService_id());</span>
+<span class="fc" id="L50">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L51">    target.setShop_status(source.getShop_status());</span>
+<span class="nc" id="L52">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServicePo copy(ServicePo target, Service source) {
+<span class="fc" id="L62">    target.setId(source.getId());</span>
+<span class="fc" id="L63">    target.setName(source.getName());</span>
+<span class="fc" id="L64">    target.setDescription(source.getDescription());</span>
+<span class="fc" id="L65">    target.setType(source.getType());</span>
+<span class="fc" id="L66">    target.setService_area(source.getService_area());</span>
+<span class="fc" id="L67">    target.setCategory_name(source.getCategory_name());</span>
+<span class="fc" id="L68">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L69">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="fc" id="L70">    target.setRegion_id(source.getRegion_id());</span>
+<span class="fc" id="L71">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServiceOrder copy(ServiceOrder target, ServiceOrderPo source) {
+<span class="fc" id="L81">    target.setId(source.getId());</span>
+<span class="nc" id="L82">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L83">    target.setType(source.getType());</span>
+<span class="nc" id="L84">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L85">    target.setConsignee(source.getConsignee());</span>
+<span class="nc" id="L86">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L87">    target.setService_sn(source.getService_sn());</span>
+<span class="nc" id="L88">    target.setDescription(source.getDescription());</span>
+<span class="nc" id="L89">    target.setService_provider_name(source.getService_provider_name());</span>
+<span class="nc" id="L90">    target.setService_provider_mobile(source.getService_provider_mobile());</span>
+<span class="nc" id="L91">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L92">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L93">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="nc" id="L94">    target.setService_id(source.getService_id());</span>
+<span class="nc" id="L95">    target.setOrder_item_id(source.getOrder_item_id());</span>
+<span class="nc" id="L96">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L97">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="nc" id="L98">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServiceProviderDto copy(ServiceProviderDto target, ServiceProvider source) {
+<span class="nc" id="L108">    target.setId(source.getId());</span>
+<span class="nc" id="L109">    target.setName(source.getName());</span>
+<span class="nc" id="L110">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L111">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L112">    target.setService_max_num(source.getService_max_num());</span>
+<span class="nc" id="L113">    target.setDeposit(source.getDeposit());</span>
+<span class="nc" id="L114">    target.setDeposit_threshold(source.getDeposit_threshold());</span>
+<span class="nc" id="L115">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L116">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ExpressPo copy(ExpressPo target, Express source) {
+<span class="nc" id="L126">    target.setId(source.getId());</span>
+<span class="nc" id="L127">    target.setService_order_id(source.getService_order_id());</span>
+<span class="nc" id="L128">    target.setBill_code(source.getBill_code());</span>
+<span class="nc" id="L129">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ShopServicePo copy(ShopServicePo target, ShopService source) {
+<span class="nc" id="L139">    target.setId(source.getId());</span>
+<span class="nc" id="L140">    target.setName(source.getName());</span>
+<span class="nc" id="L141">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L142">    target.setCreate_time(source.getCreate_time());</span>
+<span class="nc" id="L143">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="nc" id="L144">    target.setService_id(source.getService_id());</span>
+<span class="nc" id="L145">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L146">    target.setShop_status(source.getShop_status());</span>
+<span class="nc" id="L147">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static DraftService copy(DraftService target, DraftServicePo source) {
+<span class="fc" id="L157">    target.setId(source.getId());</span>
+<span class="fc" id="L158">    target.setName(source.getName());</span>
+<span class="fc" id="L159">    target.setDescription(source.getDescription());</span>
+<span class="fc" id="L160">    target.setType(source.getType());</span>
+<span class="fc" id="L161">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L162">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="fc" id="L163">    target.setService_id(source.getService_id());</span>
+<span class="fc" id="L164">    target.setCategory_name(source.getCategory_name());</span>
+<span class="fc" id="L165">    target.setRegion_id(source.getRegion_id());</span>
+<span class="fc" id="L166">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static DraftService copy(DraftService target, DraftServiceVo source) {
+<span class="nc" id="L176">    target.setName(source.getName());</span>
+<span class="nc" id="L177">    target.setDescription(source.getDescription());</span>
+<span class="nc" id="L178">    target.setType(source.getType());</span>
+<span class="nc" id="L179">    target.setCategory_name(source.getCategory_name());</span>
+<span class="nc" id="L180">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static DraftServicePo copy(DraftServicePo target, DraftService source) {
+<span class="fc" id="L190">    target.setId(source.getId());</span>
+<span class="fc" id="L191">    target.setName(source.getName());</span>
+<span class="fc" id="L192">    target.setDescription(source.getDescription());</span>
+<span class="fc" id="L193">    target.setType(source.getType());</span>
+<span class="fc" id="L194">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L195">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="fc" id="L196">    target.setService_id(source.getService_id());</span>
+<span class="fc" id="L197">    target.setCategory_name(source.getCategory_name());</span>
+<span class="fc" id="L198">    target.setRegion_id(source.getRegion_id());</span>
+<span class="fc" id="L199">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServiceProvider copy(ServiceProvider target, ServiceProviderPo source) {
+<span class="fc" id="L209">    target.setId(source.getId());</span>
+<span class="fc" id="L210">    target.setName(source.getName());</span>
+<span class="fc" id="L211">    target.setConsignee(source.getConsignee());</span>
+<span class="fc" id="L212">    target.setAddress(source.getAddress());</span>
+<span class="fc" id="L213">    target.setMobile(source.getMobile());</span>
+<span class="fc" id="L214">    target.setService_max_num(source.getService_max_num());</span>
+<span class="fc" id="L215">    target.setDeposit(source.getDeposit());</span>
+<span class="fc" id="L216">    target.setDeposit_threshold(source.getDeposit_threshold());</span>
+<span class="fc" id="L217">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L218">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Express copy(Express target, ExpressPo source) {
+<span class="nc" id="L228">    target.setId(source.getId());</span>
+<span class="nc" id="L229">    target.setService_order_id(source.getService_order_id());</span>
+<span class="nc" id="L230">    target.setBill_code(source.getBill_code());</span>
+<span class="nc" id="L231">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static Service copy(Service target, ServicePo source) {
+<span class="fc" id="L241">    target.setId(source.getId());</span>
+<span class="fc" id="L242">    target.setName(source.getName());</span>
+<span class="fc" id="L243">    target.setDescription(source.getDescription());</span>
+<span class="fc" id="L244">    target.setType(source.getType());</span>
+<span class="fc" id="L245">    target.setService_area(source.getService_area());</span>
+<span class="fc" id="L246">    target.setCategory_name(source.getCategory_name());</span>
+<span class="fc" id="L247">    target.setStatus(source.getStatus());</span>
+<span class="fc" id="L248">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="fc" id="L249">    target.setRegion_id(source.getRegion_id());</span>
+<span class="fc" id="L250">    return target;</span>
+  }
+
+  /**
+   * Copy all fields from source to target
+   * @param target the target object
+   * @param source the source object
+   * @return the copied target object
+   */
+  public static ServiceOrderPo copy(ServiceOrderPo target, ServiceOrder source) {
+<span class="nc" id="L260">    target.setId(source.getId());</span>
+<span class="nc" id="L261">    target.setStatus(source.getStatus());</span>
+<span class="nc" id="L262">    target.setType(source.getType());</span>
+<span class="nc" id="L263">    target.setAddress(source.getAddress());</span>
+<span class="nc" id="L264">    target.setConsignee(source.getConsignee());</span>
+<span class="nc" id="L265">    target.setMobile(source.getMobile());</span>
+<span class="nc" id="L266">    target.setService_sn(source.getService_sn());</span>
+<span class="nc" id="L267">    target.setDescription(source.getDescription());</span>
+<span class="nc" id="L268">    target.setService_provider_name(source.getService_provider_name());</span>
+<span class="nc" id="L269">    target.setService_provider_mobile(source.getService_provider_mobile());</span>
+<span class="nc" id="L270">    target.setShop_id(source.getShop_id());</span>
+<span class="nc" id="L271">    target.setCustomer_id(source.getCustomer_id());</span>
+<span class="nc" id="L272">    target.setService_provider_id(source.getService_provider_id());</span>
+<span class="nc" id="L273">    target.setService_id(source.getService_id());</span>
+<span class="nc" id="L274">    target.setOrder_item_id(source.getOrder_item_id());</span>
+<span class="nc" id="L275">    target.setProduct_id(source.getProduct_id());</span>
+<span class="nc" id="L276">    target.setProduct_item_id(source.getProduct_item_id());</span>
+<span class="nc" id="L277">    return target;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

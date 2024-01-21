@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DraftServiceDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao</a> &gt; <span class="el_source">DraftServiceDao.java</span></div><h1>DraftServiceDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao;
+
+import cn.edu.xmu.javaee.core.exception.BusinessException;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.mapper.RedisUtil;
+import cn.edu.xmu.oomall.service.dao.bo.DraftService;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceProvider;
+import cn.edu.xmu.oomall.service.mapper.DraftServicePoMapper;
+import cn.edu.xmu.oomall.service.mapper.ServiceProviderPoMapper;
+import cn.edu.xmu.oomall.service.mapper.po.DraftServicePo;
+import cn.edu.xmu.oomall.service.mapper.po.ServiceProviderPo;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Repository
+@RefreshScope
+public class DraftServiceDao {
+
+<span class="fc" id="L33">    private final static Logger logger = LoggerFactory.getLogger(DraftServiceDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final DraftServicePoMapper draftServicePoMapper;
+    private final ServiceProviderPoMapper serviceProviderPoMapper;
+
+<span class="fc" id="L41">    public DraftServiceDao(DraftServicePoMapper draftServicePoMapper, ServiceProviderPoMapper serviceProviderPoMapper) {</span>
+<span class="fc" id="L42">        this.draftServicePoMapper = draftServicePoMapper;</span>
+<span class="fc" id="L43">        this.serviceProviderPoMapper = serviceProviderPoMapper;</span>
+<span class="fc" id="L44">    }</span>
+
+    public DraftService build(DraftServicePo po){
+<span class="fc" id="L47">        return CloneFactory.copy(new DraftService(), po);</span>
+    }
+
+    public DraftService findById(Long id) {
+<span class="fc" id="L51">        Optional&lt;DraftServicePo&gt; optional = this.draftServicePoMapper.findById(id);</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (optional.isPresent()) {</span>
+<span class="fc" id="L53">            return build(optional.get());</span>
+        } else {
+<span class="fc" id="L55">            return null;</span>
+        }
+    }
+
+    public DraftService createDraftService(DraftService draftService) {
+<span class="fc" id="L60">        DraftServicePo po = CloneFactory.copy(new DraftServicePo(), draftService);</span>
+<span class="fc" id="L61">        draftServicePoMapper.save(po);</span>
+<span class="fc" id="L62">        return draftService;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

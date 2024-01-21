@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao.bo</a> &gt; <span class="el_source">OrderItem.java</span></div><h1>OrderItem.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao.bo;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+//import cn.edu.xmu.oomall.aftersale.controller.dto.OrderItemDto;
+//import cn.edu.xmu.oomall.aftersale.controller.vo.OrderItemVo;
+//import cn.edu.xmu.oomall.aftersale.dao.AftersaleDao;
+import cn.edu.xmu.oomall.aftersale.dao.AftersaleDao;
+import cn.edu.xmu.oomall.aftersale.dao.OrderItemDao;
+import cn.edu.xmu.oomall.aftersale.mapper.po.OrderItemPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L25">@NoArgsConstructor</span>
+<span class="fc" id="L26">@AllArgsConstructor</span>
+<span class="fc" id="L27">@ToString(callSuper = true, doNotUseGetters = true)</span>
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@CopyFrom({OrderItemPo.class})
+public class OrderItem implements Serializable {
+    private Long id;
+    private Long latest_aftersale_id;
+    private Integer quantity;
+    private Long order_id;
+    private Long shop_id;
+
+    private OrderItemDao orderItemDao;
+
+    private AftersaleDao aftersaleDao;
+
+    public Long getId() {
+<span class="fc" id="L42">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L46">        this.id = id;</span>
+<span class="fc" id="L47">    }</span>
+
+    public Long getLatest_aftersale_id() {
+<span class="fc" id="L50">        return latest_aftersale_id;</span>
+    }
+
+    public void setLatest_aftersale_id(Long latest_aftersale_id) {
+<span class="fc" id="L54">        this.latest_aftersale_id = latest_aftersale_id;</span>
+<span class="fc" id="L55">    }</span>
+
+    public Integer getQuantity() {
+<span class="fc" id="L58">        return quantity;</span>
+    }
+
+    public void setQuantity(Integer quantity) {
+<span class="fc" id="L62">        this.quantity = quantity;</span>
+<span class="fc" id="L63">    }</span>
+
+    public Long getOrderId() {
+<span class="fc" id="L66">        return order_id;</span>
+    }
+
+    public void setOrderId(Long order_id) {
+<span class="fc" id="L70">        this.order_id = order_id;</span>
+<span class="fc" id="L71">    }</span>
+
+    public Long getShopId() {
+<span class="fc" id="L74">        return shop_id;</span>
+    }
+
+    public void setShopId(Long shop_id) {
+<span class="fc" id="L78">        this.shop_id = shop_id;</span>
+<span class="fc" id="L79">    }</span>
+
+
+    public OrderItemDao getOrderItemDao() {
+<span class="nc" id="L83">        return orderItemDao;</span>
+    }
+
+    public void setOrderItemDao(OrderItemDao orderItemDao) {
+<span class="nc" id="L87">        this.orderItemDao = orderItemDao;</span>
+<span class="nc" id="L88">    }</span>
+
+    public AftersaleDao getAftersaleDao() {
+<span class="nc" id="L91">        return aftersaleDao;</span>
+    }
+
+    public void setAftersaleDao(AftersaleDao aftersaleDao) {
+<span class="nc" id="L95">        this.aftersaleDao = aftersaleDao;</span>
+<span class="nc" id="L96">    }</span>
+
+    public Aftersale createAftersale(Aftersale bo, UserDto user) {
+<span class="nc" id="L99">        Aftersale latestAftersale = aftersaleDao.findById(latest_aftersale_id);</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        if(latestAftersale == null ||</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">                latestAftersale.getStatus() == Aftersale.CANCEL ||</span>
+<span class="nc bnc" id="L102" title="All 6 branches missed.">                (latestAftersale.getStatus() == Aftersale.FINISH &amp;&amp; latestAftersale.getType() == Aftersale.REPAIR &amp;&amp; bo.getType() == Aftersale.REPAIR)) {</span>
+<span class="nc" id="L103">            Aftersale aftersale = new Aftersale();</span>
+<span class="nc" id="L104">            aftersale.create(this, bo, user);</span>
+<span class="nc" id="L105">            aftersaleDao.save(aftersale);</span>
+<span class="nc" id="L106">            this.latest_aftersale_id = aftersale.getId();</span>
+<span class="nc" id="L107">            return aftersale;</span>
+        }
+<span class="nc" id="L109">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

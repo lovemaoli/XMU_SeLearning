@@ -1,0 +1,81 @@
+@import './assets/less/xmu-themes.less';
+
+html,
+body,
+#app, #root {
+  height: calc(100vh);
+  padding: 0;
+  margin: 0;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout.layout-basic {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+    color: @blue-6;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+    -webkit-text-decoration-skip: objects;
+}
+
+.text-cut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.fullscreen {
+    position: absolute;    
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.full-right-area {
+    position: fixed;
+    left: 600px;
+    right: 0;
+    top: 115px;
+    bottom: 0;
+    padding-left: 8px;
+}
+
+.text-secondary {
+    color: @text-color-secondary;
+}
+
+.text-danger {
+    color: @error-color;
+}

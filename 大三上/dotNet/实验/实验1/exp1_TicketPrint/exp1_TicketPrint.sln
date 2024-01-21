@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exp1_TicketPrint", "exp1_TicketPrint.csproj", "{52B39F22-D274-47E3-BD01-248A971D5F77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B39F22-D274-47E3-BD01-248A971D5F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B39F22-D274-47E3-BD01-248A971D5F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B39F22-D274-47E3-BD01-248A971D5F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B39F22-D274-47E3-BD01-248A971D5F77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {322B69DA-83DD-4C0C-B564-2DA5D7B9E06A}
+	EndGlobalSection
+EndGlobal

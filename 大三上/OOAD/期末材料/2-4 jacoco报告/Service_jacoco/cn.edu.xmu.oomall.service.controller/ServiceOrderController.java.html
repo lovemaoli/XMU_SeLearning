@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceOrderController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.controller</a> &gt; <span class="el_source">ServiceOrderController.java</span></div><h1>ServiceOrderController.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.controller;
+
+import cn.edu.xmu.javaee.core.aop.Audit;
+import cn.edu.xmu.javaee.core.aop.LoginUser;
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.javaee.core.model.ReturnObject;
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+
+import cn.edu.xmu.oomall.service.controller.vo.ServiceProviderCancelOrderVo;
+import cn.edu.xmu.oomall.service.controller.vo.ServiceProviderReceiveVo;
+import cn.edu.xmu.oomall.service.service.ServiceOrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(produces = &quot;application/json;charset=UTF-8&quot;)
+public class ServiceOrderController {
+<span class="fc" id="L21">    private final Logger logger = LoggerFactory.getLogger(DraftServiceController.class);</span>
+
+    private final ServiceOrderService serviceOrderService;
+
+    @Autowired
+<span class="fc" id="L26">    public ServiceOrderController(ServiceOrderService serviceOrderService) {</span>
+<span class="fc" id="L27">        this.serviceOrderService = serviceOrderService;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * 服务商确认收件
+     */
+    @PutMapping(&quot;/maintainers/{mid}/receive&quot;)
+    public ReturnObject serviceProviderReceive(@PathVariable Long mid, @RequestBody ServiceProviderReceiveVo vo, @LoginUser UserDto user) {
+<span class="nc" id="L35">        ReturnNo code = serviceOrderService.confirmReceive(mid, vo.getBillcode(), user);</span>
+<span class="nc" id="L36">        return new ReturnObject(code);</span>
+    }
+
+    /**
+     * 服务商取消服务单
+     */
+    @PutMapping(&quot;/maintainers/{mid}/serviceorders/{id}/cancelorder&quot;)
+    public ReturnObject serviceProviderCancelOrder(@PathVariable Long mid, @PathVariable Long id, @RequestBody ServiceProviderCancelOrderVo vo, @LoginUser UserDto user) {
+<span class="nc" id="L44">        ReturnNo code = serviceOrderService.serviceProviderCancelOrder(mid, id, vo.getReason(), user);</span>
+<span class="nc" id="L45">        return new ReturnObject(code);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

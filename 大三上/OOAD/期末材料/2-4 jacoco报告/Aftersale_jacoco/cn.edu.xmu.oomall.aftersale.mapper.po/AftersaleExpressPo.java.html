@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AftersaleExpressPo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.mapper.po</a> &gt; <span class="el_source">AftersaleExpressPo.java</span></div><h1>AftersaleExpressPo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.mapper.po;
+
+import cn.edu.xmu.javaee.core.aop.CopyFrom;
+import cn.edu.xmu.oomall.aftersale.dao.bo.AftersaleExpress;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = &quot;aftersale_aftersale_express&quot;)
+<span class="nc" id="L17">@AllArgsConstructor</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="fc" id="L19">@ToString</span>
+@CopyFrom({AftersaleExpress.class})
+public class AftersaleExpressPo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long aftersale_id;
+    private Long bill_code;
+    private Integer sender;
+    private Integer status;
+    private Long express_id;
+
+    public Long getId() {
+<span class="fc" id="L32">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L36">        this.id = id;</span>
+<span class="fc" id="L37">    }</span>
+
+    public Long getAftersale_id() {
+<span class="fc" id="L40">        return aftersale_id;</span>
+    }
+
+    public void setAftersale_id(Long aftersale_id) {
+<span class="fc" id="L44">        this.aftersale_id = aftersale_id;</span>
+<span class="fc" id="L45">    }</span>
+
+    public Long getBill_code() {
+<span class="fc" id="L48">        return bill_code;</span>
+    }
+
+    public void setBill_code(Long bill_code) {
+<span class="fc" id="L52">        this.bill_code = bill_code;</span>
+<span class="fc" id="L53">    }</span>
+
+    public Integer getSender() {
+<span class="fc" id="L56">        return sender;</span>
+    }
+
+    public void setSender(Integer sender) {
+<span class="fc" id="L60">        this.sender = sender;</span>
+<span class="fc" id="L61">    }</span>
+
+    public Integer getStatus() {
+<span class="fc" id="L64">        return status;</span>
+    }
+
+    public void setStatus(Integer status) {
+<span class="fc" id="L68">        this.status = status;</span>
+<span class="fc" id="L69">    }</span>
+    public Long getExpress_id() {
+<span class="fc" id="L71">        return express_id;</span>
+    }
+
+    public void setExpress_id(Long express_id) {
+<span class="fc" id="L75">        this.express_id = express_id;</span>
+<span class="fc" id="L76">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

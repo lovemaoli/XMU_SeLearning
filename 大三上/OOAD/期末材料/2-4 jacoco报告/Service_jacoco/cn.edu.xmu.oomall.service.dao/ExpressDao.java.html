@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExpressDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.service.dao</a> &gt; <span class="el_source">ExpressDao.java</span></div><h1>ExpressDao.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.service.dao;
+
+import cn.edu.xmu.javaee.core.model.dto.UserDto;
+import cn.edu.xmu.javaee.core.util.CloneFactory;
+import cn.edu.xmu.oomall.service.dao.bo.ServiceOrder;
+import cn.edu.xmu.oomall.service.mapper.ExpressPoMapper;
+import cn.edu.xmu.oomall.service.mapper.po.ExpressPo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@RefreshScope
+public class ExpressDao {
+<span class="fc" id="L17">    private final static Logger logger = LoggerFactory.getLogger(DraftServiceDao.class);</span>
+
+    @Value(&quot;${oomall.region.timeout}&quot;)
+    private int timeout;
+
+    private final ExpressPoMapper expressPoMapper;
+
+<span class="fc" id="L24">    public ExpressDao(ExpressPoMapper expressPoMapper) {</span>
+<span class="fc" id="L25">        this.expressPoMapper = expressPoMapper;</span>
+<span class="fc" id="L26">    }</span>
+
+    public void createExpress(ServiceOrder serviceOrder, UserDto user) {
+<span class="fc" id="L29">        ExpressPo po = new ExpressPo();</span>
+<span class="fc" id="L30">        po.setService_order_id(serviceOrder.getId());</span>
+<span class="fc" id="L31">        expressPoMapper.save(po);</span>
+<span class="fc" id="L32">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

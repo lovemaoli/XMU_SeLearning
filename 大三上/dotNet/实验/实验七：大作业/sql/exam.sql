@@ -1,0 +1,2 @@
+INSERT INTO `exam` (`id`, `name`, `RegistrationStartTime`, `RegistrationEndTime`, `SchedulingStartTime`, `SchedulingEndTime`, `ExamStartTime`, `ExamEndTime`) VALUES (1, 'OOAD', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `exam` (`id`, `name`, `RegistrationStartTime`, `RegistrationEndTime`, `SchedulingStartTime`, `SchedulingEndTime`, `ExamStartTime`, `ExamEndTime`) VALUES (2, 'OS', NULL, NULL, NULL, NULL, NULL, NULL);

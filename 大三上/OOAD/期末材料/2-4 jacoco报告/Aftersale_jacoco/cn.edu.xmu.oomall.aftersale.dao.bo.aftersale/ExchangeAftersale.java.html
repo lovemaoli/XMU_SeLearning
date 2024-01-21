@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExchangeAftersale.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aftersale</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.oomall.aftersale.dao.bo.aftersale</a> &gt; <span class="el_source">ExchangeAftersale.java</span></div><h1>ExchangeAftersale.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.oomall.aftersale.dao.bo.aftersale;
+
+import cn.edu.xmu.javaee.core.model.ReturnNo;
+import cn.edu.xmu.oomall.aftersale.dao.bo.Aftersale;
+import cn.edu.xmu.oomall.aftersale.dao.bo.AftersaleExpress;
+import cn.edu.xmu.oomall.aftersale.dao.bo.OrderItem;
+
+public class ExchangeAftersale extends Aftersale{
+
+
+    @Override
+    public ReturnNo examine(Long shopid, Boolean confirm){
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if(this.getShop_id().equals(shopid)){</span>
+            Long billcode;
+<span class="fc bfc" id="L15" title="All 2 branches covered.">            if(confirm){</span>
+<span class="fc" id="L16">                this.setStatus(Aftersale.PROCESSING);</span>
+<span class="fc" id="L17">                OrderItem orderItem = this.getOrderItemDao().findById(this.getOrder_id(), this.getOrder_item_id());</span>
+<span class="fc" id="L18">                billcode = this.getExpressDao().createExpress(shopid); //TODO</span>
+<span class="fc" id="L19">            }else{</span>
+<span class="fc" id="L20">                this.setStatus(Aftersale.FINISH);</span>
+<span class="fc" id="L21">                billcode = this.getExpressDao().createExpress(shopid); //TODO</span>
+            }
+<span class="fc" id="L23">            this.insertAftersaleExpress(billcode, 1);</span>
+<span class="fc" id="L24">            this.getAftersaleDao().save(this);</span>
+<span class="fc" id="L25">            return ReturnNo.OK;</span>
+        }else{
+<span class="fc" id="L27">            return ReturnNo.AUTH_NO_RIGHT;</span>
+        }
+    }
+
+    @Override
+    public ReturnNo shopAudit(Long shopid){
+<span class="fc" id="L33">        Long billcode = this.getExpressDao().createExpress(shopid); //TODO</span>
+<span class="fc" id="L34">        this.insertAftersaleExpress(billcode, 0);</span>
+<span class="fc" id="L35">        return ReturnNo.OK;</span>
+    }
+
+<span class="fc" id="L38">    public ExchangeAftersale(Aftersale aftersale){</span>
+<span class="fc" id="L39">        this.setId(aftersale.getId());</span>
+<span class="fc" id="L40">        this.setType(aftersale.getType());</span>
+<span class="fc" id="L41">        this.setReason(aftersale.getReason());</span>
+<span class="fc" id="L42">        this.setConclusion(aftersale.getConclusion());</span>
+<span class="fc" id="L43">        this.setQuantity(aftersale.getQuantity());</span>
+<span class="fc" id="L44">        this.setContact(aftersale.getContact());</span>
+<span class="fc" id="L45">        this.setMobile(aftersale.getMobile());</span>
+<span class="fc" id="L46">        this.setAddress(aftersale.getAddress());</span>
+<span class="fc" id="L47">        this.setStatus(aftersale.getStatus());</span>
+<span class="fc" id="L48">        this.setGmt_apply(aftersale.getGmt_apply());</span>
+<span class="fc" id="L49">        this.setGmt_end(aftersale.getGmt_end());</span>
+<span class="fc" id="L50">        this.setOrder_id(aftersale.getOrder_id());</span>
+<span class="fc" id="L51">        this.setOrder_item_id(aftersale.getOrder_item_id());</span>
+<span class="fc" id="L52">        this.setProduct_item_id(aftersale.getProduct_item_id());</span>
+<span class="fc" id="L53">        this.setProduct_id(aftersale.getProduct_id());</span>
+<span class="fc" id="L54">        this.setShop_id(aftersale.getShop_id());</span>
+<span class="fc" id="L55">        this.setCustomer_id(aftersale.getCustomer_id());</span>
+<span class="fc" id="L56">        this.setIn_arbitration(aftersale.getIn_arbitration());</span>
+<span class="fc" id="L57">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

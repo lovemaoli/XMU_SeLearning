@@ -1,0 +1,21 @@
+<schema attributeFormDefault="qualified" elementFormDefault="qualified"
+        targetNamespace="http://xmlns.oracle.com/VacationRequest"
+        xmlns="http://www.w3.org/2001/XMLSchema">
+ <element name="VacationRequestProcessRequest">
+  <complexType>
+   <sequence>
+    <element name="creator" type="string"/>
+    <element name="fromDate" type="date"/>
+    <element name="toDate" type="date"/>
+    <element name="reason" type="string"/>
+   </sequence>
+  </complexType>
+ </element>
+ <element name="VacationRequestProcessResponse">
+  <complexType>
+   <sequence>
+    <element name="result" type="string"/>
+   </sequence>
+  </complexType>
+ </element>
+</schema>
