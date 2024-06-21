@@ -19,3 +19,13 @@
 - [x] 数字媒体技术导论
 
 tips: 劝诫学弟学妹们入学一定要好好学习...
+
+---
+
+FOOLSIX:
+
+如果你是大一新生,有幸看到这个仓库,我推荐你务必读读以下两则材料
+
+认识大学: <上海交通大学生存手册> : https://survivesjtu.gitbook.io/survivesjtumanual
+
+学习计算机科学: CSDIY : https://csdiy.wiki/
