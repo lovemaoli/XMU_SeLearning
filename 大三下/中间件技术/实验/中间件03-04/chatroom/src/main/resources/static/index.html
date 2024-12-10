@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatroom</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<label>昵称:</label>
+<input id="uname">
+<button onclick="login($('#uname')[0].value)">登录</button>
+<button onclick="closeSse()">登出</button>
+<button onclick="listUsers()">显示在线用户</button>
+<br></br>
+<label>接收信息的用户:</label>
+<input id="receiver">
+<button onclick="connectWithUser($('#receiver')[0].value)">与该用户连接</button>
+<br></br>
+<label>群名:</label>
+<input id="group">
+<button onclick="enterGroup($('#group')[0].value)">加入群聊</button>
+<button onclick="connectWithGroup($('#group')[0].value)">连接群聊</button>
+<button onclick="listGroup()">显示群聊列表</button>
+<br></br>
+<label>内容:</label>
+<input id="content">
+<button onclick="sendMessage($('#content')[0].value)">发送消息</button>
+<button onclick="saveMessage()">存储消息记录</button>
+<button onclick="broadcastMessage($('#content')[0].value)">广播消息</button>
+<br></br>
+<label>需要翻译的文本:</label>
+<input id="transContent">
+<button onclick="baiduTranslate($('#transContent')[0].value)">调用百度翻译翻译此内容</button>
+<button onclick="changeTranslate()">中英文翻译切换</button>
+
+<div id="message"></div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/sse.js"></script>
+</html>

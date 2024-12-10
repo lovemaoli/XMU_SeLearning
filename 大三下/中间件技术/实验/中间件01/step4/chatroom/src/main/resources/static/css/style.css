@@ -1,0 +1,62 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    animation: bodyFadeIn 2s ease-in-out;
+}
+
+@keyframes bodyFadeIn {
+    0% {
+        background-color: #fff;
+    }
+    100% {
+        background-color: #f4f4f4;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0;
+    animation: messageFadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes messageFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

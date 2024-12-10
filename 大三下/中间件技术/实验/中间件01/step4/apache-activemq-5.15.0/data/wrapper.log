@@ -1,0 +1,117 @@
+STATUS | wrapper  | 2023/03/09 11:27:11 | --> Wrapper Started as Console
+STATUS | wrapper  | 2023/03/09 11:27:11 | Launching a JVM...
+INFO   | jvm 1    | 2023/03/09 11:27:12 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2023/03/09 11:27:12 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2023/03/09 11:27:12 | 
+INFO   | jvm 1    | 2023/03/09 11:27:12 | Java Runtime: Oracle Corporation 17.0.1 E:\MyJava\jdk17
+INFO   | jvm 1    | 2023/03/09 11:27:12 |   Heap sizes: current=251904k  free=240165k  max=1048576k
+INFO   | jvm 1    | 2023/03/09 11:27:12 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/win64 -Dwrapper.key=mYB3aXIgtJcX6clB -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=15544 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2023/03/09 11:27:12 | Extensions classpath:
+INFO   | jvm 1    | 2023/03/09 11:27:12 |   [..\..\lib,..\..\lib\camel,..\..\lib\optional,..\..\lib\web,..\..\lib\extra]
+INFO   | jvm 1    | 2023/03/09 11:27:12 | ACTIVEMQ_HOME: ..\..
+INFO   | jvm 1    | 2023/03/09 11:27:12 | ACTIVEMQ_BASE: ..\..
+INFO   | jvm 1    | 2023/03/09 11:27:12 | ACTIVEMQ_CONF: ..\..\conf
+INFO   | jvm 1    | 2023/03/09 11:27:12 | ACTIVEMQ_DATA: ..\..\data
+INFO   | jvm 1    | 2023/03/09 11:27:12 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2023/03/09 11:27:13 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@3d1dc297: startup date [Thu Mar 09 11:27:13 CST 2023]; root of context hierarchy
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[E:\SoftwareForStudy\Middleware\apache-activemq-5.15.0-bin\apache-activemq-5.15.0\bin\win64\..\..\data\kahadb]
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | KahaDB is version 6
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Recovering from the journal @1:503
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Recovery replayed 22 operations from the journal in 0.024 seconds.
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | PListStore:[E:\SoftwareForStudy\Middleware\apache-activemq-5.15.0-bin\apache-activemq-5.15.0\bin\win64\..\..\data\localhost\tmp_storage] started
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Apache ActiveMQ 5.15.0 (localhost, ID:LAPTOP-D4AQ8PCR-2985-1678332434507-0:1) is starting
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Listening for connections at: tcp://LAPTOP-D4AQ8PCR:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Listening for connections at: amqp://LAPTOP-D4AQ8PCR:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Listening for connections at: stomp://LAPTOP-D4AQ8PCR:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Listening for connections at: mqtt://LAPTOP-D4AQ8PCR:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2023/03/09 11:27:14 |  WARN | ServletContext@o.e.j.s.ServletContextHandler@52ee119f{/,null,STARTING} has uncovered http methods for path: /
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  INFO | Listening for connections at ws://LAPTOP-D4AQ8PCR:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  INFO | Connector ws started
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  INFO | Apache ActiveMQ 5.15.0 (localhost, ID:LAPTOP-D4AQ8PCR-2985-1678332434507-0:1) started
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  WARN | Store limit is 102400 mb (current store usage is 0 mb). The data directory: E:\SoftwareForStudy\Middleware\apache-activemq-5.15.0-bin\apache-activemq-5.15.0\bin\win64\..\..\data\kahadb only has 35383 mb of usable space. - resetting to maximum available disk space: 35383 mb
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  WARN | Temporary Store limit is 51200 mb (current store usage is 0 mb). The data directory: E:\SoftwareForStudy\Middleware\apache-activemq-5.15.0-bin\apache-activemq-5.15.0\bin\win64\..\..\data only has 35383 mb of usable space. - resetting to maximum available disk space: 35383 mb
+INFO   | jvm 1    | 2023/03/09 11:27:15 |  INFO | No Spring WebApplicationInitializer types detected on classpath
+INFO   | jvm 1    | 2023/03/09 11:27:16 |  INFO | ActiveMQ WebConsole available at http://0.0.0.0:8161/
+INFO   | jvm 1    | 2023/03/09 11:27:16 |  INFO | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/
+INFO   | jvm 1    | 2023/03/09 11:27:16 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2023/03/09 11:27:16 |  INFO | No Spring WebApplicationInitializer types detected on classpath
+INFO   | jvm 1    | 2023/03/09 11:27:16 |  INFO | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2023/03/09 11:30:34 |  WARN | Illegal character 0x0 in state=START for buffer HeapByteBuffer@17daeed8[p=1,l=360,c=16384,r=359]={\x00<<<\x00\x01d\x01ActiveMQ\x00\x00\x00\x0c\x01...ersion\t\x00\x065.16.4>>> no-cors\r\nSec-Fet...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00}
+INFO   | jvm 1    | 2023/03/09 11:30:34 |  WARN | badMessage: 400 Illegal character 0x0 for HttpChannelOverHttp@26f87df1{r=0,c=false,a=IDLE,uri=}
+INFO   | jvm 1    | 2023/03/09 11:32:32 |  WARN | Illegal character 0x0 in state=START for buffer HeapByteBuffer@68dd6f17[p=1,l=360,c=16384,r=359]={\x00<<<\x00\x01d\x01ActiveMQ\x00\x00\x00\x0c\x01...ersion\t\x00\x065.16.4>>>de: no-cors\r\nSec-...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00}
+INFO   | jvm 1    | 2023/03/09 11:32:32 |  WARN | badMessage: 400 Illegal character 0x0 for HttpChannelOverHttp@9b58de9{r=0,c=false,a=IDLE,uri=}
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8143 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8147 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8145 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8144 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8146 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:10 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8142 failed: java.io.IOException: Frame size of 352 MB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:35:36 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8176 failed: java.io.IOException: Frame size of 1 GB larger than max allowed 100 MB
+INFO   | jvm 1    | 2023/03/09 11:36:06 |  WARN | Transport Connection to: tcp://0:0:0:0:0:0:0:1:8177 failed: org.apache.activemq.transport.InactivityIOException: Channel was inactive (no connection attempt made) for too (>30000) long: tcp://0:0:0:0:0:0:0:1:8177
+INFO   | jvm 1    | 2023/03/09 11:49:36 |  WARN | Transport Connection to: tcp://127.0.0.1:3204 failed: java.net.SocketException: Connection reset
+STATUS | wrapper  | 2023/03/10 19:47:08 | --> Wrapper Started as Console
+STATUS | wrapper  | 2023/03/10 19:47:08 | Launching a JVM...
+INFO   | jvm 1    | 2023/03/10 19:47:09 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2023/03/10 19:47:09 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2023/03/10 19:47:09 | 
+INFO   | jvm 1    | 2023/03/10 19:47:09 | Java Runtime: Oracle Corporation 17.0.1 E:\MyJava\jdk17
+INFO   | jvm 1    | 2023/03/10 19:47:09 |   Heap sizes: current=251904k  free=239695k  max=1048576k
+INFO   | jvm 1    | 2023/03/10 19:47:09 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/win64 -Dwrapper.key=0cAjPDHcuds7E69A -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=1404 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2023/03/10 19:47:09 | Extensions classpath:
+INFO   | jvm 1    | 2023/03/10 19:47:09 |   [..\..\lib,..\..\lib\camel,..\..\lib\optional,..\..\lib\web,..\..\lib\extra]
+INFO   | jvm 1    | 2023/03/10 19:47:09 | ACTIVEMQ_HOME: ..\..
+INFO   | jvm 1    | 2023/03/10 19:47:09 | ACTIVEMQ_BASE: ..\..
+INFO   | jvm 1    | 2023/03/10 19:47:09 | ACTIVEMQ_CONF: ..\..\conf
+INFO   | jvm 1    | 2023/03/10 19:47:09 | ACTIVEMQ_DATA: ..\..\data
+INFO   | jvm 1    | 2023/03/10 19:47:09 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2023/03/10 19:47:09 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@6da53791: startup date [Fri Mar 10 19:47:09 CST 2023]; root of context hierarchy
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[E:\学习资料\【计算机】中间件技术\作业\实验一\step4\apache-activemq-5.15.0\bin\win64\..\..\data\kahadb]
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | KahaDB is version 6
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Recovering from the journal @1:3596
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Recovery replayed 516 operations from the journal in 0.029 seconds.
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | PListStore:[E:\学习资料\【计算机】中间件技术\作业\实验一\step4\apache-activemq-5.15.0\bin\win64\..\..\data\localhost\tmp_storage] started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Apache ActiveMQ 5.15.0 (localhost, ID:LAPTOP-D4AQ8PCR-1792-1678448830390-0:1) is starting
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Listening for connections at: tcp://LAPTOP-D4AQ8PCR:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Listening for connections at: amqp://LAPTOP-D4AQ8PCR:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Listening for connections at: stomp://LAPTOP-D4AQ8PCR:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Listening for connections at: mqtt://LAPTOP-D4AQ8PCR:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  WARN | ServletContext@o.e.j.s.ServletContextHandler@54c5431a{/,null,STARTING} has uncovered http methods for path: /
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Listening for connections at ws://LAPTOP-D4AQ8PCR:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Connector ws started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | Apache ActiveMQ 5.15.0 (localhost, ID:LAPTOP-D4AQ8PCR-1792-1678448830390-0:1) started
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  WARN | Store limit is 102400 mb (current store usage is 0 mb). The data directory: E:\学习资料\【计算机】中间件技术\作业\实验一\step4\apache-activemq-5.15.0\bin\win64\..\..\data\kahadb only has 35268 mb of usable space. - resetting to maximum available disk space: 35268 mb
+INFO   | jvm 1    | 2023/03/10 19:47:10 |  WARN | Temporary Store limit is 51200 mb (current store usage is 0 mb). The data directory: E:\学习资料\【计算机】中间件技术\作业\实验一\step4\apache-activemq-5.15.0\bin\win64\..\..\data only has 35268 mb of usable space. - resetting to maximum available disk space: 35268 mb
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | No Spring WebApplicationInitializer types detected on classpath
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | ActiveMQ WebConsole available at http://0.0.0.0:8161/
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | No Spring WebApplicationInitializer types detected on classpath
+INFO   | jvm 1    | 2023/03/10 19:47:11 |  INFO | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2023/03/10 20:34:26 |  WARN | Transport Connection to: tcp://127.0.0.1:1817 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:37:56 |  WARN | Transport Connection to: tcp://127.0.0.1:26899 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:41:10 |  WARN | Transport Connection to: tcp://127.0.0.1:27138 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:42:00 |  WARN | Transport Connection to: tcp://127.0.0.1:27182 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:53:44 |  WARN | Transport Connection to: tcp://127.0.0.1:1419 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:54:24 |  WARN | Transport Connection to: tcp://127.0.0.1:1478 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 20:55:28 |  WARN | Transport Connection to: tcp://127.0.0.1:1509 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 21:10:08 |  WARN | Transport Connection to: tcp://127.0.0.1:1801 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 21:12:19 |  WARN | Transport Connection to: tcp://127.0.0.1:1974 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 21:23:55 |  WARN | Transport Connection to: tcp://127.0.0.1:2100 failed: java.net.SocketException: Connection reset
+FATAL  | wrapper  | 2023/03/10 21:48:21 | OpenSCManager failed - 拒绝访问。 (0x5)
+INFO   | jvm 1    | 2023/03/10 21:49:29 |  WARN | Transport Connection to: tcp://127.0.0.1:2558 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 23:19:42 |  WARN | Transport Connection to: tcp://127.0.0.1:26176 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 23:47:26 |  WARN | Transport Connection to: tcp://127.0.0.1:29220 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 23:50:25 |  WARN | Transport Connection to: tcp://127.0.0.1:30049 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/10 23:53:14 |  WARN | Transport Connection to: tcp://127.0.0.1:30438 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/11 13:05:40 |  WARN | Transport Connection to: tcp://127.0.0.1:30761 failed: java.net.SocketException: Connection reset
+INFO   | jvm 1    | 2023/03/11 16:16:08 |  WARN | Transport Connection to: tcp://127.0.0.1:4661 failed: java.net.SocketException: Connection reset

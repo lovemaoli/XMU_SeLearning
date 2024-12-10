@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maoli.test.mapper.OrdersMapper">
+
+    <resultMap id="ordersMap" type="com.maoli.test.entity.Orders">
+        <id column="id" property="id"></id>
+        <result column="customer" property="customer"></result>
+        <result column="price" property="price"></result>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.maoli.test.entity.Orders">
+        insert into orders values(#{id},#{customer},#{price})
+    </insert>
+
+    <select id="findById" resultType="com.maoli.test.entity.Orders" parameterType="Integer">
+        select * from orders where id = #{id}
+    </select>
+
+</mapper>

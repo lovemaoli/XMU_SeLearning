@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    close-timeout: 15s
+    in-memory: true
+    non-blocking-redelivery: false
+    send-timeout: 0
+    queue-name: active.queue
+    topic-name: active.topic.name.model
+
+  pool:
+    enabled: true
+    max-connections: 10
+    idle-timeout: 30000
+
+baidu_translate:
+  appid: 20240411002021231
+  securityKey: bw5Fkwez1RAMXSZeyhXA
