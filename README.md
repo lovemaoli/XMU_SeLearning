@@ -35,7 +35,7 @@ My learning materials for software engineering courses in Xiamen University.
 - 课件：课程的课件 (不同老师班的课件可能略有不同)
 - 习题：拓展习题
 
-笔记、电子书、课件、习题可能会放在学习资料文件夹下
+笔记、电子书、课件、习题可能会放在学习资料文件夹下。由于不使用lfs的情况下git单次提交不能超过100MB，所以有些较大的电子书会被拆分或者压缩
 
 # 友链
 
