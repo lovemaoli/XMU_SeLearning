@@ -1,0 +1,59 @@
+课内
+5.------Section 1------
+in B's default constructor
+in C's default constructor
+in A's default constructor
+------ Section 2------
+in B's default constructor
+in C's default constructor
+in A's default constructor
+In func1
+in A's destructor
+in C's destructor
+in B's destructor
+------Section 3------
+in func2
+
+6.
+------Section 1------
+in A's default constructor
+in A's default constructor
+in B's default constructor
+------Section 2------
+in A's default constructor
+in A's f
+in A's g
+in A's f
+in A's g
+in A's destructor
+------Section 3------
+in A's default constructor
+in B's default constructor
+in B's f
+in A's g
+in A's f
+in A's g
+in B's destructor
+in A's destructor
+------Section 4------
+in A's f
+in A's g
+in A's f
+in A's g
+------Section 5------
+in B's f
+in A's g
+in A's f
+in A's g
+------Section 6------
+in B's constructor
+in A's constructor
+------Section 7------
+in A's constructor
+
+
+课外：
+1.B
+2.B
+3.A
+4.CBA

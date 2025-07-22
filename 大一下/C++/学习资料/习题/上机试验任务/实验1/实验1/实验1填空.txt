@@ -1,0 +1,135 @@
+1)integer   If    
+
+2)bool   char   double   float    int  
+ 
+3)不是，0开头表示数字属于八进制，不能出现8
+
+4)修改：#include <iostream>
+int main()
+{  
+cout<< endl <<“Hello World” <<endl;
+}
+
+5)1,0,0
+
+6)2
+
+7)40
+
+8)9,10
+
+9)#**#**#**
+
+10)3 5 7 11 13 17 19
+
+13)
+#include <iostream>
+#include <cstdlib>
+typedef struct aa
+{
+	int data;
+	struct aa *next;
+}NODE;
+NODE *Creatlink(int n,int m)
+{
+	NODE *h,*p,*s;
+	int i; 
+	p=(NODE *)malloc(sizeof(NODE));
+	h=p;
+	p->next=NULL;
+	for(i=1;i<=n;i++)
+	{
+	    p->data=rand()%m;
+	    s->next=p->next;
+     	    p=(NODE*)malloc(sizeof(NODE));
+	  }
+	return h;
+}
+outlink(NODE *h)
+{
+	NODE *p;
+	p=h->next;
+	printf("\n\nThe list :\n\nhead");
+	while(p)
+	{
+		printf("->%d",p->data);
+		p=p->next;
+	}
+	printf("\n");
+}
+
+main()
+{
+	NODE *head;
+	head=Creatlink(8,22);
+	outlink(head);
+}
+
+
+14)#define NULL 0
+#include <iostream>
+#include <cstdlib>
+    struct stud
+     {
+       long  num;
+       char name[10];
+       float score;
+       struct stud *next;
+     };
+     
+    int n;
+    struct stud  create()                   {
+	struct stud *head,*p1,*p2;
+	n=0;
+	p1=p2=(struct stud *)malloc(sizeof(struct stud));
+	cin >>p1->num;
+	cin >>p1->name;
+	cin >>p1->score;
+     
+	head=NULL; 
+    while(p1->num!=0)                     
+      {
+	n=n+1;
+	if(n==1) head=p1;
+	else p2->next=p1;
+	p1=(struct stud *)malloc(sizeof(struct stud));
+	cin>>p1->num;
+	cin>>p1->name;
+	cin>>p1->score;
+       }
+      p2->next=NULL;
+      return(head);
+}
+
+
+
+15)#include <iostream>
+#include <cstdlib>
+#define LEN sizeof(struct n)
+struct n
+{
+    long num;
+    struct n *next;
+};
+
+void main()
+{  int n,i; 
+  cin>>n;
+  struct n *head ,*p1,*p2,*p;
+  p1=p2=(struct n*)malloc(LEN);
+  cin>>p1->num;
+  for(i=0;i<n;i++)
+  {  if(i==0)  head=p1;
+else p2->next=p1;  
+p2=p1;
+    p1=(struct student*)malloc(LEN);
+    cin>>p1->num;
+  }
+  p2->next=NULL;
+  p=head;
+  while(p!=NULL)
+  {
+    printf("%ld",p->num);
+    p=p->next;
+  }
+}
