@@ -1,0 +1,1818 @@
+-------------------------------------------------------------------------------
+File  : 'changes.txt' - Info about IrfanView updates (important changes only!)
+Author: Irfan Skiljan
+E-Mail: irfanview@gmx.net
+WWW   : http://www.irfanview.com
+-------------------------------------------------------------------------------
+
+Version 4.54		(Release date: 2019-12-12)
+- Multiple Undo/Redo steps added (max. 20 steps, Properties->Editing)
+- Zoom magnifier added to fullscreen mode
+- Option to disable Zoom magnifier (Properties->Viewing)
+- Profiles option added to Print dialog
+- New option in Properties->Fullscreen: Set horizontal and/or vertical centering
+- New option in Print dialog: Set horizontal and/or vertical centering
+- Option to set selection border thickness (Properties->Editing)
+- Option to enable/disable PlugIns (Help->Installed PlugIns)
+- Extended sidecar files option: Copy/Move possible (Properties->File Handling)
+- New Canvas dialog option/method: Set aspect ratio
+- New option in Watch/Hot Folder dialog: Watch subfolders
+- New Lossless JPG Dialog option: Add (or Replace) ICC color profile
+- New Thumbnails option: Keep focus in folder tree (after folder change/click)
+- Option to show Color Corrections dialog in dark mode
+- Fix in Metadata PlugIn (crash with bad EXIF tag in CR2 files; KVE-2019-1184)
+- BMP loading bug fixed (thanks to Joshua Faust, CVE-2019-16887)
+- JP2 PlugIn loading bug fixed (thanks to Linhlhq)
+- ANI PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17252)
+- RAS PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17251)
+- EXR PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17255)
+- DPX PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17256)
+- WSQ PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17250)
+- JLS PlugIn loading bug fixed (thanks to Linhlhq, CVE-2019-17253)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.53		(Release date: 2019-05-15)
+- New effect in Image->Effects menu: Insert Speech Bubbles
+  Examples: http://www.irfanview.com/screenshot/big/37_speech_bubbles.jpg
+- New effect in Image menu: Add Shadow, Shape, Rounded corners, Snowflake etc.
+- New effect in Image menu: Add Hexagon (or tiles), Star, Spikes, Heart etc.
+- Show mouse zoom magnifier: CTRL+SHIFT + Mouse-move in the image
+  (mouse wheel zooms within magnifier area, click inside closes it)
+- New border effect in "Add Frame" dialog: Broken Edge
+- New effect added: Radial Brighten (Effects browser dialog)
+- New option in Capture dialog: Draw red circle around cursor
+- New option in Advanced batch dialog: Set maximal dimensions for resize
+- Profiles option added to Contact Sheet dialog
+- Option to read 1 BPP images in RAW dialog
+- Command line: /filepattern can be combined with /slideshow
+- TIF/PCX/PSD  loading bugs fixed (thanks to Apriorit)
+- Some PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.52		(Release date: 2018-12-12)
+- Improved Paint PlugIn stability
+- Support for DPX and CIN formats (DPX PlugIn, thanks to Patrick A. Palmer)
+- Support for FLIF format (Free Lossless Image Format, PlugIn)
+- Support for HEIF format (with installed HEVC extensions/codec, see Win10)
+- New option in Advanced batch dialog: Set minimal dimensions for resize
+- Option to save settings in Canvas dialog
+- Insert Text dialog: CTRL + click in image adds the text permanently
+- Command line: /filepattern option: accepts multiple extensions ("*.jpg;*.png")
+- Improved support for high DPI displays
+- Improved JPG2000 format loading
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.51		(Release date: 2018-02-27)
+- Improved JPG save option: "Set file size" (no RIOT PlugIn needed)
+- New options in IrfanView Shell Extension (PlugIns website)
+- Support for animated WebP files
+- Some fixes (Zoom box text, EXE/DLL icon loading)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.50		(Release date: 2017-10-10)
+- IrfanView and many PlugIns ported to Unicode! 
+  The INI file will be converted to Unicode if you call the "Properties" dialog
+- IrfanView will NOT run on Win9x anymore
+- Support for iPhone PNG files (Formats PlugIn, thanks to Jongware)
+- Move selection with: CTRL or SHIFT + right mouse button (Y or X axis only)
+- New option in Extract Pages/Frames dialog: Set page/frame range
+- Some fixes in the Print dialog
+- New text pattern: $m = show number of megapixels
+- New Thumbnails sort menu: Sort by Megapixels
+- Adjust print preview image to color/bw printer settings
+- Wallpaper save format changed to PNG (Win8 and later)
+- New zooming method: Mouse wheel alone, if "Browsing->View other files" disabled
+- New command line option: /hotfolder="folder"
+  => start Hotfolder option with a specific folder
+- ANI format moved to FORMATS PlugIn
+- JP2 PlugIn loading bug fixed (Talos Advisory TALOS-2017-0310)
+- FPX/RLE/DJVU/ANI/SVG PlugIn loading bugs fixed (thanks to Lin Wang)
+- Tools PlugIn EXE-loading problem fixed (thanks to Cody Sixteen and Lin Wang)
+- Several PlugIns fixed or ported to unicode, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.44		(Release date: 2016-12-20)
+- Metadata PlugIn ported to Unicode (EXIF/IPTC/Comment data in JPG files)
+- Batch scan dialog: Scan to multipage file works also with PDF output
+- New Edit menu options: Remove or Insert strip (based on selection)
+- New Blur filter: Gaussian Blur (thanks to Ivan Kuckir)
+- New Blur filter: Fast Gaussian Blur (thanks to Mario Klingemann)
+- New Properties->Fullscreen option: Show blurred image sides
+- Option to show mouse coordinates (Properties->Viewing)
+- New options in Histogram dialog: modeless dialog, selections, curves
+- New effect added: Vertical Shift (Effects browser dialog)
+- New Thumbnails menu: Show/hide filenames text for thumbnails
+- New Image->Effects PlugIn: Film Simulation (thanks to Jan Ingwer Baer)
+  (check the PlugIns page for CLUT files download)
+- New wallpaper option: Fill (Hotkey: CTRL + SHIFT + F)
+- New Rename dialog option: Rename also sidecar files
+- New Print dialog option: Save settings (without printing)
+- Command line option "/append" works also with PDF output
+- A BMP loading bug fixed (thanks to Ren Yi)
+- The hotkey "D" (clear screen) works also in Fullscreen/Slideshow mode
+- Loading crashes fixed in JP2 PlugIn (JPG-2000 format)
+- The Luratech formats (JP2/JPM) are now Freeware (Saving and Batch mode)
+- Command line: /convert accepts wildcard also for a single filename, like:
+  i_view32.exe c:\testimg.bmp /convert=c:\tifs\*.tif => save as "testimg.tif"
+- Command line: /capture=7 can contain the input rectangle, like:
+  i_view32.exe /capture=7=(0,0,800,600)
+-------------------------------------------------------------------------------
+
+Version 4.42		(Release date: 2016-03-10)
+- New File menu: Save Selection as (Hotkey: CTRL + SHIFT + B)
+- New option in Capture dialog: Show timer countdown
+- New option in Export Tiles dialog: Extract all pages from multipage files
+- New option in Fine Rotation dialog: Select "best" old image
+- New option in Print dialog: No image overflow on page
+- New HTML-Export dialog option: Copy extra files to destination folder
+  (prepare a "copy_files.txt" file with filenames)
+- Some PCX/BMP/PPM loading bugs fixed (thanks to Moshe Kaplan)
+- Improved FITS format loading
+- New text pattern: $R = image aspect ratio (width/height)
+- New hotkey: CTRL + Click into selection = clear selection
+- Some minor fixes (Thumbnails/folder scan)
+- Some workarounds for Windows-10 bugs/issues (Installer signature, Associations)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.41		(Release date: 2015-11-29)
+- 64-bit version: Use 32-bit TWAIN drivers if 64-bit drivers not installed
+- New dialog/GUI on Windows tablets ("2 in 1", Thanks to Arun Anbu from Intel)
+- New hotkey: SHIFT + Tab: Start/End Tablet mode dialog
+- New hotkey: CTRL + Insert: Edit->Copy
+- New Slideshow hotkey: Q = Pause/Resume a timer slideshow
+- New option for /info command line: write CSV file: /info=infofile.csv
+- Added PlugIns-Installer options for: /silent and /folder (Check FAQs page)
+- "Amazon 1Button App" offer removed
+- Some fixes (Auto color correction, PNG compression, UNC-Paths in 64-bit)
+-------------------------------------------------------------------------------
+
+Version 4.40		(Release date: 2015-07-31)
+- The 64-bit version of IrfanView is available: http://www.irfanview.com/64bit.htm
+  The 64-bit version is faster for very large images (25+ Megapixels)
+- Option to support IrfanView by installing "Amazon 1Button App" (OPTIONAL !)
+- Support for animated PNG files (APNG)
+- EXIF date (taken) sort menu added to main window sort menu
+- New Sort dialog option: Sort by EXIF date (date taken)
+- New toolbar item: Zoom box with common values (Properties->Toolbar)
+  (You can also write a new value and press Enter)
+- New PDF PlugIn (enable in Properties->PlugIns->PDF)
+- New in Thumbnails window: Export image tiles for selected files (batch mode)
+- Load cursors and bitmaps from EXE/DLL files (Thanks to Jason Hood)
+- Option to set a custom font for TXT loading (Properties->Browsing/Editing)
+- Option to use left mouse button for fullscreen scrolling (for touch screens)
+- The 2 GB limit for EXE/SCR-Slideshow files changed (now: 4 GB, Windows EXE limit)
+- New Fine Rotation method/option added (faster for very large images)
+- New option for the Red-Eye-Correction effect (dialog): Set gray intensity
+- Some fixes in the Paint PlugIn
+- New hotkey: CTRL + SHIFT and '+' or '-' to change GIF/ANI/PNG animation speed
+- New hotkey: CTRL + SHIFT + mouse click: Create selection based on clipboard image
+- New button in Batch processing dialog: Pause/Resume
+- New button in Advanced batch dialog: Get current selection for cropping
+- You can Drag&Drop (or Send To) multiple files to IrfanView shortcut or window
+- PlugIns "Metadata" and "JPG-Transform" included in the IrfanView installer
+- New command line option: /file=filename(s)
+  => set the input filename(s) (at the end of the command chain)
+- New command line option: /display=(x,y,w,h,zoom,scrollX,scrollY)
+  => set position, size, zoom and scroll position of the window and image
+- Command line: wildcards support for /extract (see "i_options.txt")
+- Command line: /panorama, /multitif and /multipdf can use "filelist=txtfile"
+  (see "i_options.txt" for examples)
+-------------------------------------------------------------------------------
+
+Version 4.38		(Release date: 2014-06-23)
+- New Options menu/feature: Export image tiles (split image)
+- New Options menu: Hotfolder (Watch folder and show new images)
+- New view modes in Thumbnails window: Tiles, Details and List mode
+- New feature: (new) "IrfanView Shell Extension" available on PlugIns website
+  (= adds Context menu with some IrfanView operations to Windows Explorer)
+  Thanks to Michael Dunn!
+- New options in the "Adobe 8BF filters" dialog (Thanks to Frank/jazzman)
+- Improved speed in the LCMS (Color Management) PlugIn
+- Added support for old formats like: Amiga, Atari, C64, ZX Spectrum etc.
+  Thanks to Piotr Fusik! (RECOIL support in Formats PlugIn)
+- New Print dialog features: Borderless print, Negative positions, better preview
+- New command line option: /makecopy, a flag for /convert
+  => if destination file exists, save new file as copy: (1), (2), (3) etc.
+- Option to add max. 10 external editors (for advanced users): Properties->Misc
+- Option to Drag&Drop current file to other programs: SHIFT + left mouse + drag
+- New Print dialog option: Always use default printer at dialog start
+- New hotkey: CTRL + SHIFT + N = Negative image (all channels)
+- Better support for high resolution screens (high DPI)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.37		(Release date: 2013-12-16)
+- New options in Resample dialog: Use Resample filters for shrinking; Gamma fix
+- Improved GIF animations
+- Features from Adobe-8BF PlugIn (8BF_FILTERS.DLL) moved to Effects PlugIn
+- New Image menu: Adobe 8BF PlugIns; with new fixed and dynamic PlugIns like:
+  Perspective Transformations and SmartCurve - big thanks to PlugIn authors!
+- Option to set custom folder for Adobe 8BF PlugIns menu (Properties->PlugIns)
+- Added Drag&Drop from Thumbnails window to other programs
+- New menu: File->Open Recent Files (can be disabled in Properties->Misc)
+- New option in Advanced Batch dialog: Don't shrink bigger images
+- Added Center option for Crop in Advanced Batch dialog and /crop
+- Replace Color option can work on selections
+- GIF bug fixed (credits to Dmitry Janushkevich, Secunia Research, CVE-2013-5351)
+- MrSID bug fixed (reported by Parvez Anwar via Secunia SVCRP, thanks!)
+- Japanese folder bug fixed (reported by Asuka Nakajima, JPCERT/CC, CVE-2013-6932)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.36		(Release date: 2013-06-27)
+- New Lossless JPG Dialog option: Rebuild EXIF-Thumbnail
+- Update of EXIF-Thumbnail on JPG-Lossless-Crop
+- Option to Edit EXIF date/time (Options menu or Thumbnails window for batch mode)
+- Improved color accuracy in "Decrease color depth" function
+- Added "Best quality" option in "Decrease color depth" dialog (Thanks to Kornel Lesinski!)
+- New (Freeware) PlugIn for DWG format - thanks to BabaCAD-Software guys!
+- New feature: Replace Color (Image menu and Advanced Batch dialog)
+- New feature: Create tiled image (Image menu)
+- New effects PlugIn: Filter Sandbox (Image->Effects menu, JewelScript, thanks to Stefan Kuhn!)
+- Option to invert single color channels only (Image menu)
+- New Edit menu option: Show Grid (see also Properties->Editing for cell size)
+- New Slideshow Burning PlugIn for WinXP SP3 or later (Thanks to Eric Haddan!)
+- New display options added: Fit small image side to window/desktop
+- Profiles option added to Batch Rename dialog
+- New Advanced Batch dialog option: Set new image size in MegaPixels
+- New options for Fine Rotation effect: Keep old image size and background
+- New feature in Color Corrections dialog: Change White Balance
+- New effect in "Image->Add border/frame" dialog: Inside fading frame
+- New Thumbnails menu: Extract pages from selected multipage files
+- New Add Text dialog effect: Filled outline text (Thanks to Wong Shao Voon)
+- Negative and Grayscale menus can work on selections
+- Improved selection handling with large zooms
+- Updated Icons-Plugin (bigger/nicer icons, thanks to Florian Kilzer)
+- New hotkeys: CTRL + SHIFT + left/right arrow: Fine rotation, 0.10 deg
+- New hotkeys: CTRL + SHIFT + up/down arrow: Fine rotation, 0.05 deg
+- Batch-Scan dialog: some placeholders can be used for the filename (help file)
+- New text placeholders to add $ and | characters (see help file)
+- New (admin) INI file option: Set save formats in Save-As dialog (see FAQs)
+- New hotkey for slideshow mode: SHIFT + Z = show all or portrait/landscape images
+- Hotkey: G = stop or resume GIF/ANI animation (browse frames/pages if stopped)
+- DCX/ANI loading bug fixed (reported by FuzzMyApp, thanks!)
+- FPX bug fixed (reported by Secunia/Krystian Kloskowski, thanks!)
+- Added reading support for 32-bit (96 BPP) TIF images
+- New command line option: /multipdf  (same syntax as /multitif)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.35		(Release date: 2012-11-07)
+- New Add Text dialog features: No selection needed, Preview, Effects etc.
+- Option to save profiles (Add-Text, JPG-Save and Color Correction dialog)
+- New capture dialog option: Capture fixed screen rectangle; Stop timer
+- New transparency save option: Use main window color (GIF, PNG, ICO)
+- New file handling option: Remove sidecar files (Properties->File Handling)
+- New options in Watermark dialog: Preview, Click to preview
+- New folder browsing options in: Properties->Browsing (stop on folder end)
+- The EXIF-Thumbnail will be updated during saving as JPG
+- New (Freeware) PlugIn for DXF format - thanks to BabaCAD-Software guys!
+- New RAW format options in Properties->PlugIns
+- New menu: View->Multipage images->Auto show page thumbnails dialog
+- New print option for multipage images: Print specific pages
+- Option to Set selection rectangle color (Properties->Editing)
+- Context menu for video player (Copy frame, change volume)
+- New display menu option: Apply Sharpen after Resample
+- New button in Batch dialog: Save filenames as TXT file
+- New Thumbnail menus: Start Multipage TIF/PDF dialog with selected files
+- Thumbnails folder tree: CTRL + click = Load thumbs from all subfolders
+- New option for FLV files: Play in main window (Properties->Video)
+- New options in Batch rename dialog (create duplicate files)
+- Option to save custom dimensions in Resize and Custom-Selection dialog
+- Updated TIF loader
+- Updated DJVU PlugIn, thanks to guys from Caminova!
+- Command line: wildcards support for /multitif and /panorama (see i_options.txt)
+- Command line switch for /info: /shortinfo (write just file index and name)
+- Command line option for EXE Slideshow: /clearmonitors (clear other monitors)
+- Command line option "/append" can be now also used with "/scan"
+- New placeholder: $Q (get "correct" file extension, if possible)
+- New placeholder: $P (print size, from image->info dialog)
+- New fullscreen/slideshow hotkey: C = center image, On/Off
+- F8 key now allowed in slideshow mode: copy current file
+- Some TIF/GIF/CLP loading bugs fixed (thanks to Codenomicon Fuzz-o-Matic guys!)
+- PCX/XCF/ECW loading bug fixed (reported by FuzzMyApp, thanks!)
+- FPX/RLE/TTF/DJVU bug fixed (by Francis Provencher via Secunia SVCRP, thanks!)
+- JLS (CharLS) loading bug fixed (reported by Joseph Sheridan, thanks!)
+- PIC format removed (Softimage PICT, loading bugs)
+- NLM format removed (Nokia LogoManager formats, loading bugs)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.33		(Release date: 2012-03-28)
+- Improved rotation speed for 1 BPP images
+- New Advanced Batch dialog option: Change order of operations
+- New Thumbnails window option: Try to load EXIF-Thumbnail for JPG files
+- Simple Drag&Drop feature from Thumbnails window added
+  (Load files from Thumbnails in another programs/editors)
+- Selection: hold ALT key pressed during drawing to make a proportional selection
+  with the inverted ratio from "Create Custom selection" dialog
+- New effect added: Horizontal Shift (Effects browser dialog)
+- New option in "Decrease color depth" dialog: Convert 24 BPP to RGB-565
+- New option in Resize dialog: Auto adjust DPI based on new sizes
+- New option in Add-Text dialog: Adjust font size to current zoom-in size
+- Support for JPEG-XR format (HDP PlugIn)
+- Possible Thumbnail/Resample problem on Win7-64 bit fixed
+- FSH format (reading) removed (PlugIn bugs)
+- DIB-RLE bug fixed (reported by Parvez Anwar via Secunia SVCRP, thanks!)
+- JPG-2000 PlugIn crashes fixed (by Parvez Anwar/Secunia and FuzzMyApp, thanks!)
+- ANI/EMF/JPM loading bugs fixed (reported by FuzzMyApp, thanks!)
+- SGI bug fixed (reported by Gynvael Coldwind, thanks!)
+- Some new Admin INI file options added (Toolbar, Browsing, Delete); see FAQs
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.32		(Release date: 2011-12-15)
+- Improved Resampling (Speed; Lanczos artefacts: thanks to Marcel Lancelle)
+- New feature: Add watermark image (Edit menu and Advanced batch dialog)
+- Improved zooming: CTRL + wheel (keep mouse coordinates) and centered zoom
+- Support for WebP format (Weppy format, PlugIn, reading + saving)
+- Support for PDN format (Paint.NET format, PlugIn, thanks to Martin Osieka)
+- Support for XCF format (GIMP format, PlugIn, thanks to Martin Osieka)
+- Face Detection Plugin (Thumbnails window, thanks to MulticoreWare guys)
+- New JPG save option: Try to save with original (estimated) JPG quality
+- Improved/changed sort menus (XP/natural order)
+- New batch rename option: Run test rename
+- New Thumbnails menu: Refresh selected thumbs
+- Batch dialog, Output directory: Placeholders are now allowed
+- New Properties dialog: Zoom / Color management
+- New expert zoom option: Edit table with fixed zoom values (Properties->Zoom)
+- New fullscreen options: Center image, Text layer (Properties->Fullscreen)
+- New option in "Create multipage TIF/PDF" dialog: Load filenames from TXT file
+- New options in JPG IPTC/Comment dialogs: Allow Unicode PlugIn to change text
+- New command line option: /cmdexit (close current IrfanView after command line)
+- TIF/FPX bug fixed (reported by Secunia, thanks!)
+- New special INI option to hide common folders in Open/Save dialog (see FAQs)
+- New hotkey: CTRL + SHIFT + K = Keep Scroll position
+-------------------------------------------------------------------------------
+
+Version 4.30		(Release date: 2011-06-20)
+- Faster JPG loading! (Thanks to D. R. Commander for libjpeg-turbo)
+- New Paste options: Paste on left/right/top/bottom (Edit->Paste Special)
+  (see also the new option: Properties->Editing->Fit clipboard image)
+- Changes in Open/Save dialogs (Recent folders box, View mode is remembered)
+- Menu "File->Recent directories" removed (MRUDs are now in the Open dialog)
+- New options in Canvas Size dialog
+- EXIF + IPTC PlugIns merged into Metadata-Plugin
+- New option in JPG IPTC/Comment dialogs: Allow placeholders
+- New option in JPG IPTC dialog: Batch editing (if started from Thumbnails)
+- New options in Capture dialog (send to Clipboard, Printer, new name patterns)
+- Option to show Alpha channel for TIF/PNG/TGA files (menu: Image->Show channel)
+- Option to show TIF alpha/transparency (for 32 bit RGBA images, Properties->Viewing)
+- Added basic support for EXIF saving from Digi-Cam RAW formats to JPG
+- The Effects dialog can be resized/maximized
+- AltaLux Effect/PlugIn added (Image->Effects menu, Thanks to Stefano Tommesani)
+- Option to set a tolerance value for "Auto crop borders" (Properties->Editing)
+- New Advanced-Batch dialog: Crop width/height can be negative (crop from end)
+- New option in batch rename dialog: Remember last rename counter
+- Support for MPO format (Multi Picture Object, first 2 images can be loaded)
+- Support for GLCD format (Formats PlugIn)
+- DEL key now allowed in slideshow mode: delete current file
+- New hotkeys: SHIFT + 1-3: Start external editor 1-3
+- New hotkey: SHIFT + "." (point): Toggle slideshow modes: random/automatic
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs fixed (ALT+F4)
+-------------------------------------------------------------------------------
+
+Version 4.28		(Release date: 2010-12-16)
+- Option to support IrfanView by installing Google Chrome browser (OPTIONAL !)
+- New multipage images feature: Show page thumbnails (Hotkey: F10, menu: View)
+  (Uses thumbnail settings from Thumbnails window, use TAB for focus change)
+- New multipage images option: Change pages using Page keys (Properties->Browsing)
+- New color management option in Properties->Viewing: 
+  Set input ICC profile file for images without embedded ICC profile (default: sRGB)
+- New edit menu: Show selection grid (None, Golden Ratio, Thirds)
+- New edit menu: Redo (one step, hotkey: CTRL + J)
+- Video Playbar showed if DirectShow option used (Fullscreen: B = toggle playbar)
+  (see Hotkeys help page; Thanks to Henner Helmers for testing)
+- Option to show an image color channel, menu: "Image->Show channel" and
+- Option show the channel as color or grayscale (Properties->Browsing/Editing)
+- Selection: hold CTRL key pressed during drawing to make a proportional selection
+  with the ratio from "Create Custom selection" dialog
+- New selection hotkeys:
+  ALT + arrows: change width/height of the selection rectangle
+  CTRL + arrows: proportional resize of the selection rectangle
+  Arrows: If no scrollbars visible: Move selection rectangle
+- New placeholder options for: $D, $d, $F and $N => allow partial text, example:
+  $N[0-5] => get first 5 characters from the file name
+- New window display options: Fit to window width/height
+- New Email PlugIn option: Resize large images
+- New Batch resize option: Resize based only on new/old DPI value
+- Vertical and horizontal flip can be applied on selections
+- New print dialog option: Collate (for multiple copies of multipage images)
+- New Insert-Text dialog options: Antialiased text and Centered (batch mode)
+- New Sort dialog option: Insert before selected file (for Batch/Slideshow)
+- New JPG-Transform PlugIn option: Write/remove JFIF JPG header
+- New Capture dialog feature: Set timer value as decimal number
+- New hotkey: click into image + SHIFT = copy hex color value to clipboard
+- New thumbnail sizes for 3:2, 4:3 and 16:9 ratios (Thumbnail window options)
+- New selection color/method for items in Thumbnails window
+- Improved extraction of video frames (more formats supported if Codecs installed)
+- New feature for advanced users: define an external editor for every extension
+  => see FAQs for an example, [CustomEditors]
+- New PNG save option: Save transparency as Alpha channel (Thanks to Thomas Henlich)
+- Command line: /advancedbatch and /convert can process all pages from multipage TIF
+- Command line: /extract works now for GIF/ANI animations too
+- New command line option: /export_pal=palfile (export palette to a PAL file)
+- New hotkey: SHIFT + F5 = Refresh (force resample, if set in display options)
+- New hotkey: SHIFT + Home/End = Load first/last page in a multipage image
+- New hotkey: CTRL + D = Image->Add border/frame
+- New hotkey: CTRL + SHIFT + X = Set as wallpaper: Proportional
+- Menu change: Create max. custom selection moved to "Create maximized selection"
+- At request of Luratech: removed support of LWF/LDF formats 
+ (projects/formats stopped, buffer overflows reported)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.27		(Release date: 2010-05-09)
+- Updated/improved TIF loader
+- Save dialog: if you write file extension, the right file type is selected
+- New edit menu: Crop visible window area (incl. zoom)
+- The internal selection code has been changed (to fix some rounding errors)
+- New capture option: Object capture (with auto scroll, if possible)
+- New button in Batch progress dialog: Return to batch (use same files again)
+- New JPG save dialog option: Keep XMP data (from original JPG file)
+- New command line option: /effect=(effect-nr,value1,value2)
+  Apply effect from Effects-Browser dialog,  Example: Apply Blur of 30
+  i_view32.exe c:\image.jpg /effect=(1,30,0)
+- New option in Print dialog: Auto rotate (based on image dimensions)
+- New HTML dialog option: Create thumbs without frame/border
+- Support for BLP format (BLP-2, Formats PlugIn)
+- PSD loading bug/crash fixed (PSD bug reported by Secunia, thanks!)
+- Fixed problem in "Create multipage PDF" dialog
+- Batch conversion of multipage images to multipage PDF is now possible
+  (Advanced options work on the first page only)
+- New image menu: Add border/frame (Thanks to Balazs from 530.hu)
+- New edit menu: Create maximized current custom selection (using dialog values)
+- New edit menus: Create maximized selection (for some standard ratios)
+- Bigger "Browse for folder" dialog
+- New option in Properties->Browsing: Beep on folder loop (or screenshot save)
+- New option for external editors: Send all filenames in one call (Properties->Misc)
+- New option in Postscript PlugIn/dialog: Set custom Ghostscript DLL location
+- Another Blur effect added (Total variation method, thanks to Daniel Marks)
+- New option in Properties->Extensions->Icons: Leave current icon (for XP only)
+- Hotkey CTRL + A can be used to select and unselect whole image (toggle)
+- New fullscreen hotkey: CTRL + SHIFT + W: Stretch images over all monitors (toggle)
+- Hotkey: CTRL + right mouse drag: scroll image even if Conext menu option activated
+- Change in CTRL + Print key action: minimize IrfanView window before capturing
+- New HTML template variables: #IMAGE_PATH#, #IMAGE_BASENAME#, 
+  #IMAGE_EXT# and #SELF_LINK# (see help file, HTML Export page)
+- Skin change problem on Linux/Wine fixed
+- Some "Multipage images" menus moved from View to Options menu
+- The hidden mouse in fullscreen/slideshow mode will be shown on mouse move
+- New command line option: /random, can be used only with /wall
+  => set random wallpapers, see "i_options.txt" for examples
+- New feature for administrators: "DefaultLang" for INI file (set default language)
+  => see FAQs for an example
+- New Lossless JPG Dialog option: Perfect (error on non-perfect JPG images/sizes)
+- New hotkey: SHIFT + Mouse-Wheel: scroll image horizontally
+- New hotkeys: "=" for zoom in; CTRL + G = image->grayscale
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+-------------------------------------------------------------------------------
+
+Version 4.25		(Release date: 2009-06-16)
+- New capture option: Region capture (Thanks to grebulon)
+  (as option in Capture dialog or hotkey: CTRL + Print key)
+- OCR Feature/PlugIn added (Options menu, Hotkey: F9, full image or selection)
+  PlugIn download: http://www.irfanview.info/plugins/kadmos/
+- New command line switches for /capture
+  4 = use region capture, 5 = start in capture mode using dialog settings
+- New and re-arranged Properties dialogs
+- New Color Management options in Properties->Viewing (new LCMS PlugIn needed)
+- Burning PlugIn: can burn using Nero or Windows interface (WinXP or later)
+- Support for JLS format (JPEG-LS, PlugIn by KATO Kanryu)
+- Support for WBZ/WBC/WB1 formats (Webshots formats, PlugIn by V. Paramoshin)
+- New display option: Use Resample for zooming (Menu: View->Display options)
+- New fullscreen option: Use Resample for zooming (Properties->Fullscreen)
+- Option to save changes on exit in now also used for image/file change
+- New option in Batch-Scan dialog: Remember last scan counter
+- Previous "Search files" dialog results showed again on next search
+- Batch rename dialog: Last 15 rename patterns are saved
+- New Thumbnails sort options: Sort by image DPI
+- New placeholder: $p (image DPI)
+- New buttons/options in File-Replace dialog for multiple files
+- Resample bug with very special images fixed (TIF bug reported by Secunia, thanks!)
+- The option "View->Lock zoom" works now with all display options
+- Show PNG and TGA/DDS alpha color options merged (Properties->Viewing)
+- New command line option: /reloadonloop
+  Reload input source used in /slideshow when list is finished
+- Command line, /convert: exit codes added: 0 = OK, 1 = load error, 2 = save error
+- Support for TIFs with 12 bits per channel
+- New option in Postscript PlugIn: Enable Antialiasing for better quality
+- New button in EXIF dialog: Show in GeoHack-Wiki (for GPS coordinates)
+- New help menu: Check homepage for updates
+- Browsing hotkey: CTRL + SHIFT + number (0-9), decrease file index by number
+-------------------------------------------------------------------------------
+
+Version 4.23		(Release date: 2008-12-29)
+- Two small 4.22 bugs fixed: Next toolbar button, PDF saving
+-------------------------------------------------------------------------------
+
+Version 4.22		(Release date: 2008-12-22)
+- Added History list for Random slideshow ("No file repeat" removed)
+- New multipage images menu: Create Multipage PDF
+- Option to save changes on exit (Properties->Misc 1, default: OFF)
+- TIF loading bugs fixed (Thanks to j00ru//vx)
+- New command line option: /filelist=txtfile; Examples:
+  i_view32.exe /filelist=c:\mypics.txt
+  i_view32.exe /filelist=c:\mypics.txt /thumbs
+  i_view32.exe /filelist=c:\mypics.txt /convert=d:\*.jpg
+  => use files from mypics.txt as input for different operations
+- New Contact Sheet options: Set custom paper size and units
+- Options to set start parameters for external editors (see Help file/button)
+- External editor names are showed in the menu text
+- New Panorama dialog option: Add space between images
+- Browsing: if CTRL + number (0-9) pressed, the file index increases by number
+- New wallpaper menu: Stretched - proportional
+- New Slideshow dialog option: Remember last file index on exit
+- New option to show DDS alpha color (Properties->Misc. 1)
+- Support for WSQ format (Wavelet Scaler Quantization, PlugIn by Steven Venable)
+- New Thumbnail option: Use full file path for sorting (if subfolders loaded)
+- New thumbnails tree menu: Load subfolders
+- New hotkeys: SHIFT + arrows = Move selection rectangle
+- New hotkeys: SHIFT + N = Create new image; SHIFT + V = Add canvas;
+  CTRL + SHIFT + Y = Auto crop borders; CTRL + SHIFT + J = Lossless JPG crop;
+  SHIFT + O = Fit window to image; F11 = show/hide mouse in Fullscreen/Slideshow
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some bugs fixed (SGI loading, crop selection)
+-------------------------------------------------------------------------------
+
+Version 4.20		(Release date: 2008-07-16)
+- Basic Unicode support added (Properties->Misc 1, thanks to Christophe Paris!)
+- New zoom options; improved relative zoom (Properties->Viewing)
+- Thumbnails can be sorted manually using drag/drop
+- GIF animations can be played in fullscreen/slideshow mode
+- New Advanced batch options: Fine rotation, Blur, Median ...
+- Option to show TIF Annotations created by Kodak Imaging (Properties->Viewing)
+- New JPG save option: Set file size (PlugIn: thanks to Lucian Sabo)
+- New save menu: Save for Web (PlugIn: thanks to Lucian Sabo)
+- New thumbnails options to disable or configure info text on mouse over
+- New edit menu: Auto crop borders (remove outside lines/rows of same color)
+- New feature in Canvas dialog: negative border sizes are allowed (border crop)
+- New option in Capture dialog: Capture desktop on current monitor only
+- New options in Custom selection dialog: Set custom ratio; Save values
+- New slideshow option (window mode): Set window position
+- New Fullscreen display options: Fit to screen width/height (Hotkeys: 5/6)
+- IPTC data in TIF files can be showed (no editing yet)
+- Fixed Thumbnails crash on multi core CPUs
+- New command line option for EXE Slideshow: /window=(x,y,width,height)
+- Option to set Status bar text using placeholders (Properties->Misc 3)
+- Option for proportional paste into selection (Properties->Misc 3)
+- Support for EXR format (PlugIn)
+- Support for MAG format (MAKI, Formats PlugIn)
+- Default display option is now: Fit only big images to desktop
+- Expanded Copy/Move dialog (4 more folders)
+- New Edit menu: Maximize and center selection (hold CTRL to center only)
+- New option in Edit Palette dialog: Click on image to find color index
+- New Thumbnails menu: Remove selected thumbs from list, Hotkey: Ctrl+Del
+- New Thumbnails menu: Save selected files names as TXT
+- New Thumbnails menu: Start Panorama dialog with selected files
+- The Enhance/Correct colors dialog can be resized/maximized
+- Enhanced TIF-LZW saving with 24 BPP images (smaller files are created)
+- New command line option: /jpg_rotate=(...values...)
+  JPG lossless rotation, see i_options.txt for examples
+- New command line option: /transpcolor=(r,g,b)
+  Set transparent color: can be used for GIF/PNG/ICO saving
+- New Hotkey: SHIFT + F = Fit only big images to desktop
+- New Hotkey: SHIFT + W = Fit images to window
+- New Hotkey: NUM-PAD 5 = Scroll to image center
+- New Hotkey/Menu: CTRL + N = Open current file in another IrfanView window
+- New Thumbnails option: Auto scroll during creation
+- New option in JPG IPTC/Comment dialog: Append text to old text
+- Scan dialog: 'Skip existing files' works also for multipage TIF files
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added (scrolling)
+-------------------------------------------------------------------------------
+
+Version 4.10		(Release date: 2007-10-15)
+- New PlugIn: Paint (Edit menu, Hotkey: F12, thanks to Matteo Italia!)
+  It allows IrfanView to paint lines, circles, arrows, straighten image etc.
+- Support for embedded color profiles in JPG/TIF (Properties->Viewing)
+  LCMS PlugIn, thanks to Marti Maria
+- New command line option: /advancedbatch (Apply advanced batch options to image)
+  Allows many image operations, add text etc.
+- Lossless JPG Crop added (Menu: Options or Thumbnails (batch mode))
+- Added option to tag/mark files during browsing (window or fullscreen mode):
+  Hotkeys: X = tag file, SHIFT+X = untag file, SHIFT+Q: show tagged files in Thumbnails
+- Support for FLV format (Flash PlugIn, thanks to Remio)
+- Histogram feature added (Menu: Image, Hotkey: SHIFT+H)
+- Zoom calculation changed: relative, based on previous zoom value
+- Auto adjust colors works with selections (Thanks to Andras Horvath, www.log69.com)
+- Option to save values from Enhance Colors dialog
+- New effects added: Green and Yellow eye reduction (Effects browser dialog)
+- Option to keep current scroll position for the next image (Menu: View)
+- Support for HDP/WDP format (Microsoft HD Photo, PlugIn)
+- Save support for JNG format (Thanks to Pavel Demchuk)
+- New GUI for batch/slideshow dialogs
+- Custom selection dialog uses current selection at start, if available
+- New compression options in PDF export (Thanks to Martin Osieka/ComSquare)
+- New loading options for normal RAW files (Thanks to Sergey Fokin)
+- Fullscreen options can be changed during fullscreen mode
+- Browsing: if CTRL pressed, the file index increases/decreases by 5 (default: 1)
+- 3 external editors are possible now (Properties->Misc 3)
+- New option for Import palette: Use nearest color (Properties->Misc 3)
+- Changes in print option Scale (original image size is used as input)
+- New print option for multipage images: Print odd or even pages
+- Some changes/optimizations in HTML templates
+- CTRL+A selects the whole image in the main window
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some bugs fixed (IFF/PCX/JP2 loading, GIF animations, Palette import)
+-------------------------------------------------------------------------------
+
+Version 4.00		(Release date: 2007-04-23)
+- Improved Vista compatibility
+- New display option: Center image in window (Menu: View->Display options)
+- Toolbar skin option added (Properties->Toolbar)
+  More Toolbar skins are available on the IrfanView homepage.
+  => Users can send new Toolbar skins by email, Thanks guys!
+- New Properties->Video option: Use DirectShow for playing (good for MJPG AVIs)
+- New advanced batch option: Auto adjust colors
+- "Enhance colors" can be now used on selections
+- New EXIF dialog button: Show in Google Earth (if GPS data available)
+- The EXIF dialog can stay displayed on screen
+- Thanks to Dmitri Poguliayev for the new Vista icon!
+- New Hotkey: CTRL + SHIFT + M = Show/edit JPG comment
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some bugs fixed (Start folder, RLE BMPs, ANI loading)
+-------------------------------------------------------------------------------
+
+Version 3.99		(Release date: 2006-11-16)
+- Option to Search files (File menu or Thumbnails, Hotkey: CTRL+F)
+- Support for PDF export (PlugIn) (Thanks to ComSquare AG)
+- New Thumbnails option: Load file list from TXT
+- New zoom workwise: Centered zoom or based on old scroll position
+- Zooming and scrolling is now possible in slideshow mode
+- Many new effects added: Unsharp mask, Fish Eye etc. (Thanks to GENiEBEN)
+- New Flash Plugin for Flash 5 or later! (Thanks to Remio)
+- Option to transfer files by FTP (Thumbnails window, PlugIn)
+- Option to set the Start folder (Properties->Misc 2)
+- New image option: Auto adjust colors (Thanks to Andras Horvath, www.log69.com)
+- New effect: Chromatic Aberration (Thanks to Thomas Strauss)
+- Support for SIF format (Formats PlugIn)
+- Support for PVR format (DreamCast Texture, Formats PlugIn)
+- Support for AWD format (Artweaver Format, PlugIn)
+- Support for VTF format (Valve Texture Format, PlugIn)
+- WMF format check added, to avoid WMF vulnerability (Thanks to Jakub Debski)
+- New Thumbnails sort options: Sort by portrait/landscape
+- Fullscreen option: Use right mouse button for scrolling (Properties -> Misc 1)
+- Fullscreen option: Set display multiplier (for wide screen displays)
+- New placeholders for EXIF/IPTC: $E, $I => to load all EXIF/IPTC data
+- Command line change for /resample! (see i_options.txt for examples)
+- New command line options: /resize_long, /resize_short (see i_options.txt)
+- New command line option: /panorama=(direction,file1,...,fileN)
+- New command line options: /bright=value, /gamma=value
+- Command line switch for /info: /fullinfo (write EXIF, IPTC and Comment)
+- Updated CRW/CR2 PlugIn, please install newest Canon DLLs (see i_plugins.txt)
+- Option to show a warning on ESC thumbnails exit (Thumbnails options)
+- New options in dialog: Create custom selection
+- Support for MP4 format (Quicktime PlugIn)
+- At request of Luratech: JP2/JPM/LWF/LDF are not available in Batch mode
+- New Hotkey: SHIFT + P = Copy current filename to clipboard
+- Added YUV (4:2:0) format support to Formats PlugIn
+- Help file format changed to CHM (Compatible with Windows Vista)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added (add-all button, ANI/CUR loading, batch text)
+-------------------------------------------------------------------------------
+
+Version 3.98		(Release date: 2005-12-24)
+- Option to support IrfanView by installing Google Toolbar and/or
+  Google Desktop Search (OPTIONAL !)
+- New Thumbnail window option: Load thumbs from all subfolders
+- Alpha blending effect added for slideshow/fullscreen (Properties->Fullscreen)
+- New options for fullscreen/slideshow: Set text position/alignment
+- PlugIn for AFPL Ghostscript: PS, EPS, PDF formats (see Properties->PlugIns)
+- Support for CGM/SVG formats : CADImage.DLL (Shareware, see i_plugins.txt)
+- Support for HDR format (Formats PlugIn, thanks Kevin)
+- New option for DigiCam RAW formats: Load half size image (Properties->PlugIns)
+- New effects added: Sepia, Raindrops, Fragment etc. (Thanks to GENiEBEN :-)
+- Option to set the start corner for crop and text-layout in batch mode
+- New placeholders for Date/Time: %Y, %m, %d (see help file for examples)
+- New placeholders: $M (multipage index), $d (directory name)
+- Most of normal placeholders can be used for "/convert=" too
+- Option to hide main window in Thumbnails mode (Properties->Misc 1)
+- New lossless JPG dialog option: Set DPI value
+- Set loading options for Ghostscript, MrSID, JPM: Properties->PlugIns
+- New JPG save option: Reset EXIF orientation tag
+- New advanced slideshow dialog option: Play in window mode
+- Command line option for EXE Slideshow: /monitor=X (start on monitor X)
+- Command line option: /dpi works now for /scan, /scanhidden and /batchscan
+- New special INI options to hide caption/menu bar permanently (see FAQs)
+- Support for 3GP format (Quicktime PlugIn)
+- New hotkeys: Red eye, Fullscreen text, Direct print, Lossless JPG (see help file)
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added (slideshow, print)
+-------------------------------------------------------------------------------
+
+Version 3.97		(Release date: 2005-04-22)
+- New 'Browse Subfolders' dialog, when folder end/begin reached (CTRL+B)
+- New JPG Transformation dialog option: Apply EXIF date/time to new file
+- Zooming for videos added
+- Option to show EXIF data from TIF files
+- Support for Adobe DNG format (Formats PlugIn, thanks to Dave Coffin)
+- Support for FITS format (Flexible Image Transport System, Formats PlugIn)
+- Support for PIC format (Softimage PICT, Formats PlugIn)
+- Support for WAL format (Quake 2 textures, Formats PlugIn)
+- Improved multiple monitor support
+- Batch scanning and Acquire merged into one menu
+- Some loading bugs fixed, thanks to Bruno Rohee
+- New PlugIn: PNGOUT (Optimized PNG saving, thanks to Ken Silverman)
+- Changed hotkeys: CTRL+Home, CTRL+End = load first/last file in directory
+- New hotkeys for Fullscreen display options (keys: 1, 2, 3, 4)
+- Number of MRUDs extended to 10
+- Some menu/properties rearrangements (Fullscreen, View->Display options)
+- Thanks to Michael Ofner for help file updates/fixes
+- Most PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.95		(Release date: 2004-10-26)
+- New TIF save option: Save all pages from original image
+- New batch option: Apply changes to all image pages (if TIF saving)
+- New TIF option: Edit multipage TIF (Menu: View->Multipage images)
+- Option to sort thumbnails using EXIF date (Thumbnails menu)
+- Option to sort thumbnails using image width/height (Thumbnails menu)
+- New image menu: Custom Rotation (Fine rotation)
+- New JPG Transformation dialog option: Auto rotate (according to EXIF info)
+- Option to show full file path in the title bar (Properties->Misc 1)
+- New HTML dialog option: Choose folder with templates (for changed templates)
+- Option to paste Text from Clipboard as image
+- Some minor bugs/features fixed/added (crop, MS PNG bug, print dialog)
+-------------------------------------------------------------------------------
+
+Version 3.92		(Release date: 2004-08-20)
+- New JPG option: Auto-rotate image according to EXIF info (Properties->JPG)
+- New advanced batch options: Set long/short side, load/save settings
+- New options for DigiCam RAW formats (Properties->PlugIns)
+- New options for multipage extract (View->Multipage images)
+- OPTION to use eBay search in the toolbar (Properties->Misc 3) (OPTIONAL!!!)
+- New PlugIn for Dicom formats (DCM, ACR, IMA)
+- Option to show common shell folders in Thumbnail directory tree
+- Support for CR2/X3F formats (Properties->PlugIns, see also i_plugins.txt)
+- Option to sort files using the XP sort order (for names with digits)
+- New PlugIn for DXF/DWG/HPGL formats : CADImage.DLL (Shareware, see i_plugins.txt)
+- New hotkey: Shift+L = Lock/Unlock Zoom (fullscreen mode too)
+- New/changed hotkeys: CTRL+P = print, CTRL+PageUp = previous multi-page,
+  CTRL+PageDown = next multi page, Shift+T = toolbar edit field,
+  Shift+M = send by email, CTRL+Shift+B = Batch scanning; (removed: CTRL+N)
+- New options for toolbar edit field (file filter, see help file)
+- New options for batch IPTC mode
+- Several PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.91		(Release date: 2004-05-01)
+- Option to enable/disable multiple monitor support (Properties->Misc 1)
+- New command line option: /extract=(folder,extension)
+  Example: i_view32 c:\multipage.tif /extract=(c:\temp,jpg)
+  => Open 'c:\multipage.tif' and save all pages to 'c:\temp' as JPGs
+- New command line option: /import_pal=palfile
+  Example: i_view32 c:\test.bmp /import_pal=c:\mypalette.pal
+  => Open 'c:\test.bmp' and apply a special palette
+- Some minor bugs fixed (Print, EXE-Slideshow)
+-------------------------------------------------------------------------------
+
+Version 3.90		(Release date: 2004-04-09)
+- Improved print dialog
+- Improved Contact Sheet option
+- New options for Slideshow/Fullscreen
+- New options for Batch conversion/rename
+- New options for HTML export (Slideshow, Templates)
+- New pattern/display options for: Slideshow, Fullscreen, Print, Insert Text, 
+  Contact Sheet, HTML-Export, Batch Rename (use EXIF/IPTC values)
+- Transparent PNG saving added
+- New option: Canvas size (Create image border) (Image menu and Batch mode)
+- New hotkeys: E = show EXIF info, CTRL+I = show IPTC info, 
+  F4 = append current file to slideshow
+- Option to start IrfanView in fullscreen mode (Properties->Misc 1)
+- Selection: proportional resize possible (press/hold CTRL key down)
+- New command line option: /multitif=(tifname,file1,...,fileN)
+  Example: i_view32 /multitif=(c:\test.tif,c:\test1.bmp,c:\dummy.jpg)
+  => Create multipage TIF (test.tif) from 2 other files
+- New command line option: /append=tiffile
+  Example: i_view32 c:\test.jpg /append=c:\test.tif
+  => Open 'c:\test.jpg' and append it as (TIF) page to 'c:\test.tif'
+- New command line options: /hflip and /vflip (horz. and vert. flip)
+  Example: i_view32 c:\test.jpg /vflip
+  => Open 'c:\test.jpg' and flip vertically
+- New command line option: /batchscan=(options)
+  See "i_options.txt" for an example
+- New command line options: /jpgq=value; /tifc=value
+  => Set JPG save quality; set TIF save compression
+- New command line option: /wall=X
+  Example: i_view32 c:\test.jpg /wall=0
+  => Set 'c:\test.jpg' as wallpaper (centered)
+- New command line option: /contrast=value
+  Example: i_view32 c:\test.jpg /contrast=33
+  => Open 'c:\test.jpg' and apply contrast (value 33)
+- Support for DWG/HPGL formats. PlugIn: http://www.cadsofttools.com (Shareware)
+- CTRL+Tab can be used for internal control-switch in the Thumbnail window
+- CTRL+A hotkey changed to CTRL+SHIFT+A (File->Acquire)
+- Multiple monitor support added (Slideshow/Fullscreen)
+- ECW saving added to ECW PlugIn
+- New options in Image->Info dialog
+- Option to show a warning on ESC exit (Properties->Misc 1)
+- Added options for silent install and uninstall (Check help FAQs)
+- Most PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.85		(Release date: 2003-08-29)
+- The WBZ/WBC support has been removed! (At request of www.webshots.com)
+- Support for Adobe 8BF filters: Image->Effects menu (PlugIn)
+- Support for JPM format (JPEG2000/Part6, LuraDocument.jpm, PlugIn)
+- Support for DDS format (Direct Draw Surface) (Formats PlugIn)
+- Support for DXF format. PlugIn from: http://www.cadsofttools.com (Shareware)
+- Support for DWG format (AutoCAD 13 or later, preview only)
+- Simple saturation option added (Image->Enhance Colors and Batch mode)
+- New options for GIF/ICO transparent saving (save dialog options)
+- New edit menu: Create custom selection
+- New advanced batch option: Add overlay text
+- New batch scan option: Skip existing files
+- The selection rectangle can be moved using the right mouse button
+- Expanded Copy/Move dialog (more folders)
+- Option to set JPG Comment/IPTC for multiple files (from Thumbnails window)
+- Option to set the cut color (Properties->Misc 3)
+- Option to sort files in "Create multipage TIF" dialog
+- Option to set the start image index in the slideshow dialog (double click)
+- Option to enable/disable dithering for color reduction
+- New option: "Properties->Misc. 1->Show TGA alpha color"
+- Improved JPG lossless operations: Use as JPG cleaner possible
+- New options for HTML export
+- Change: PSP, CAM, SFW formats moved to FORMATS PlugIn
+- Wallpaper save location changed (Folder: "Application data")
+- Slideshow movement in now possible in automatic mode too (space/backspace ...)
+- Improved SGI, TIF reading
+- Improved command line option: /slideshow;  Examples:
+  i_view32.exe /slideshow=folder
+  i_view32.exe /slideshow=folder\*.jpg
+- New command option: /aspectratio; Enable aspect ratio for /resize and /resample
+- New command line option: /info=txtfile;  Write image infos to text file
+  Example: i_view32 c:\test.jpg /info=test.txt
+  Example: i_view32 c:\*.jpg /info=jpgs.txt
+- Most PlugIns are changed/updated, please install the newest versions:
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added (Filter Factory, RAW) 
+-------------------------------------------------------------------------------
+
+Version 3.80		(Release date: 2003-01-10)
+- New IPTC PlugIn (allows IPTC editing/saving)
+- Option to edit/save JPG comments (IPTC PlugIn)
+- Option to burn Slideshow to CD (Nero PlugIn, requires Nero Burning ROM)
+- Support for WBZ/WBC formats (Webshots graphics, thanks to V. Paramoshin)
+- Support for OGG sound format (SoundPlayer PlugIn, FMOD)
+- New options in batch scan dialog (increment, digits, scan to multipage TIF)
+- Experimental support for digital camera RAW formats: 
+  NEF, ORF, RAF, MRW and DCR (Formats PlugIn, thanks to David Coffin)
+- Sort option for batch dialog files
+- The Median filter is back (Effects PlugIn)
+- New fullsreen option: Stretch all images to screen (properties->viewing)
+- New thumbnail menu: Start batch dialog with selected thumbs
+- New thumbnail menu: JPG lossless transformation with selected thumbs
+- Improved HTML export (HTML browsing added)
+- Added some options to Slideshow-EXE, press F1 key (Resample, Extract images)
+- New command line option: /sharpen=value
+  Example: i_view32 c:\test.jpg /sharpen=33
+  => Open 'c:\test.jpg' and apply sharpen (value 33)
+- New command line option: /hide=x; hide toolbar, status bar, menu or caption
+  Example: i_view32 c:\test.jpg /hide=1
+  => Open 'c:\test.jpg', hide window toolbar (read "i_options.txt" for more)
+- Improved TIF/CLP/JPG reading
+- Improved ICO reading (multiple ICO handled as other multipage formats)
+- New INI-Option for Administrators (check Help->FAQs)
+- These PlugIns are changed/added, please install the newest versions:
+  CRW, DJVU, ECW, Effects, EXIF, Flash, Formats, IPTC, JPG2000, Slideshow,
+  JPG-Transformation, SFF, Video, SoundPlayer, Nero
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added  
+-------------------------------------------------------------------------------
+
+Version 3.75		(Release date: 2002-07-15)
+- Support for ICS format (Image Cytometry Standard) (PlugIn)
+- Support for CDR/CMX format (Corel Draw Format) (Preview only)
+- Improved MPG thumbnail support
+- MPG/AVI frames can be extracted from the Options menu
+- Option to control keeping of JPG EXIF/IPTC/Comment data (Save options->JPG)
+- Option to save files with original date/time (Save and Batch dialog)
+- Option to edit extensions for browsing (Properties->Extensions dialog)
+- Option to import palettes (PaintShopPro format, menu: Image->Palette)
+- New option for batch rename: Overwrite existing files
+- Added RAW saving (Formats PlugIn)
+- New option in "Properties->Misc. 2": Send short file name to external editor
+- Improved "Edit->Add Text" feature
+- Change DPI option moved to Image->Info dialog
+- New command line option: /filepattern="pattern"; read specific files only
+  Example: i_view32.exe c:\images\ /thumbs /filepattern="*.jpg"
+  => Go to folder "c:\images\" and show JPG thumbnails only 
+  Example: i_view32.exe c:\images\ /thumbs /filepattern="123*.jpg"
+  => Go to folder "c:\images\" and show JPG names "123*" as thumbnails
+- New command line option: /gray
+  Example: i_view32 c:\test.jpg /gray
+  => Open 'c:\test.jpg' and convert to grayscale
+- New command line option: /rotate_r
+  Example: i_view32 c:\test.jpg /rotate_r
+  => Open 'c:\test.jpg' and rotate to the right
+- New command line option: /rotate_l
+  Example: i_view32 c:\test.jpg /rotate_l
+  => Open 'c:\test.jpg' and rotate to the left
+- New command line option: /swap_bw; Swap black and white color in the image
+  Example: i_view32.exe c:\test.bmp /swap_bw
+- These PlugIns are changed/added, please install the newest versions:
+  EXIF, IPTC, Formats, CRW, ECW, MP3
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added (EXIF, Batch)  
+-------------------------------------------------------------------------------
+
+Version 3.70		(Release date: 2002-04-19)
+- Creating of EXE/SCR files for presentations (in Slideshow dialog)
+- Support for MNG/JNG formats (PlugIn)
+- Support for BodyPaint 3D format (PlugIn)
+- Support for MrSID format (PlugIn)
+- Support for ECW format (PlugIn)
+- Support for MRC format (PlugIn)
+- Support for WAD format (WAD3, thanks to DrkShadow, PlugIn)
+- Support for TTF format (True Type Fonts, in Formats PlugIn)
+- Support for RAW format (in Formats PlugIn)
+- Support for Canon CRW format (high resolution, VERY slow, using Canon DLLs):
+  http://www.irfanview.com/plugins.html
+- New option: "Properties->PlugIns->Set TTF text"
+- Option to activate the Canon CRW PlugIn: "Properties->PlugIns"
+- New menu: Image->Effects browser (Effects preview + settings)
+- New effect: "Image->Red eye reduction" (in the selection), very simple
+- New nice feature: Create Panorama Image (image menu)
+- Improved resize/resample dialog (support for cm/inch resize)
+- Improved batch dialog; Advanced batch options are saved
+- New option: "Properties->Misc. 1->Close TWAIN after acquire" (Default: ON)
+  (Setting OFF can be used for manual batch scanning)
+- New option: "Properties->Misc. 1->Show PNG alpha/transparency color"
+- New nice feature: support for TXT format, see also: "Properties->Misc. 3"
+- New menu: File->Open ASCII file (TXT, INI, HTML, C, H, PAS, JAVA, DFM etc.)
+- The selection can be resized using left mouse button
+- Zoom into selection with the left mouse button (zoom to window)
+- New feature for administrators: "ShowExtensionsDlg" for INI file, example:
+  [Extensions]
+  ShowExtensionsDlg=0
+  => hide the extension dialog from properties
+- EXIF information from JPGs is also saved in a new JPG
+- New EXIF PlugIn
+- New multipage TIF option: "Append image to TIF" (view->multipage images)
+- Toolbar can be customized: "Properties->Misc. 3" or double click on toolbar
+- The left/right keys (<-,->) can be also used for browsing through directory
+- Improved black/white TIF saving ("fixed" old and stupid 'Windows Imaging' bug)
+- Context menu for Thumbnail tree
+- New command line option: /bpp=BitsPerPixel
+  Example: i_view32.exe c:\test.jpg /bpp=8
+  Supported BPP-values: 1, 4, 8 and 24 (decrease/increase color depth)
+  => Open 'c:\test.jpg' and reduce to 256 colors
+- MP3 player is hidden in slideshow mode (can be used for background music)
+- New print option for multipage images in print dialog: Page range
+- FSH format saving added, thanks to GreyMana
+- Improved command line option "/print"; Support for custom printers:
+  Example: i_view32.exe c:\test.jpg /print="Printer Name"
+- Improved command line option "/ini" = support for custom folders:
+  Example: i_view32.exe /ini="c:\temp\"
+- New options in "Properties->Misc. 2" for slideshow/batch dialogs
+- Two new variations for "fit to desktop": fit to desktop width/height
+- Option to stretch small images for Contact sheet and Thumbnails
+- "Count colors used" moved to Image info dialog
+- These PlugIns are changed/added, please install the newest versions:
+  Formats, Flash, EaFSH, SFF, DJVU, EXIF, JPG-Transformation, MP3, IPTC
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added  
+-------------------------------------------------------------------------------
+
+Version 3.61		(Release date: 2001-12-03)
+- New command line option: /dpi=(xDpi,yDpi)
+  Example: i_view32 c:\test.jpg /dpi=(300,300)
+  => Open 'c:\test.jpg' and set DPI to 300x300
+- Some minor bugs fixed (icons, HTML, commands)
+-------------------------------------------------------------------------------
+
+Version 3.60		(Release date: 2001-11-30)
+- Support for JPEG2000 format! Thanks to LuraTech! :-)
+  (free saving up to 640x480 pixels)
+  http://www.irfanview.com/plugins.html
+- Improved Windows XP compatibility (associations)
+- New "Properties->Extensions" dialog (please associate your old files again!)
+- Associations: Option to set different icon for each format (Icons-PlugIn)
+- Uninstall option available (program group or control panel)
+- Support for FSH format (EA Sports FSH Format). Thanks to GreyMana! :-)
+  http://www.irfanview.com/plugins.html
+- New feature: Change DPI (image menu and in batch mode)
+- Added support for TIFs with old JPEG compression
+- Added support for TIFs with LogLuv compression
+- New HTML export options
+- New slideshow advanced option: "Auto sort after insert"
+- Last used Batch/Slideshow directory will be saved
+- New print option: "Original size" (calculate print size from image DPI)
+- New option: "Properties->Extensions->Add as application for USB events"
+- New option: "Properties->Video->Hide playbar in fullscreen mode"
+- New option: "Properties->Others 1->Show hidden files during browsing"
+- New option: "Properties->Others 2->Use right mouse button for context menu"
+- Option to hide/show program menu: "View->Menu bar" (ALT + SHIFT + M)
+  => not saved at exit, for advanced users only
+- Option to hide/show program caption: "View->Caption" (ALT + SHIFT + C)
+  => not saved at exit, for advanced users only
+- Improved command line option, support for wildcards (convert and print only):
+  Example: i_view32.exe c:\*.jpg /convert=d:\temp\*.gif
+  Example: i_view32.exe c:\*.jpg /resample=(500,300) /convert=d:\temp\*.png
+  Example: i_view32.exe c:\*.jpg /print
+- New command line option: /scan
+  Example: i_view32.exe /scan
+  Example: i_view32.exe /scan /convert=d:\temp\image.jpg
+  => Acquire the image from the TWAIN device
+- New command line option: /clippaste
+  Example: i_view32.exe /clippaste
+  => Paste the image from clipboard
+- New command line option: /clipcopy
+  Example: i_view32.exe c:\test.jpg /clipcopy
+  => Copy the image to clipboard
+- New command line option: /invert
+  Example: i_view32.exe c:\test.jpg /invert
+  => Make negative image
+- New command line option: /silent
+  => Don't show error message for command line read/save errors
+- The /resize and /resample options can be used with percentages
+  Example: i_view32 c:\test.jpg /resize=(150p,150p)
+  => Open 'c:\test.jpg' and resize: width=150%, height=150%
+- Change: the option "/print" will now print all pages from a multipage image
+- Copy/Paste routine changed
+- Some minor bugs fixed (crop)
+-------------------------------------------------------------------------------
+
+Version 3.51		(Release date: 2001-08-20)
+- Support for Canon CRW format (JPG image only)
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 3.50		(Release date: 2001-08-18)
+- New features for thumbnails: 
+  - Rename (click on file name or F2/F6)
+  - Context menu (right mouse button)
+  - Drag&Drop files to folders in directory tree (IrfanView internal drag&drop)
+- New thumbnails feature: Send selected images by EMail
+- New in "View->Create Multipage TIF/LDF": Select/add multiple files
+- New feature: Copy Shop (File menu): Send image from scanner to printer
+- Improved WMF/EMF reading
+- Resample edge problem fixed
+- Support for true color XPM images (FORMATS-PlugIn)
+- New Email-PlugIn features: BCC field and editing for TO/CC/BCC fields
+- New option in "Properties->Others 1": Load always next image on Page Up/Down
+- New option in "Properties->Others 2": Select printer for the "/print" option
+- Support for Nokia Phone Logo formats: NLM/NOL/NGG/NSL/OTB/GSM:
+  http://www.irfanview.com/plugins.html
+  Thanks to Mike Bradley! :-)
+  http://www.logomanager.co.uk
+- New menu item: "Options->Change language"
+- IPTC PlugIn: IrfanView can now show IPTC-Information in JPGs (Image->Info)
+  http://www.irfanview.com/plugins.html
+- Show JPG Comments in image info dialog
+- New command line option: /ini
+  Example: i_view32.exe /ini
+  => Use "i_view32.ini" + "Slideshow.lst" from the Windows folder
+- New option in JPG-Transformation-PlugIn: Save with original date/time
+- Proportional sizing for command line options "/resize" and "/resample"
+  Example: i_view32 c:\test.jpg /resize=(0,300)
+  => calculate width automatically (aspect ratio)
+  Example: i_view32 c:\test.jpg /resample=(300,0)
+  => calculate height automatically (aspect ratio)
+- These PlugIns are changed/added, please install the newest versions:
+  Email, LWF, LDF, MP3, Formats, JPG-Transformation, EXIF
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 3.36		(Release date: 2001-04-30)
+- New status bar entry: current directory index
+- Some minor bugs fixed (video and languages)
+-------------------------------------------------------------------------------
+
+Version 3.35		(Release date: 2001-04-26)
+- Multi language support ! Choose language in "Properties->Language"
+  Please check this site for available languages and SDK for translators:
+  http://www.irfanview.com/languages.html
+- New option: Set background color for main window (Properties->Viewing)
+- New option: Set background color for fullscreen/text (Properties->Viewing)
+- Change: INI file (i_view32.ini) is now saved in the IrfanView directory
+- Change: Slideshow file (Slideshow.lst) is now saved in the IrfanView directory
+- Improved capture option
+- MP3 PlugIn updated: Support for M3U playlists
+- New command line option: /resample=(w,h)
+  Example: i_view32 c:\test.jpg /resample=(300,300)
+  => Open 'c:\test.jpg' and resample: width=300, height=300
+     (using the active resample filter from the INI file)
+- New command line option: /capture
+  Example: i_view32 /capture
+  => Capture the whole screen and show the image in IrfanView
+- The setting "Always on top" is saved to INI file
+- The internal video/audio player is back as PlugIn (Properties->Video/Sound)
+- The EXIF info dialog is moved to EXIF-PlugIn
+- New thumbnail options: Set background color, Hide borders, Hide MRUDs,
+  HTML-Export using relative paths
+- The Email-PlugIn can send emails using MAPI protocol
+- These PlugIns are changed/added, install the newest versions:
+  Email, Formats, FlashPix, LDF, LWF, JPG-Transformation, IV_Player, MP3,
+  Flash and Filter Factory, EXIF and Video
+  Download from: http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added  
+-------------------------------------------------------------------------------
+
+Version 3.33		(Release date: 2001-01-21)
+- Change: Video/Sound/Audio-CD formats moved to IV_Player-PlugIn:
+  http://www.irfanview.com/plugins.html
+- Support for Utah RLE file format:
+  http://www.irfanview.com/plugins.html
+- Support for SFF file format (Structured Fax File); Thanks to Peter Schaefer!:
+  http://www.irfanview.com/plugins.html
+- Change: Black background
+- New: Status bar - for additional file infos
+- Improved sharpen/blur effects (faster)
+- Improved print option
+- Improved zooming/scrolling
+- New option: Load DJVU files with max. DPIs (Properties->Others 2)
+- Change: "Resample" can be again used for Fit-To-Desktop (Properties->Viewing)
+- The folowing plugins are updated, please install the newest versions:
+  EMAIL, LDF, DJVU, FORMATS
+- Support for PSP7 (PaintShopPro 7) files
+- Some minor bugs/features fixed/added  
+-------------------------------------------------------------------------------
+
+Version 3.30		(Release date: 2000-11-04)
+- IrfanView can create multipage TIFFs (Menu: View->Multipage images)
+- Email-PlugIn is available (send images as emails):
+  http://www.irfanview.com/plugins.html
+- New thumbnail option: Create contact sheet from selected thumbnails
+- Support for MED/OctaMED sound file format:
+  http://www.irfanview.com/plugins.html
+- Improved print option
+- New advanced batch option: Create subfolders in destination directory
+- New view menu option: Fit only big images to window
+- Change: RAS and G3 formats are moved to FORMATS PlugIn:
+  http://www.irfanview.com/plugins.htm
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.25		(Release date: 2000-09-02)
+- LWF-PlugIn can save now images up to 4096x4096 pixels! Thank you LuraTech! :-)
+- Support for LDF files (LuraDocument format, from LuraTech GmbH, Germany)
+  http://www.irfanview.com/plugins.html
+- IrfanView can create multipage LDFs (Menu: View->Multipage images)
+- New feature: Selection/crop/cut now possible in zoom mode :-)
+- Support for lossless JPG rotation/flip (Menu: Options->JPG Transformation):
+  http://www.irfanview.com/plugins.html
+- New advanced batch option: 'Crop' (Crop all images, set X, Y, Width, Height)
+- New save option for PNGs: 'Set compression level' (Save dialog->Options)
+- Change: 'Fit big images to desktop' moved to View menu
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.21		(Release date: 2000-07-20)
+- The capture (hotkey) problem on some systems is fixed!
+- New cut option: "Cut - leave selection" in Edit menu
+- New thumbnail view menu: 'Directory tree' (hide/show directory tree)
+- The hotkey "F" (View->Fit window/image to desktop) is back
+- New command line option: /resize=(w,h)
+  Example: i_view32 c:\test.jpg /resize=(300,300)
+  => Open 'c:\test.jpg' and resize: width=300, height=300
+-------------------------------------------------------------------------------
+
+Version 3.20		(Release date: 2000-07-12)
+- New feature: directory tree in thumbnail window :-)
+- Added tooltips for thumbnail images
+- Added proportional scrollbars
+- Improved capture option (capturing with hotkey, include mouse cursor)
+- New: main window can be resized (see next line ...)
+- New viewing options (menu: view, only one option is active):
+  1) 'Fit window to image' (recommended)
+  2) 'Fit image to window'
+  3) 'Fit window/image to desktop'
+  4) 'No fit'
+- New view option: 'Lock zoom' (check/uncheck, valid for current session only)
+- New option: 'Export palette' in menu 'Image->Palette' (PaintShopPro format)
+- New dialog for 'Batch scanning'
+- Support for Filters Unlimited: Menu 'Image->Effects->Filters Unlimited':
+  http://www.irfanview.com/plugins.html
+  Check 'www.icnet.de' for filters.
+- Support for WAP WBMP format:
+  http://www.irfanview.com/plugins.html
+- Support for SGI (Silicon Graphics Image) format:
+  http://www.irfanview.com/plugins.html
+- Support for NCC information:
+  http://www.irfanview.com/plugins.html
+  Check 'www.netcybercards.com' for full info.
+- Changed: Quicktime part is now moved to a plugin:
+  http://www.irfanview.com/plugins.html
+- Some IFF bugs fixed (HAM6 and 24 planes IFFs)
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.17		(Release date: 2000-04-22)
+- Support for Macromedia's Flash/Shockwave format :-)
+  http://www.irfanview.com/plugins.html
+- MP3 plugin updated, please update:
+  http://www.irfanview.com/plugins.html
+- PhotoCD plugin updated, please update:
+  http://www.irfanview.com/plugins.html
+- DjVu plugin updated (smaller and faster), please update:
+  http://www.irfanview.com/plugins.html
+- Support for GEM IMG format:
+  http://www.irfanview.com/plugins.html
+- New batch feature: batch rename
+- New menu item: Help->Installed PlugIns
+- New slideshow icon, thanks to Korogi and Hide from Japan :-)
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.15		(Release date: 2000-03-20)
+- Support for FlashPix format :-)
+  http://www.irfanview.com/plugins.html
+- Support for XBM/XPM formats:
+  http://www.irfanview.com/plugins.html
+- Support for AT&T DejaVu (DJVU) format:
+  http://www.irfanview.com/plugins.html
+- Improved support for PhotoCD format (support for all resolutions):
+  http://www.irfanview.com/plugins.html
+- The german help file is finished! :-)
+- EXIF-JPG: IrfanView can now show EXIF-Information (FORMATS-plugin required!)
+- New: preview in the slideshow dialog
+- New menu item: "Create new image" (menu: image)
+- Improved HTML-Export (check new options in Thumbnail-Window)
+- New command line option: /page=PageNumber
+  Example: i_view32 c:\test.tif /page=3
+  => Open page number 3 from the multipage image 'c:\test.tif'
+- New command line option: /crop=(x,y,w,h)
+  Example: i_view32 c:\test.jpg /crop=(10,10,300,300)
+  => Open 'c:\test.jpg' and crop: x-start=10, y-start=10, width=300, height=300
+- New command line option: /print
+  Example: i_view32 c:\test.jpg /print
+  => Open 'c:\test.jpg', print the image to default printer and close IrfanView
+- Support for Mouse-Wheel function (scrolling, moving to next/previous image)
+- New thumbnail feature: 'Start slideshow with selected thumbs'
+- View menu: "Best fit to desktop" moved to "Image" menu
+-------------------------------------------------------------------------------
+
+Version 3.12		(Release date: 2000-01-30)
+- New plugin, allows IrfanView to play MP3/MP2/MP1 (*.MP3) files: 
+  http://www.irfanview.com/plugins.html
+- Support for Dicom/ACR format:
+  http://www.irfanview.com/plugins.html
+- Support for Mosaic format:
+  http://www.irfanview.com/plugins.html
+- New image menu: Enhance colors (brightness/contrast/gamma/rgb)
+- Enable gamma correction for all loaded images (Properties->Viewing)
+- New button in batch dialog: Use current directory as output
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.10		(Release date: 1999-12-22)
+- Support: You can support IrfanView if you visit IrfanView sponsors in:
+  Help->Info/Support. (german version only) Many many thanks! :-)
+- Read support for PSP-4 format (Paint Shop Pro version 6, first layer)
+- New: Saving files as PBM/PGM/PPM (binary and ascii)
+- New scan option: Batch Scanning (Menu: File)
+- New plugin, allows IrfanView to play Real Audio (*.RA) files:
+  http://www.irfanview.com/plugins.html
+  (The RealPlayer from www.real.com must be installed)
+- New plugin is available for some rare image formats:
+  http://www.irfanview.com/plugins.html
+- New options for multipage images (Menu: View->Multipage images)
+- New viewing option: 'Dither 24BPP images on 16BPP displays' (properties)
+- Improved 'Properties->Extensions' (please associate your types again!)
+- Improved resize/resample dialog (percentage of width/height)
+- New options for advanced batch conversion
+- Screensaver is now disabled during the slideshow
+- New command line option: '/closeslideshow' (see next line ...)
+- New slideshow option: Close IrfanView after the last slideshow image
+- Some PSD bugs are fixed
+- Better compatibility with Windows 2000
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.07		(Release date: 1999-10-20)
+- Support for Apple QuickTime 3 and 4 (activate in Properties->Others 2)
+  => Support for QTIF, Mac PICT, FLI/FLC, FPX, SWF, MP3 formats
+- Support for KDC format (Kodak Digital Camera format) as plugin:
+  http://www.irfanview.com/plugins.html
+- Change: the Filter Factory part is now moved to a plugin:
+  http://www.irfanview.com/plugins.html
+- Change: the LWF format is now moved to a plugin:
+  http://www.irfanview.com/plugins.html
+- New thumbnail option: print selected thumbs as single pages
+- New slideshow option: Don't display same image again (if random slideshow)
+- New option in Properties->Extensions (read only associated types)
+- New option in Properties->Others 2: Enable/Disable MRUDs in File menu
+- New feature: count colors used (Menu: Image)
+- Improved contrast control
+- New feature: read/write TIFFs with ZIP compression
+- New option: show videos with desktop size (menu: options->video size)
+- New command line option: '/killmesoftly' (close all IrfanView instances)
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.05		(Release date: 1999-07-26)
+- New: Help file is available! Many many thanks to Steve Clark! :-)
+- Support for SFW files (Seattle Film Works)
+- New feature: Open any file in HEX viewer (Menu: File)
+- New view option: Show HEX view of file (HotKey: F3, like Windows Commander)
+- New option in Properties->Others 2: Don't change index after renaming
+- New View menu item: Start/Stop automatic moving through directory
+- New features in thumbnail window (toolbar, MRUDs, browse button)
+- New thumbnail options (in thumbnail window)
+- New fullscreen options: Rotate (L/R), Flip (H/V)
+- New command line option: '/thumbs' (start IrfanView in thumbnail mode)
+- New option in Properties->Viewing: Always center window when load new image
+- New option: show file information for AVI/MPG/MOV/WAV files
+- New feature: Add subdirectories in Slideshow/Batch dialog
+- The command line option '/c=' is changed to '/convert='
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.02		(Release date: 1999-06-07)
+- Support for PSP format (Paint Shop Pro)
+- New: Paste an image into another one (selection)
+- New: Save thumbnails as an image
+- New: Save thumbnails as HTML file
+- New: Save thumbnails as separate images
+- New: Open current file (or thumbnails) with external viewer/editor
+- Support for AU and SND sound files (MS Active Movie is required !)
+- Support for DAT files (Video CD) (MS Active Movie is required !)
+- Support for ICL files (Icon Library)
+- Improved support for EXE/DLL files (extracting icons)
+- Some minor bugs/features fixed/added
+-------------------------------------------------------------------------------
+
+Version 3.00		(Release date: 1999-04-06)
+- Finally: Thumbnails! Menu: File, Hotkey: T :-)
+- New: Extract frames from MPG/MOV files is possible
+- The edit field in the toolbar is now editable (set custom directory index)
+- Move to next/previous file with PgDn/PgUp (if no vertical scrollbar)
+- New option: Display 'Save'-Dialog for 'File->Save' (in Properties->Others)
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.98		(Release date: 19.01.1999)
+- The memory bug with the Filter Factory is fixed !
+-------------------------------------------------------------------------------
+
+Version 2.97		(Release date: 11.01.1999)
+- Support for the Photoshop Filter-Factory. Thanks to Michael Johannhanwahr :-)
+  IrfanView's menu: 'Image->Effects->Filter Factory', Hotkey: K
+  Supported are FF (*.8BF) filters. You can find more than 1500 (!!!) such 
+  filters at the web site of Steve Fisher: 
+  http://www.netins.net/showcase/wolf359/adobepc.htm
+- New edit option: Add text to image (into the selection)
+- New: Capability to extract icons from (most) 32-bit EXE/DLL files
+- Saving file as TGA (uncompressed)
+- New menu item: 'View->Random file in directory', Hotkey: CTRL+M
+- New menu item: 'View->No Zoom', Hotkey: CTRL+H
+- New advanced batch option: 'Use aspect ratio' for resize
+- New option: 'Use flat toolbar' in Properties->Others
+- Some minor bugs fixed (animated cursors etc.)
+- I have a brand new homepage, designed by Gismo :-)
+-------------------------------------------------------------------------------
+
+Version 2.95		(Release date: 27.11.1998)
+- Improved batch conversion ! (Button: Advanced Options) :-)
+- Improved print capabilities (preview)
+- Playing audio CDs in background (Menu: Options or File->Open)
+- New option: Color balance (change RGB intensity)
+- New effect: 3D Button 
+- The toolbar is now flat
+- New shell options in: properties->extensions->advanced (SendTo, View with ...)
+- New options in the 'Decrease color depth'-Dialog (Custom number of colors)
+- New options in Properties->GIF: Show transparency in single images
+- New viewing option: Show filename transparent: y/n (in Properties->Viewing)
+- Some command line problems are fixed ;-)
+- Exit fullscreen mode with: left mouse click in the left/right upper corner
+- New hotkey: C (for Options->Capture)
+- New hotkey: CTRL+A (for File->Acquire)
+-------------------------------------------------------------------------------
+
+Version 2.92		(Release date: 10.11.1998)
+- Read support for G3 FAX files (the extension MUST BE *.g3 or *.G3 !!)
+- New effect: Pixelize
+- New effect: Fine Rotation
+- New menu item: Image->Effects->Setup (set parameters for effects)
+- All effects are now available for selections too :-) (selection or full image)
+- New fullscreen option: view images with the normal size (in properties)
+- New menu item: Loop video/music (menu: options)
+- New slideshow option: Random after mouse/keyboard input
+- Improved cropping (undo is now possible) ;-)
+- The 'Extract AVI Frames'-Bug under WinNT is fixed
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.90		(Release date: 13.10.1998)
+- Improved resampling !!! Better results than Photoshop ;-)
+- New effects: Sharpen, Blur, Oil paint, Emboss, Edge detection, Median, Explosion
+- Support for LWF files (LuRaWave format, Wavelet compression)
+  (Note: IrfanView can't save images larger than 640 x 480 pixels as LWF ! ->
+   For large images use the 'LuraWave Studio' from WWW.LURATECH.COM)
+- Support for ASCII PBM/PGM/PPM files (reading)
+- Support for AIF sound files (MS Active Movie is required !)
+- The Slideshow timer can be now less than one second
+- Improved support for WMF/EMF (Batch conversion is now possible)
+- Saving file as EMF (Enhanced windows metafile)
+- New option: 'Fit images to the whole screen in the fullscreen mode' (Viewing)
+- New scrolling possibilty: with the right mouse button (press and move)
+-------------------------------------------------------------------------------
+
+Version 2.85		(Release date: 21.08.1998)
+- Support for EPS files (Encapsulated PostScript, TIFF preview only)
+- Support for CLP files (Windows Clipboard file)
+- Support for CAM files (Casio digital camera file, with JPG)
+- The 'Capture' feature is available :-)
+- New feature: Extract all AVI frames ! (options->extract all frames)
+- Display mouse coordinates (single mouse click/move)
+- New option: Hide mouse cursor in fullscreen and slideshow mode
+- New hotkey: CTRL-W (start slideshow with files from current directory)
+- New hotkey: Shift+G (for Gamma correction)
+- Better compatibility with Win98 (registry)
+-------------------------------------------------------------------------------
+
+Version 2.83		(Release date: 03.07.1998)
+- The slideshow bug on some systems is fixed
+- New options: (in the 'Properties' dialog):
+- New option: Delete to Recycle Bin
+- New option: Jump to the next file after deleting
+- New option: Ask to overwrite file for 'Save' and 'Save as'
+- New option: Don't notify if the end/begin of the directory is reached
+- New hotkey: Ctrl+Y for Crop
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.82		(Release date: 21.06.1998)
+- New menu item: About->Thanks :-)
+- Support for DCX files (multiple PCX)
+- Support for windows cursor files (*.CUR)
+- Support for animated windows cursor files (*.ANI)
+- New menu item: Save (Hotkey: Ctrl+S) - save current file in the same folder
+- New option: Extract all frames (for ANIs and animated GIFs)
+- New slideshow option: Sort (files by name, date etc.) :-)
+- New command line option: '/c=filename' (convert input file to 'filename')
+  Example: i_view32 c:\test.bmp /c=c:\giftest.gif
+  => Convert file: 'c:\test.bmp' to 'c:\giftest.gif' without GUI :-)
+  (Note: supported are all IrfanView read/save formats except: AVI,MOV,MPG,
+   WAV,MID,WMF,EMF)
+- New option: video size (for AVI, MOV and MPG)
+  Set the video size for all videos :-)
+- New hotkey: D (for edit->delete: remove image from the memory/screen)
+- New options in 'Properties->Viewing':
+  a) View all files in directory (enable/disable moving with space/backspace)
+  b) Set the zoom step (deafult: 10 %)
+- Moving with <- and -> in WAV, AVI, MPG, MOV, MID
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.80		(Release date: 03.05.1998)
+- New !!! The toolbar is now available :-)
+- Support for MPEG/MOV files (MS Active Movie is required !)
+- Support for Adobe Photoshop files (*.PSD)
+- Support for Corel PhotoPaint 6.0 files (*.CPT) ... this is a TIFF ;-)
+- New edit options: CUT/CROP (select a portion of image with the left mouse button)
+  Now you can cut or copy portions of an image :-)
+- New: The ONE-Step UNDO option is available (see next line)
+- New option in 'Properties->Others': "Use UNDO option" (deafult is OFF to save memory)
+  Undo is available for following changes: 
+  Resize/Resample, Increase/Decrease color depth, Convert to grayscale,
+  Negative, Brightness, Contrast, Gamma correction, Cut
+- New options in 'Properties->Extensions' (Set Icon, Other extensions)
+- New option in 'Properties->Others': "Create desktop link for IrfanView32"
+- The zoom step is now always 10 % (10 % till 1000 %)
+-------------------------------------------------------------------------------
+
+Version 2.68		(Release date: 27.03.1998)
+- Choosing between 5 copy/move directories (ask for copy/move must be ON)
+- Some print bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.66		(Release date: 17.03.1998)
+- Some BMP bugs are fixed (RLE 4)
+- Some IFF bugs are fixed (HAM 6)
+- Some RAS bugs are fixed (support for compressed SunRAS)
+- Support for 40-BPP images
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.65		(Release date: 03.03.1998)
+- Scan support (TWAIN)
+- New menu option: Sort directory files (by name/date/size/extension)
+- Some IFF bugs are fixed
+- The bug with some long names is fixed
+- New menu item: Minimize (to task bar), Hotkey: M (BOSS-Key ;-)
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.63		(Release date: 25.01.1998)
+- New 'View' menu item: 'Multipage TIFF' (next/previous page etc.)
+- New GIF save option: 'Save Interlaced'
+- Some GIF bugs are fixed
+- The german version of IrfanView is available :-)
+-------------------------------------------------------------------------------
+
+Version 2.60		(Release date: 15.12.1997)
+- New feature: Batch Conversion :-)
+  Note: IrfanView32 can't convert WMF/EMF to ANY (format) in batch mode !
+- New menu item: Increase color depth (to 4, 8, 24 BPP)
+- New menu item: Decrease color depth (to 1, 4, 8  BPP)
+- New menu item: Resample image (Smooth), better than 'Resize', but slower
+- New option in 'Properties->Other': "Use 'Smooth' for Fit To Desktop ..."
+- New slideshow option: 'Add All' :-)
+- New options in the 'Resize' dialog
+-------------------------------------------------------------------------------
+
+Version 2.55		(Release date: 16.11.1997)
+- Improved GIF-Animation :-)
+- Support for sound files: WAV, MID and RMI :-)
+- Enabled Zooming/Scrolling in the fullscreen mode
+- The bug with some 24-BPP IFF-Files is fixed
+- The bug with some 24-BPP TARGA-Files is fixed 
+- New command line option: '/slideshow=txtname.txt'
+  Example: i_view32.exe /slideshow=c:\mypics.txt
+  Note: The file 'c:\mypics.txt' contains, in each line, a name of the image,
+        including the full path !
+-------------------------------------------------------------------------------
+
+Version 2.52		(Release date: 16.10.1997)
+- Save options are now in the Save dialog 
+- Preview support for Windows Metafiles 
+- Preview support for AVIs (Video for Windows) 
+- New option: 'Gamma Correction'
+- New: 'Best fit to desktop' is now "on" or "off"
+- New feature in the 'Resize' dialog: 'Preserve aspect ratio'
+- Improved 'Brightness' and 'Contrast'
+- Support for 64-BPP PNGs
+- Save large images as ICO (more than 128 x 128 pixels)
+- Remember the last slideshow file list
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.50		(Release date: 27.09.1997)
+- Saving file as ICO (The maximum size for an ICON is: 128 x 128 pixels)
+- Support for uncompressed PCXs (read)
+- New option: 'Convert to 2 Colors' (black/white)
+- New option: 'Clear MRUDs' (in 'Properties->Other Options')
+- New option: 'Rename File' (Hotkey: F6)
+- New slideshow option: 'Random display' 
+- New print option: 'Vertical - Best Fit'
+- New option: 'Swap colors' (RGB->RBG, RGB->BGR, RGB->BRG, RGB->GRB, RBG->GBR)
+- Improved 'Set as wallpaper' (centered/tiled/restore)
+- Improved AVI playing 
+- Some ICO bugs are fixed (black/white ICONs etc.)
+- The registry-bug with some extensions is fixed (ICO, BMP)
+-------------------------------------------------------------------------------
+
+Version 2.40		(Release date: 02.07.1997)
+- Support for TIFFs with the JPEG compression (read/write)
+- Support for TIFFs with separated color channels (read)
+- Support for YCbCr-TIFFs (read)
+-------------------------------------------------------------------------------
+
+Version 2.37		(Release date: 18.06.1997)
+- Brightness/Contrast dialog: CANCEL-button is available
+- New option: 'Edit palette' (display and change image palette)
+- New options in 'Properties->GIF', choose transparent GIF color (palette index)
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.35		(Release date: 05.06.1997)
+- Support for PBM/PGM/PPM file formats (binary only)
+- Support for Amiga IFF/LBM format 
+- Save GIFs with transparent (background) color (=black)
+- The 'minimize bug' is now fixed ;-)
+- New menu item: 'MRUDs' = 'most recently used directories' (Menu: 'File')
+  (IrfanView can remember the last 5 viewing directories)
+- New option: 'Remember last window position' in 'properties->others'
+-------------------------------------------------------------------------------
+
+Version 2.32		(Release date: 25.05.1997)
+- Play animated GIFs in normal window ! (no fullscreen more :-)
+- Improved GIF-Saving (save as 1 and 4 bits-per-pixel)
+- Saving file as PCX
+- Support for CMYK TIFFs
+- Enabled copy/move files in the fullscreen mode (F8/F7)
+- Remember the last viewing/saving directory
+- Remember the last window position
+- New options for slideshow: load/save slideshow, pause (press 'Pause')
+- New option: 'Always on Top'
+-------------------------------------------------------------------------------
+
+Version 2.30		(Release date: 04.05.1997)
+- PREVIEW option ('File->Open'), doesn't work with WMF/EMF and AVI !
+- Support for multiple Icons (1,4,8,16,24 and 32 bits-per-pixel)
+- The bug with 'Properties' under WinNT 4.0 Service-Pack-2 is fixed 
+- New options for slideshow (see 'slideshow')
+-------------------------------------------------------------------------------
+
+Version 2.27		(Release date: 15.04.1997)
+- New feature: SLIDESHOW :-)
+  How to use? You can add files to the slideshow list with:
+  - Drag & Drop (select one or more files ...)
+  - Select one or more files and press the 'ADD' button
+  - Double click on the filename
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.25		(Release date: 31.03.1997)
+- New features: converting to greyscale, negative, brightness and contrast
+- Bugs with some BMPs are fixed (new decompression routine :-)
+- New menu item: 'Refresh directory' -> update of directory indexes (hotkey: 'U')
+- New option in 'Properties->MultipleGIF': "None" (for no animation)
+- New hotkey: 'Shift+R' for "Reopen"
+- Double click on left mouse button -> Fullscreen
+- Click on left mouse button -> load previous image (in fullscreen mode only !)
+- Click on right mouse button -> load next image (in fullscreen mode only !)
+- New registration price: 10 USD or 15,- DEM   ;-)
+-------------------------------------------------------------------------------
+
+Version 2.22		(Release date: 17.02.1997)
+- Support for some special JPEGs (Adobe ...) 
+- improved rotating left/right for black/white and 16-color images 
+- improved Drag&Drop (IrfanView changes immediately to the target directory :-)
+- The option: 'Always fit to desktop for big images' is available again :-) 
+- Bugs with some GIFs and PCXs are fixed 
+- The animated-GIF dialog moved to 'Properties->Multiple GIF' :-) 
+- Jump to the first/last file (after reaching last/first image in directory, 
+  IrfanView jumps to the first/last image in directory) 
+- New option: 'Ask to rename if incorrect extension' (in 'Other options') 
+- Some minor bugs fixed
+-------------------------------------------------------------------------------
+
+Version 2.20		(Release date: 28.01.1997)
+- The BIGGEST IrfanView Bug is fixed !!! :-) (now you can resize images to any 
+  size you wish without deformations and cache contents inserted in the picture)
+- Support for 16-bpp (BitsPerPixel) BMPs/DIBs and 16-bpp TIFs (read only)
+- Better horizontal flip for black/white images
+- The option: 'Always fit to desktop for big images' is not more available
+- The IrfanView-Code was again optimized :) => the EXE file is smaller
+- And I have a new home page :-)
+-------------------------------------------------------------------------------
+
+Version 2.18		(Release date: 06.01.1997)
+- The bug with corrupted GIFs is fixed 
+- Support for Multipage-TIFFs with more than 256 pages (pictures)
+- New options in "Properties->extensions": 'Select all' and 'Clear all'
+- Support for (*.SUN) extension (=RAS, Sun Raster Images)
+- Modifikations in About-Box
+-------------------------------------------------------------------------------
+
+Version 2.17		(Release date: 16.12.1996)
+- Multipage-TIFF support ! (One of the first viewers with multipage TIFF support)
+- Support for 'Exif'-JPEGs
+- New option in "Properties->Copy/Move/Save": default 'save as' directory
+- Rename-question for files with incorrect extension
+- The Multiple-GIF timer is now much better  :)
+- Some minor bugs fixed (very large GIFs, 'paste->save as')
+-------------------------------------------------------------------------------
+
+Version 2.15		(Release date: 30.11.1996)
+- Multiple (animated) GIF Support ! IrfanView is the first graphic viewer 
+  WORLDWIDE with Multiple GIF support. (One known bug: with some specially 
+  transparency combinations)
+  Much fun :) 
+- New menu: Convert to 256 colors (for true color images only)
+- Some WMF bugs are fixed (with old (Win 3.x) WMFs)
+- Now: "Save as" with lower case names
+- And you can copy my E-Mail address from "About-Box" :)
+-------------------------------------------------------------------------------
+
+Version 2.12		(Release date: 16.11.1996)
+- The GIF-Decompression is now totally rewritten ! I hope without bugs :)
+- Windows metafiles support (WMF=Windows Metafile and EMF=Enhanced Metafile)
+- Command line support for AVIs (Fullscreen for AVI is not available)
+- Some minor bugs fixed (startbar, extensions etc.)
+-------------------------------------------------------------------------------
+
+Version 2.10		(Release date: 27.10.1996)
+- Print support
+- "Always fit to desktop" was changed to "Always fit to desktop for big images"
+- Some minor bugs fixed (GIFs, rotate under WinNT, overlapping)
+- NEW ! Command line options: /one, /fs, /bf, /pos=(x,y), /title=text :
+  /one        - force "only one instance"
+  /fs         - force Full Screen
+  /bf         - force Best Fit
+  /title=text - set window title
+  /pos=(x,y)  - move the window to x,y
+Notes:
+- Only lower case options are supported:
+Examples: 
+   i_view32 test.bmp /BF                 = incorrect
+   i_view32 test.bmp /bf /title=My PIC   = correct
+-------------------------------------------------------------------------------
+
+Version 2.07		(Release date: 20.10.1996)
+- AVI support (video for windows)
+- Jump to first/last file in the directory (CTRL+F,CTRL+L)
+- New option: always fit to desktop (properties->other options)
+- Finally: "Save as", non-extension support
+- Read support for extensions: *.jpeg, *.tiff
+- Correct displaying of all Photo-CD files (rotate)
+- Copy/move/delete windows
+- Copying/moving: Replace question if the file exists (replace of read-only files)
+- More hotkeys (rotate, flip, properties, image info etc.)
+- Some minor bugs fixed (GIF,RAS)
+-------------------------------------------------------------------------------
+
+Version 2.05		(Release date: 29.09.1996)
+- Edit options (Copy/Paste/Delete/Clear Clipboard)
+- New in "Properties->Other options": allow Only 1 instance of IrfanView32
+- Read-Header function is implemented, warning if incorrect extension
+- Some fast-directory-view bugs fixed (like: last image)
+-------------------------------------------------------------------------------
+
+Version 2.00		(Release date: 02.09.1996)
+- Progressive JPEG support (read/save) 
+- Alphabetical sorting of images in directory 
+- Some minor bugs fixed 
+-------------------------------------------------------------------------------
+
+Version 1.99		(Release date: 25.08.1996)
+- New fast directory view ! This part is now totally rewritten; 
+  no more lost files and uncomplete lists. Files are shown in the 
+  order how they stay in FAT, that means unsorted. Coming in next release: 
+  sorting files in alphabetical order. 
+- Fixed bugs with some ICOs, and compressed BMPs 
+-------------------------------------------------------------------------------
+
+Version 1.98a		(Release date: 16.08.1996)
+- Fixed bug with 256-colour-ICO
+- Fixed bugs with fit-to-desktop and resize
+- New menu outfit
+- Zoom percentage shown in title bar
+- Positioning window somewhere else than top left corner (biggest known bug: 
+  IrfanView still can NOT correctly resize images whose dimensions exceed actual 
+  screen resolution; if you do not want to cut edges of your image, void saving 
+  in this situation)
+-------------------------------------------------------------------------------
+
+Version 1.98		(Release date: 09.08.1996)
+- Viewing ICO 
+- Zooming in and out 
+  (known bug: zooming in large images works till now only up to 500 %)
+- Resize image
+-------------------------------------------------------------------------------
+
+Version 1.97		(Release date: 03.08.1996)
+- Viewing RAS
+- Fixed some bugs with fast directory view and GIF
+-------------------------------------------------------------------------------
+
+Version 1.95		(Release date: 01.08.1996)
+- Viewing TGA
+- Image flip/rotate
+- Image copy/move to another directory
+- New tab-dialogs (Menu: Options->Properties)
+- IrfanView32 doesn't support Win32s any more
+-------------------------------------------------------------------------------
+
+Version 1.90		(Release date: 18.07.1996)
+- Viewing Photo CD
+- "Fast directory view" (jump to next image in the current directory with space,
+   to previous with backspace)
+- Set image as wallpaper
+-------------------------------------------------------------------------------
+
+Version 1.85		(Release date: 01.07.1996)
+- Windows 95-dialogs (open/save file)
+- Viewing 2 bits per pixel PNG
+- Saving file as TIFF
+-------------------------------------------------------------------------------
+
+Version 1.80		(Release date: 15.06.1996)
+- Viewing PCX and RLE
+- Viewing grayscale TIFF
+- Fixed some bugs with GIF
+-------------------------------------------------------------------------------
+
+Version 1.70		(Release date: 01.06.1996)
+- Viewing TIFFs (uncompressed, packbits, Huffmann, fax group 3, fax group 4)
+-------------------------------------------------------------------------------
+
+Version 1.00		
+- Irfan was born ;-)
+-------------------------------------------------------------------------------

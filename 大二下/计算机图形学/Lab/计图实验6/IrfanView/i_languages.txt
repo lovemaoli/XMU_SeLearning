@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+File  : 'Language.txt' - Readme for IrfanView Languages
+Author: Irfan Skiljan
+E-Mail: irfanview@gmx.net
+WWW   : http://www.irfanview.com
+-------------------------------------------------------------------------------
+
+
+
+
+- How to install additional IrfanView languages?
+
+  1) Download additional languages from:
+     http://www.irfanview.com/languages.htm
+
+  2) Find your IrfanView directory
+
+  3) Create in the IrfanView directory a new directory called "Languages"
+
+  4) Unzip the DLL file from language ZIP into the "IrfanView->Languages" directory
+
+  5) Start IrfanView, go to menu: "Properties->Language" and 
+     choose your language ;-)
+
+
+
+Have fun!

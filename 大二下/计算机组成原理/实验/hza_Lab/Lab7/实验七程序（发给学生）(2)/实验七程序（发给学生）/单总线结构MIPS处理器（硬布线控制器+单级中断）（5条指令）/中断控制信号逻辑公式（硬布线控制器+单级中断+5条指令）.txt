@@ -1,0 +1,22 @@
+中断控制信号逻辑公式：
+
+
+PCout = Mint&T1+Mint&T1&T2+Mex&Mint&T1+Mex&Mint&T1&T2+ERET&Mint&T1+ERET&Mint&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2
+
+
+PCin = Mint&T2+Mint&T1&T2+Mex&Mint&T2+Mex&Mint&T1&T2+ERET&Mint&T2+ERET&Mint&T1&T2+ERET&Mex&T1+ERET&Mex&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2
+
+
+EPCout = ERET&Mex&T1+ERET&Mex&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2
+
+
+EPCin = Mint&T1+Mint&T1&T2+Mex&Mint&T1+Mex&Mint&T1&T2+ERET&Mint&T1+ERET&Mint&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2
+
+
+Addrout = Mint&T2+Mint&T1&T2+Mex&Mint&T2+Mex&Mint&T1&T2+ERET&Mint&T2+ERET&Mint&T1&T2+ERET&Mex&Mint&T1&T2
+
+
+STI = ERET&Mex&T1+ERET&Mex&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2
+
+
+CLI = Mint&T1+Mint&T1&T2+Mex&Mint&T1+Mex&Mint&T1&T2+ERET&Mint&T1+ERET&Mint&T1&T2+ERET&Mex&Mint&T1+ERET&Mex&Mint&T1&T2

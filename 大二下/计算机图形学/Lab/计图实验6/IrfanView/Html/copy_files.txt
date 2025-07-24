@@ -1,0 +1,14 @@
+﻿; this is a UTF-8 text file
+; comment lines start with ";"
+; copy these files to the destination HTML folder
+; useful if you have your own template files with special files, styles etc.
+
+; examples for files (subfolders can be used => will be created in dest. folder)
+; (commented)
+
+;my_special.css
+;css\my_special.css
+;my_special1.jpg
+;my_special2.jpg
+;img\my_special1.jpg
+;img\my_special2.jpg

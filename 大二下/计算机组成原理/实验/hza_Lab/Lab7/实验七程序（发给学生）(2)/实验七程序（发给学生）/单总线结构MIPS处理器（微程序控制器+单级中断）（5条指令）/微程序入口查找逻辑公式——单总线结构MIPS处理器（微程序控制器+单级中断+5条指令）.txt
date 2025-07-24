@@ -1,0 +1,14 @@
+微程序入口查找逻辑公式：
+
+S4 = SLT+ADDI+ERET
+
+S3 = SW+BEQ+ERET
+
+S2 = LW+BEQ+ADDI
+
+S1 = BEQ+SLT+ADDI
+
+S0 = SW+SLT+ERET
+
+
+

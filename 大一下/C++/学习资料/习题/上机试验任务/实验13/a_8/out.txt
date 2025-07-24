@@ -1,0 +1,3 @@
+2 daming 12
+3 zhangsan 11
+1 xiaoming 10

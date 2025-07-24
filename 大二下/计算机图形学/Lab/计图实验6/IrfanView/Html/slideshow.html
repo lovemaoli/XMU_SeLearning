@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="IrfanView">
+
+<title>#TITLE#</title>
+<style>body {font-family:Verdana;}</style>
+
+<script language="JavaScript">
+<!-- // Created by Pierre Volpe
+
+// Duration of image (in milliseconds)
+var slideShowSpeed = 5000
+
+// Duration of crossfade (in seconds)
+var crossFadeDuration = 3
+
+var Pic = new Array() 
+#IMAGES#
+
+var PicText = new Array()
+#TEXT#
+
+var t
+var j = 0
+var p = Pic.length
+var preLoad = new Array()
+
+for (i = 0; i < p; i++)
+{
+   preLoad[i] = new Image()
+   preLoad[i].src = Pic[i]
+}
+
+function runSlideShow(){
+   if (document.all && document.images.SlideShow.filters){
+      document.images.SlideShow.style.filter="blendTrans(duration=2)"
+      document.images.SlideShow.style.filter="blendTrans(duration=crossFadeDuration)"
+      document.images.SlideShow.filters.blendTrans.Apply()      
+   }
+   document.images.SlideShow.src = preLoad[j].src
+   document.getElementById("ImageText").firstChild.nodeValue = PicText[j];
+   if (document.all && document.images.SlideShow.filters){
+      document.images.SlideShow.filters.blendTrans.Play()
+   }
+   j = j + 1
+   if (j > (p-1)) j=0
+   t = setTimeout('runSlideShow()', slideShowSpeed)
+}
+//-->
+</script>
+
+</head>
+
+<body bgcolor="#BGCOLOR#">
+<body onload="runSlideShow()">
+
+<center>
+<h4>#TITLE#</h4>
+
+<hr>
+<TABLE>
+
+<TR>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+
+<IMG SRC="#IMAGE1#" NAME='SlideShow'>
+
+<small><br><br>
+<div id="ImageText">&nbsp;</div>
+<br></small>
+
+</TD>
+</TR>
+
+</TABLE>
+<hr>
+<h4><small><small><A HREF="http://www.irfanview.com" style="text-decoration:none">Created by IrfanView</A></small></small></h4>
+</center>
+</body>
+</html>

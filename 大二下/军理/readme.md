@@ -5,3 +5,9 @@
 [网络选择题题库爬取](https://github.com/F5Soft/RubbishMaoGai)
 
 重要提示：2021级的军理大家都超低，建议好好背书！
+
+---
+
+i11box:
+
+神人课程

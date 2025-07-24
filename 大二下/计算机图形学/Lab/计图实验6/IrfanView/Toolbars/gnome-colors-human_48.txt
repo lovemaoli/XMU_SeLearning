@@ -1,0 +1,4 @@
+[Info]
+Creator = Heldy http://isnominevacans.deviantart.com
+Size    = 48
+Buttons = 19

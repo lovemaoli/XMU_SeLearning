@@ -1,0 +1,414 @@
+-------------------------------------------------------------------------------
+File  : 'options.txt' - Command line options for IrfanView
+Author: Irfan Skiljan
+E-Mail: irfanview@gmx.net
+WWW   : http://www.irfanview.com
+-------------------------------------------------------------------------------
+
+List of all command line options supported in IrfanView:
+--------------------------------------------------------
+
+  /one                  - force "Only one instance"
+  /fs                   - force Full Screen display
+  /bf                   - force "Fit images to desktop" display option
+  /title=text           - set window title to "text"
+  /pos=(x,y)            - move IrfanView window to x,y (if display option allows that)
+  /display=(x,y,w,h,zoom,sX,sY) - set position, size, zoom and scroll position of the IrfanView window and image
+  /convert=filename     - save/convert input image(s)/file(s) to "filename" and CLOSE IrfanView
+                          (Note: See pattern help file page for more options)
+  /makecopy             - for convert: if destination file exists, save new file as copy
+  /slideshow=txtfile    - play slideshow with the files from "txtfile"
+  /slideshow=folder     - play slideshow with the files from "folder"
+  /reloadonloop         - reload input source used in /slideshow when list finished
+  /filelist=txtfile     - use filenames from "txtfile" as input, see examples below
+  /file=filename(s)     - use filename(s) as input, see examples below
+  /thumbs               - open Thumbnails window
+  /killmesoftly         - close all IrfanView instances (exit after command line)
+  /cmdexit              - close current IrfanView after command line processing
+  /closeslideshow       - close slideshow and IrfanView after the last image
+  /page=X               - open page number X from a multipage input image
+  /crop=(x,y,w,h,C)     - crop input image: x-start, y-start, width, height, C=start corner (0-4)
+  /print                - print to default printer and CLOSE IrfanView
+  /print="Name"         - print to specific printer and CLOSE IrfanView
+  /resize=(w,h)         - resize input image to w (width) and h (height)
+  /resize_long=X        - resize input image: set long side to X
+  /resize_short=X       - resize input image: set short side to X
+  /resample             - for resize: use Resample option (better quality)
+  /aspectratio          - used for /resize: keep image proportions
+  /capture=X            - capture the screen or window (see examples below)
+  /ini                  - use the Windows folder for INI/LST files (read/save)
+  /ini="Folder"         - use the folder "Folder" for INI/LST files (read/save)
+  /clippaste            - paste image from the clipboard
+  /clipcopy             - copy image to the clipboard
+  /silent               - don't show messages for command line read/save errors
+  /invert               - invert input image (negative)
+  /dpi=(x,y)            - change image DPI values, set DPIs for scanning
+  /scan                 - acquire the image from the TWAIN device (show TWAIN dialog)
+  /scanhidden           - acquire the image from the TWAIN device (hide TWAIN dialog)
+  /batchscan=(options)  - simulate menu: File->Batch Scan, see examples below
+  /bpp=BitsPerPixel     - change color depth of the input image to BitsPerPixel
+  /swap_bw              - swap (pure) black and white color in the image
+  /gray                 - convert input image to grayscale
+  /rotate_r             - rotate input image to right
+  /rotate_l             - rotate input image to left
+  /hflip                - horizontal flip
+  /vflip                - vertical flip
+  /filepattern="x"      - browse only specific files
+  /effect=(x,p1,p2)     - apply effect filter X, see below for examples
+  /sharpen=X            - open image and apply the sharpen filter value X
+  /contrast=X           - open image and apply the contrast value X
+  /bright=X             - open image and apply the brighntess value X
+  /gamma=X              - open image and apply the gamma correction value X
+  /advancedbatch        - apply Advanced Batch Dialog options to image (from INI file)
+  /transpcolor=(r,g,b)  - set transparent color if saving as GIF/PNG/ICO
+  /hide=X               - hide toolbar, status bar, menu and/or caption of the main window
+  /info=txtfile         - write image infos to "txtfile"
+  /fullinfo             - used for /info, write EXIF, IPTC and Comment data
+  /shortinfo            - used for /info, write just file index and name
+  /append=destfile      - append image as page to "destfile" (must be TIF or PDF)
+  /multitif=(tif,files) - create multipage TIF from input files
+  /multipdf=(pdf,files) - create multipage PDF from input files
+  /panorama=(X,files)   - create panorama image from input files; X = direction (1 or 2)
+  /jpgq=X               - set JPG save quality
+  /tifc=X               - set TIF save compression
+  /wall=X               - set image as wallpaper, see below for /random and examples
+  /extract=(folder,ext) - extract all pages from a multipage/multiframe file
+  /import_pal=palfile   - import and apply a special palette to the image (PAL format)
+  /export_pal=palfile   - export image palette to file (PAL format)
+  /jpg_rotate=(options) - JPG lossless rotation, see examples below
+  /hotfolder="folder"   - start Hotfolder option with a specific folder
+  /monitor=X            - start EXE-Slideshow on monitor X
+  /window=(x,y,w,h)     - set EXE-Slideshow window position and size
+  /clearmonitors        - play EXE-slideshow on one monitor, clear all other monitors
+
+
+Important notes:
+- Only lower case options are supported (don't type any UPPERCASE letters for options) !
+- Use "" for file names/paths with spaces! (example: "c:\images\dummy test file.jpg")
+- Input file name (if required) is always the first parameter (unless /file or /filelist is used)
+- Write always the FULL paths for file names (incl. drive letter)
+  (hint for BAT files with relative paths: use the variable "%~dp0" to get the current path)
+- You can combine several options in one command
+- The commands will be processed in the order you write them
+- Wildcards supported only for: /convert, /multitif, /multipdf, /panorama, /print, /info /jpg_rotate and /extract
+- Do not set any other commands after /batchscan, /scan, /capture=5 or 6, they won't be processed
+- Maximal command line length is limited to 4096 chars: use Drag&Drop, /file or /filelist for very large lists
+- Most settings are loaded from the INI file. Using prepared INIs and /ini option, you can extend the possibilities.
+- IrfanView exit code is 0. If /convert or /print is used, there is 1 or 2 also possible, for load/save error.
+- Please test (e.g. conversions) first in GUI mode => some options may need to be set first (saved to INI file).
+
+
+Example for conversion: 
+  i_view32.exe c:\test.bmp /convert=c:\giftest.gif
+  => Convert file: 'c:\test.bmp' to 'c:\giftest.gif' without GUI ;-)
+  i_view32.exe c:\*.jpg /convert=d:\temp\*.gif
+  i_view32.exe c:\*.jpg /resize=(500,300) /aspectratio /resample /convert=d:\temp\*.png
+  i_view32.exe c:\*.jpg /resize_long=300 /aspectratio /resample /convert=d:\temp\outimage_###.jpg
+  i_view32.exe /filelist=c:\mypics.txt /resize=(500,300) /aspectratio /resample /convert=d:\temp\*.png
+  i_view32.exe c:\test.bmp /convert=c:\test_$Wx$H.jpg
+  i_view32.exe c:\test.bmp /convert=c:\temp\$N.jpg
+  i_view32.exe c:\test.bmp /convert=c:\temp_$#_number_sign\test.jpg
+  i_view32.exe c:\test.bmp /convert=c:\temp\*.tif
+  i_view32.exe c:\test.bmp /makecopy /convert=c:\temp\$N.jpg
+  i_view32.exe c:\test.bmp /resize=(100,100) /resample /aspectratio /convert=d:\$N_thumb.jpg
+  i_view32.exe c:\test.bmp /convert=c:\temp\$T(%Y%m%d)\test_$Wx$H.jpg
+  i_view32.exe c:\test.bmp /convert=$D$N.jpg
+  i_view32.exe c:\*.bmp /convert=$D$N.jpg
+  i_view32.exe c:\*.jpg /advancedbatch /convert=c:\temp\*.jpg
+  i_view32.exe c:\test.bmp /transpcolor=(255,255,255) /convert=c:\giftest.gif
+  (Note: supported are all IrfanView read/save formats except audio/video)
+
+Example for slideshow: 
+  i_view32.exe /slideshow=c:\mypics.txt
+  (Note: The file 'c:\mypics.txt' contains, in each line, a name of an image file, including the full path OR path relative to "i_view32.exe")
+  (Lines starting with ";" will be ignored and can be used as comment)
+  i_view32.exe /slideshow=c:\mypics.txt /reloadonloop
+  i_view32.exe /slideshow=c:\images\
+  i_view32.exe /slideshow=c:\images\ /reloadonloop
+  i_view32.exe /slideshow=c:\images\*.jpg
+  i_view32.exe /slideshow=c:\images\test*.jpg
+  i_view32.exe /slideshow="c:\images\" /filepattern="*.jpg;*.gif;*.png" /reloadonloop
+  Note: you have to close IrfanView after the last image from the TXT file, if no /closeslideshow is used.
+
+Example for closeslideshow: 
+  i_view32.exe /slideshow=c:\mypics.txt /closeslideshow
+  => IrfanView will be closed after the last image from 'c:\mypics.txt'
+
+Example for thumbnails: 
+  i_view32.exe c:\test\image1.jpg /thumbs
+  => open 'image1.jpg' and display thumbnails from directory 'c:\test'
+  i_view32.exe c:\test /thumbs
+  i_view32.exe /thumbs c:\test
+  => display thumbnails from directory 'c:\test'
+  i_view32.exe /filelist=c:\mypics.txt /thumbs
+  => load filenames from TXT file and display as thumbnails
+
+Example for file: (this option is nice if you need to send the input file(s) as last parameter)
+  i_view32.exe /file=c:\image.jpg (same as "i_view32.exe c:\image.jpg")
+  i_view32.exe /convert="c:\result\*.tif" /file=c:\image1.jpg
+  i_view32.exe /convert="c:\result\*.tif" /file=c:\image1.jpg "c:\spacy image2.jpg" c:\image3.jpg
+  i_view32.exe /thumbs /file=c:\image1.jpg "c:\spacy image2.jpg" c:\image3.jpg
+  Hint: you can create a special IrfanView desktop (or "Send to") shortcut which can use the files from Drag&Drop with other options like: "i_view32.exe [options] /file="
+
+Example for filelist: 
+  i_view32.exe /filelist=c:\mypics.txt
+  i_view32.exe /filelist=c:\mypics.txt /convert=d:\test\*.jpg
+  i_view32.exe /filelist=c:\mypics.txt /thumbs
+
+Example for close: 
+  i_view32.exe /killmesoftly
+  => close IrfanView and terminate all instances
+
+Example for page:
+  i_view32.exe c:\test.tif /page=3
+  => Open page number 3 from the multipage image 'c:\test.tif'
+
+Example for /display:
+  i_view32.exe c:\test.jpg /display=(100,100,300,300,50,0,0)
+  => Load image and set window position and size, zoom to 50%, scroll positions to 0
+  i_view32.exe c:\test.jpg /display=(,,300,,50,30,30)
+  => Load image and set window width, zoom to 50%, scroll positions to 30 (height and position = default/old)
+
+Example for crop:   
+  Start corner values: 0 = Left top, 1 = Right top, 2 = Left bottom, 3 = Right bottom, 4 = Center
+  i_view32.exe c:\test.jpg /crop=(10,10,300,300,0)
+  => Open 'c:\test.jpg' and crop: x-start=10, y-start=10, width=300, height=300, corner = Left top
+  i_view32.exe c:\test.jpg /crop=(-10,-20,300,300,4) /convert=c:\giftest.gif
+  => Open 'c:\test.jpg' and crop: x-start=-10, y-start=-20, width=300, height=300, corner = center
+
+Example for print:
+  i_view32.exe c:\test.jpg /print
+  => Open 'c:\test.jpg', print the image to default printer and close IrfanView
+  i_view32.exe c:\test.jpg /print="Printer Name"
+  => Open 'c:\test.jpg', print the image to specific printer and close IrfanView
+  i_view32.exe c:\*.jpg /print
+  => Print all JPGs from "C:\" and close IrfanView
+  Note: the current settings from the INI file are used.
+
+Example for resize:
+  i_view32.exe c:\test.jpg /resize=(300,300) /resample
+  => Open 'c:\test.jpg' and resample: width=300, height=300
+  (Note: Resample uses the the active resample filter from the INI file)
+  i_view32.exe c:\test.jpg /resize=(300,300) /aspectratio
+  => Open 'c:\test.jpg' and resize: width = max. 300, height = max. 300, proportional
+  i_view32.exe c:\test.jpg /resize=(300,0)
+  => Open 'c:\test.jpg' and resize: width=300, height=original
+  i_view32.exe c:\test.jpg /resize=(300,0) /aspectratio
+  => Open 'c:\test.jpg' and resize: width=300, height=proportional
+  i_view32.exe c:\test.jpg /resize_long=300 /aspectratio /resample
+  => Open 'c:\test.jpg' and resample: long side=300, short side=proportional
+  i_view32 c:\test.jpg /resize=(150p,150p)
+  => Open 'c:\test.jpg' and resize: width=150%, height=150%
+  i_view32 c:\test.jpg /resize=(33.33p,44.44p)
+  => Open 'c:\test.jpg' and resize: width=33.33%, height=44.44%
+
+Example for capture:
+  i_view32.exe /capture=0
+  => Capture the whole screen
+  i_view32.exe /capture=6
+  => start in Capture mode, use last used capture dialog settings
+  i_view32.exe /capture=7
+  => Capture the screen rectangle from GUI/Capture dialog (=INI values)
+  i_view32.exe /capture=7=(0,0,800,600)
+  => Capture the screen rectangle: x (0), y (0), width (800), height (600)
+  capture values: 
+  0 = whole screen
+  1 = current monitor
+  2 = foreground window
+  3 = foreground window - client area
+  4 = rectangle selection
+  5 = object selected with the mouse (can't be combined with other commandline options)
+  6 = start in capture mode (can't be combined with other commandline options)
+  7 = fixed rectangle (using capture dialog values or direct input)
+  Advanced examples:
+  i_view32.exe /capture=2 /convert=c:\test.jpg
+  Capture foreground window and save result as file.
+  i_view32.exe /capture=2 /convert=c:\capture_$U(%d%m%Y_%H%M%S).jpg
+  Capture foreground window and save result as file; file name contains time stamp.
+
+Example for ini:
+  i_view32.exe c:\test.jpg /ini="c:\temp\"
+  i_view32.exe /ini
+  i_view32.exe c:\test.jpg /ini
+
+Example for clipboard paste:
+  i_view32.exe /clippaste
+  i_view32.exe /clippaste /convert=c:\test.gif
+
+Example for clipboard copy:
+  i_view32.exe c:\test.jpg /clipcopy
+  i_view32.exe c:\test.jpg /clipcopy /killmesoftly
+
+Example for /invert:
+  i_view32.exe c:\test.jpg /invert
+
+Example for /dpi:
+  i_view32.exe c:\test.jpg /dpi=(72,72)
+
+Example for /scan:
+  With the scan command, you can only combine: /print, /dpi, /gray and /convert.
+  i_view32.exe /scan
+  i_view32.exe /scanhidden
+  i_view32.exe /scanhidden /dpi=(150,150)
+  i_view32.exe /scan /convert=c:\test.jpg
+  i_view32.exe /scan /append=c:\test.tif
+  i_view32.exe /scan /append=c:\test.pdf
+  i_view32.exe /scanhidden /convert=c:\test.jpg
+  i_view32.exe /scanhidden /convert=c:\test_$U(%d%m%Y_%H%M%S).jpg
+  i_view32.exe /scanhidden /gray /convert=c:\test.jpg
+  i_view32.exe /print /scan
+
+Example for /batchscan=(options):
+  options = 8 options from the batch scan dialog:
+  filename, index, increment, digits, skip, dest-folder, save-extension, multi-tif
+  i_view32.exe /batchscan=(scanfile,1,1,2,1,c:\temp,bmp,0)
+  i_view32.exe /batchscan=(scanfile,1,1,2,1,c:\temp,bmp,0) /dpi=(150,150)
+  i_view32.exe /batchscan=(scanfile,1,1,2,0,c:\temp,tif,1)
+  i_view32.exe /batchscan=("crazy, filename",1,1,2,0,"c:\temp\crazy, (folder)",tif,1)
+  i_view32.exe /batchscan=(scanfile,1,1,2,1,c:\temp,bmp,0) /scanhidden
+
+Example for /bpp:
+  i_view32.exe c:\test.jpg /bpp=8
+  Supported BPP-values: 1, 4, 8 and 24 (decrease/increase color depth)
+  => Open 'c:\test.jpg' and reduce to 256 colors
+
+Example for /filepattern:
+  i_view32.exe c:\images\ /filepattern="*.jpg"
+  => Go to folder "c:\images\" and load JPGs only in the browse/file list
+  i_view32.exe c:\images\ /thumbs /filepattern="*.jpg"
+  => Go to folder "c:\images\" and show JPG thumbnails only 
+  i_view32.exe c:\images\ /thumbs /filepattern="123*.jpg"
+  => Go to folder "c:\images\" and show JPG with names "123*" as thumbnails
+  i_view32.exe c:\images\ /filepattern="*.jpg;*.gif;*.png"
+  => Go to folder "c:\images\" and load only JPG, GIF and PNG files in the browse/file list
+
+Example for /effect=(effect-nr,param1,param2):
+  i_view32.exe c:\test.jpg /effect=(8,3,0)
+  => apply Median filter, parameter = 3
+  i_view32.exe c:\test.jpg /effect=(4,3,50)
+  => apply Blur-2 filter, parameter1 = 3, parameter2 = 50
+  effect-nr values: (from Effect-Browser dialog)
+  1 = Blur
+  2 = Gaussian Blur
+  ...
+  43 = Color Temperature
+  80 = AltaLux
+ 
+Example for /sharpen:
+  i_view32.exe c:\test.jpg /sharpen=33
+
+Examples for /hide:
+  Values (can be combined (add values)):
+    Toolbar     1
+    Status bar  2
+    Menu bar    4
+    Caption     8
+  i_view32.exe c:\test.jpg /hide=1
+  => Open 'c:\test.jpg', hide toolbar only
+  i_view32.exe c:\test.jpg /hide=3
+  => Open 'c:\test.jpg', hide toolbar and status bar
+  i_view32.exe c:\test.jpg /hide=12
+  => Open 'c:\test.jpg', hide caption and menu bar
+  i_view32.exe c:\test.jpg /hide=15
+  => Open 'c:\test.jpg', hide all
+
+Examples for /info:
+  i_view32.exe c:\test.jpg /info=c:\test.txt
+  i_view32.exe c:\*.jpg /info=c:\jpgs.txt
+  i_view32.exe c:\*.jpg /info=c:\jpgs.csv
+  i_view32.exe c:\test.jpg /info=c:\test.txt /fullinfo
+
+Example for /append:
+  i_view32.exe c:\test.jpg /append=c:\test.pdf
+  i_view32.exe c:\test.jpg /append=c:\test.tif
+  => Open 'c:\test.jpg' and append it as page to 'c:\test.tif'
+
+Example for /multitif (/multipdf is similar/identical):
+  Syntax: /multitif=(tifname,file1,...,fileN)
+  First file is the name of the result TIF file, wildcards for file1-N are allowed.
+  i_view32.exe /multitif=(c:\test.tif,c:\test1.bmp,c:\dummy.jpg)
+  => Create multipage TIF (c:\test.tif) from 2 other files
+  i_view32.exe /tifc=1 /multitif=(c:\test.tif,c:\*.bmp)
+  i_view32.exe /multitif=(c:\test.tif,c:\*.bmp,c:\dummy.jpg,c:\123*.gif)
+  i_view32.exe /multitif=("c:\test.tif",filelist="c:\mypics.txt")
+
+Example for /panorama:
+  Syntax: /panorama=(X,file1,...,fileN)
+  First parameter (X) is the direction: 1 = horizontal, 2 = vertical, wildcards for file1-N are allowed.
+  i_view32.exe /panorama=(1,c:\test1.bmp,c:\dummy.jpg)
+  => Create horizontal panorama image from 2 other files
+  i_view32.exe /panorama=(1,c:\test.tif,c:\*.bmp)
+  i_view32.exe /panorama=(2,c:\test.tif,c:\*.bmp,c:\dummy.jpg,c:\123*.gif)
+  i_view32.exe /panorama=(2,c:\test.tif,"c:\crazy, comma filename.jpg")
+  i_view32.exe /panorama=(2,filelist="c:\mypics.txt")
+
+Example for /jpgq:
+  i_view32.exe c:\test.jpg /jpgq=75 /convert=c:\new.jpg
+  => Open 'c:\test.jpg' and save it as c:\new.jpg, quality = 75
+  Quality range: 1 - 100.
+
+Example for /tifc:
+  i_view32.exe c:\test.jpg /tifc=4 /convert=c:\new.tif
+  => Open 'c:\test.jpg' and save it as c:\new.tif, compression = Fax4
+  Compressions: 0 = None, 1 = LZW, 2 = Packbits, 3 = Fax3, 4 = Fax4, 5 = Huffman, 
+  6 = JPG, 7 = ZIP
+
+Example for wallpaper:
+  i_view32.exe c:\test.jpg /wall=0
+  => Open 'c:\test.jpg' and set is as wallpaper (centered)
+  wall values: 0 (centered), 1 (tiled), 2 (stretched), 3 (proportional), 4 (fill)
+  i_view32.exe c:\images\*.jpg /random /wall=0 /killmesoftly
+  i_view32.exe /filelist=c:\mypics.txt /random /wall=0 /killmesoftly
+  => get random file from the folder/list and set as wallpaper
+
+Example for /extract:
+  i_view32.exe c:\multipage.tif /extract=(c:\temp,jpg)
+  => Open 'c:\multipage.tif' and save all pages to folder 'c:\temp' as JPGs
+  i_view32.exe c:\*.tif /extract=(c:\temp,jpg)
+  i_view32.exe /filelist=c:\mypics.txt /extract=(c:\temp,jpg)
+  i_view32.exe c:\animated.gif /extract=(c:\temp,bmp)
+
+Example for hotfolder:
+  i_view32.exe /hotfolder="c:\input\"
+  Scan 'c:\input\' folder for new images and display them. Uses timer settings from the Hotfolder menu/dialog.
+  i_view32.exe "c:\input\test.jpg" /fs /hotfolder="c:\input\"
+  Display an image in fullscreen mode, wait for new files in 'c:\input\' folder and display them.
+
+Examples for EXE slideshow:
+  MySlideshow.exe /monitor=2
+  => Start standalone slideshow on monitor 2
+  MySlideshow.exe /window=(0,0,800,600)
+  => Start standalone slideshow in top left corner, window size 800x600
+  MySlideshow.exe /monitor=2 /clearmonitors
+  => Start standalone slideshow on monitor 2, clear monitor 1 (and all other monitors)
+
+Example for /advancedbatch:
+  i_view32.exe c:\test.jpg /advancedbatch /convert=c:\image.jpg
+  (some Misc. Advanced Batch options are not supported: overwrite, delete, subfolders, all pages)
+  => Open 'c:\test.jpg', apply Advanced Batch options from the INI file and save as new file
+
+Example for /jpg_rotate=(options):
+  options = 8 options from the JPG lossless dialog:
+  transformation, optimize, EXIF date, current date, set DPI, DPI value, marker option, custom markers
+  Note: this option will overwrite the original file(s)!
+  Values:
+  Transformation   : None (0), Vertical (1) ... Auto rotate (6)
+  Optimize         : 0 or 1
+  Set EXIF date    : 0 or 1
+  Keep current date: 0 or 1
+  Set DPI          : 0 or 1
+  DPI value        : number
+  Marker option    : Keep all (0), Clean all (1), Custom (2)
+  Custom markers values (can be combined (add values)):
+    Keep Comment 1
+    Keep EXIF    2
+    Keep IPTC    4
+    Keep others  8
+  i_view32.exe c:\test.jpg /jpg_rotate=(6,1,1,0,1,300,0,0) /cmdexit
+  => Auto rotate, optimize, set EXIF date as file date, set DPI to 300, keep all markers
+  i_view32.exe c:\test.jpg /jpg_rotate=(6,1,1,0,0,0,2,6)
+  => Auto rotate, optimize, set EXIF date as file date, keep EXIF and IPTC markers
+  i_view32.exe c:\test.jpg /jpg_rotate=(3,1,0,1,0,0,1,0)
+  => Rotate 90, optimize, use current file date, clean all markers
+  i_view32.exe c:\images\*.jpg /jpg_rotate=(6,1,1,0,0,0,0,0) /cmdexit
+  => For all JPGs: Auto rotate, optimize, set EXIF date as file date, keep all markers

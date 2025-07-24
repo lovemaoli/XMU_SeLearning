@@ -1,0 +1,4 @@
+[Info]
+Creator = Samuel Plentz|www.familie-plentz.de
+Size    = 16
+Buttons = 19
