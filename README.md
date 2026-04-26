@@ -1,8 +1,8 @@
 # XMU_SeLearning
 
-My learning materials for software engineering courses in Xiamen University.
+Learning materials for software engineering courses in Xiamen University.
 
-2021级 目前研0
+2021级
 
 由于大四没有课了，仓库更新就到此结束啦，欢迎接下来的学弟学妹继续提pr更新材料，我会合并进入。
 
@@ -11,7 +11,7 @@ My learning materials for software engineering courses in Xiamen University.
 
 # Attention
 
-目前本仓库的总大小已经达到了约18GB，如果直接使用git clone可能会产生文件损坏等结果，建议直接下载需要的文件，本仓库长期有效，请勿担心文件丢失，另外，如果有任何疑问，也欢迎在issue中提出，我会适时查看。
+目前本仓库的总大小超出了18GB，如果直接使用git clone可能会产生文件损坏等结果，建议直接下载需要的文件或者使用GitZip for github，本仓库长期有效，请勿担心文件丢失，另外，如果有任何疑问，也欢迎在issue中提出，我会适时查看。
 
 当然，如果你的网络很好的话，还是建议直接下下来保存~
 
